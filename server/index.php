@@ -26,7 +26,7 @@ $pllist = explode("\n", $content);
 
 
     <title>Accueil || Lecteur MiYT</title>
-    <link rel="icon" href="https://mialaprog.github.io/MiYT/icon.png" type="image/png">
+    <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/icon.png" type="image/png">
 
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>

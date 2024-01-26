@@ -1,4 +1,4 @@
-console.log('ScanMi ID0');
+console.log('ScanMi ID01');
 
 //Glbl Vars
 var videos = [];
@@ -9,8 +9,8 @@ var url = new URL(window.location.href);
 var searchParams = new URLSearchParams(url.search);
 
 
-function rsrcLoaded() {
-    console.log('Une ressource à été chargée...');
+function rsrcLoaded_scan() {
+    console.log('Une ressource à été chargée <= ScanMi');
 }
 
 function scrollPage() {
