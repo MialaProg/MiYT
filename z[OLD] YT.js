@@ -12,7 +12,7 @@ var id_played = 0;
 var currentUrl = window.location.href;
 var url = new URL(currentUrl);
 var params = new URLSearchParams(url.search);
-var listValue = params.get("list");
+var listID = params.get("list");
 
 var my_playlist_txt = document.getElementById('my_playlist').innerHTML.trim();
 var my_playlist = my_playlist_txt.split(';');
@@ -165,7 +165,7 @@ function next() {
         // window.location.href = "end.php?v=js";
         window.stop();
         alert("Fin de la playlist.");
-        window.location.href = "https://miala.000webhostapp.com/YT?todo=end&list=" + listValue;
+        window.location.href = "https://miala.000webhostapp.com/YT?todo=end&list=" + listID;
     } else {
         changeVideo(my_playlist[id]);
     }
@@ -359,8 +359,8 @@ document.getElementById('reset_btn').onclick = function () {
 
     if (reponse) {
         lcl_rmv_all();
-        sendToServer(my_playlist_txt, listValue, list_length);
-        window.location.href = "https://miala.000webhostapp.com/YT/load.php?list=" + listValue;
+        sendToServer(my_playlist_txt, listID, list_length);
+        window.location.href = "https://miala.000webhostapp.com/YT/load.php?list=" + listID;
     }
 };
 
@@ -382,7 +382,7 @@ function waitLib() {
 
         if (lcl_LOADED) {
             let list_pl_id = lcl_load_list('plid');
-            let lcl_pl_id = list_pl_id.indexOf(listValue);
+            let lcl_pl_id = list_pl_id.indexOf(listID);
 
             if (lcl_pl_id != -1) {
                 lcl_REPRISE = confirm("Reprendre où vous en étiez ?\nOK = Oui | Annuler = Non");
@@ -398,7 +398,7 @@ function waitLib() {
                 } catch (error) { }
             } else {
                 shuffleAsk();
-                lcl_save_IN_list('plid', listValue, lcl_pl_id);
+                lcl_save_IN_list('plid', listID, lcl_pl_id);
                 lcl_save_LIST_IN_list('pl_ctn', my_playlist, lcl_pl_id);
                 lcl_save_IN_list('watch_id', 0, lcl_pl_id);
             }
@@ -409,9 +409,9 @@ function waitLib() {
         if (list_length > 1) {
             if (!lcl_LOADED) { shuffleAsk(); }
 
-            sendToServer(my_playlist_txt, listValue, list_length);
+            sendToServer(my_playlist_txt, listID, list_length);
             try {
-                document.getElementById('pllink').setAttribute("href", "https://www.youtube.com/playlist?list=" + listValue);
+                document.getElementById('pllink').setAttribute("href", "https://www.youtube.com/playlist?list=" + listID);
             } catch (error) { }
         }
 

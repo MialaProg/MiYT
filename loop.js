@@ -39,18 +39,18 @@ function prev() {
         alert("Début de la playlist.");
         id = 0;
     }
-    changeVideo(my_playlist[id]);
+    changeVideo(playlist[id]);
 }
 
 function next() {
     id += 1;
-    if (id >= my_playlist.length) {
+    if (id >= playlist.length) {
         // window.location.href = "end.php?v=js";
         window.stop();
         alert("Fin de la playlist.");
-        window.location.href = "https://miala.000webhostapp.com/YT?todo=end&list=" + listValue;
+        window.location.href = "https://miala.000webhostapp.com/YT?todo=end&list=" + listID;
     } else {
-        changeVideo(my_playlist[id]);
+        changeVideo(playlist[id]);
     }
 }
 
@@ -79,7 +79,7 @@ function pageUpdate() {
     // 5: Vidéo en file d’attente interrompue
 
     if (id_played != id) {
-        changeVideo(my_playlist[id]);
+        changeVideo(playlist[id]);
     }
 
     let currentTime = player.getCurrentTime();
@@ -130,3 +130,70 @@ function pageUpdate() {
         pageUpdate_i += 1;
     }
 }
+
+function onERR() {
+    let currentState = player.getPlayerState();
+    let video_title = player.getVideoData().title;
+    if (currentState === -1 && video_title != '') {
+        console.log('Video ERR, next');
+        next();
+    }
+}
+
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        videoId: playlist[id],
+        playerVars: { 'autoplay': 1, 'picture-in-picture': 1 },
+        events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange,
+            'onError': onERR
+        },
+        controlslist: ["previous", "playpause", "next", "mute", "volume", "fullscreen", "pip"],
+    });
+
+
+
+    player.addEventListener("controls", () => {
+        if (player.controls.playButton.classList.contains("active")) {
+            nopause = 0;
+            checkbox_nopause.checked = 0;
+        } else if (player.controls.nextButton.classList.contains("active")) {
+            // L'utilisateur a cliqué sur le bouton suivant.
+            next();
+        } else if (player.controls.previousButton.classList.contains("active")) {
+            prev()
+        }
+    });
+
+    console.log(player);
+
+    setInterval(pageUpdate, 1000);
+}
+
+function waitPlayer() {
+    if (player) {
+        return 'Player already created';
+    }
+    try {
+
+        if (YT.loaded === 1) {
+            console.log('YTiframe API ready !');
+            onYouTubeIframeAPIReady();
+            return 'Player created';
+        } else {
+            console.log('Wait for YTiframe API...');
+            // Appel récursif avec un délai d'attente de 1 seconde
+            setTimeout(function () {
+                waitLoad();
+            }, 1000);
+        }
+
+    } catch (error) {
+        console.log('Wait for iframe_api.js run...');
+        setTimeout(function () {
+            waitLoad();
+        }, 2000);
+    }
+}
+
