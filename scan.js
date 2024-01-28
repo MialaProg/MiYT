@@ -1,4 +1,4 @@
-console.log('ScanMi ID01');
+console.log('ScanMi ID02');
 
 //Glbl Vars
 var videos = [];
@@ -80,8 +80,8 @@ function end_scan() {
     var WatcherMi = document.createElement("script");
     WatcherMi.type = "text/javascript";
     WatcherMi.src = "https://mialaprog.github.io/MiYT/watcher.js";
-    WatcherMi.onreadystatechange = srcLoaded;
-    WatcherMi.onload = srcLoaded;
+    WatcherMi.onreadystatechange = rsrcLoaded_scan;
+    WatcherMi.onload = rsrcLoaded_scan;
     WatcherMi.id = "WatcherMi";
     //Ajout de la balise dans la page
     document.body.appendChild(WatcherMi);
