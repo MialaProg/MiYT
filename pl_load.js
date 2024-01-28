@@ -109,7 +109,7 @@ document.getElementById('reset_btn').onclick = function () {
 
     if (reponse) {
         lcl_rmv_all();
-        sendToServer(playlist_txt, listID, list_length);
+        sendToServer(pl_txt, listID, list_length);
         window.location.href = "https://miala.000webhostapp.com/YT/load.php?list=" + listID;
     }
 };
@@ -155,7 +155,7 @@ function waitLib() {
         if (list_length > 1) {
             if (!lcl_LOADED) { shuffleAsk(); }
 
-            sendToServer(playlist_txt, listID, list_length);
+            sendToServer(pl_txt, listID, list_length);
             let pl_link = document.getElementById('pllink');
             if (pl_link) {
                 pl_link.setAttribute("href", "https://www.youtube.com/playlist?list=" + listID);
