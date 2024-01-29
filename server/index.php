@@ -17,7 +17,7 @@ $pllist = explode("\n", $content);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma-V0.9.4.min.css">
+    <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma.min.css">
 
     <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/lib/style.css">
     <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/fonts.css">
