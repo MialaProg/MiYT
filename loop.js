@@ -1,14 +1,10 @@
-console.log('Loop ID07');
+console.log('Loop ID08');
 
 // Glbl Vars
 var player = false;
 var checkbox_nopause = document.getElementById("PauseForbidSw");
 var nopause = 0;
 var id_played = -1;
-
-checkbox_nopause.addEventListener("change", function () {
-    nopause = checkbox_nopause.checked;
-});
 
 function onPlayerReady(event) {
     console.log(event, ': Player Ready => ', player);
@@ -243,4 +239,11 @@ function waitPlayer() {
     }
 }
 
+checkbox_nopause.addEventListener("change", function () {
+    nopause = checkbox_nopause.checked;
+    setBackgroundAction();
+});
+
 waitPlayer();
+
+
