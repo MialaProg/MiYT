@@ -1,4 +1,4 @@
-console.log('Loop ID05');
+console.log('Loop ID07');
 
 // Glbl Vars
 var player = false;
@@ -95,6 +95,15 @@ function pageUpdate() {
 
             console.log('MiYT state: ' + currentTime + '/' + duration + ' => ' + currentState);
 
+            try {
+                if ('setPositionState' in navigator.mediaSession) {
+                    navigator.mediaSession.setPositionState({
+                        duration: duration,
+                        position: currentTime,
+                    });
+                }
+            } catch (error) { console.log('mediaSess set Pos impossible: ERR'); }
+
             if (currentTime < 10) {
                 if (video_title != '') {
                     document.title = video_title + ' | MialaMusic';
@@ -142,6 +151,37 @@ function onERR() {
     }
 }
 
+/// Arrière plan
+function setBackgroundAction() {
+    const actionHandlers = [
+        ['play', () => {
+            nopause = 1;
+            player.playVideo();
+        }],
+        ['pause', () => {
+            nopause = 0;
+            player.pauseVideo();
+        }],
+        ['previoustrack', () => { prev(); }],
+        ['nexttrack', () => { next(); }],
+        ['stop', () => { nopause = 0; }]
+    ];
+    
+    for (const [action, handler] of actionHandlers) {
+        try {
+            navigator.mediaSession.setActionHandler(action, handler);
+        } catch (error) {
+            console.log(`The media session action "${action}" is not supported yet.`);
+        }
+    }
+    
+    document.addEventListener('visibilitychange', function () {
+        if (document.hidden && nopause) {
+            player.playVideo();
+        }
+    });
+}
+
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('player', {
         videoId: playlist[id],
@@ -171,6 +211,7 @@ function onYouTubeIframeAPIReady() {
     console.log(player);
 
     setInterval(pageUpdate, 1000);
+    setBackgroundAction();
 }
 
 function waitPlayer() {
