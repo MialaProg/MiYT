@@ -1,4 +1,4 @@
-console.log('PLLOAD ID02');
+console.log('PLLOAD ID03');
 
 //Glbl Vars
 if (typeof lcl_LOADED === 'undefined') {
@@ -82,10 +82,11 @@ function sendToServer(playlist_txt, listID, nb) {
     const xhr = new XMLHttpRequest();
 
     xhr.open("POST", "https://miala.000webhostapp.com/YT/add.php");
+    xhr.setRequestHeader('Content-Type', 'application/json');
 
     xhr.onload = function () {
         if (xhr.status === 200) {
-            console.log('Server status 200 OK');
+            console.log('Server status 200 OK: ' + xhr.responseText);
         } else {
             console.log('Server status ' + xhr.status + ' ERR');
         }
