@@ -6,6 +6,9 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+// header("Access-Control-Allow-Origin: https://www.youtube.com, https://www.google.com");
+header("Access-Control-Allow-Origin: *");
+
 echo "<!DOCTYPE html>
 <html>
 Si une erreur apparaît, veuillez la signaler, fermer cette fenetre puis continuer votre route.";
