@@ -85,7 +85,6 @@ function sendToServer(playlist_txt, listID, nb) {
     http.onreadystatechange = function () {//Call a function when the state changes.
         if (http.readyState == 4 && http.status == 200) {
             console.log('Server status 200 OK');
-            console.log(http.responseText);
         } else {
             console.log('Server status ' + http.status + ' ERR');
         }
@@ -118,7 +117,7 @@ function waitLib() {
 
     waitLibI += 1;
 
-    console.log("WaitLib... 11/" + waitLibI)
+    console.log("WaitLib... 11\\" + waitLibI)
 
     var lcl_REPRISE = false;
 

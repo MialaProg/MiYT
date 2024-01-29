@@ -1,4 +1,4 @@
-console.log('Loop ID01');
+console.log('Loop ID05');
 
 // Glbl Vars
 var player = false;
@@ -77,57 +77,59 @@ function pageUpdate() {
     // 2: En pause
     // 3: En file d’attente
     // 5: Vidéo en file d’attente interrompue
+    if (player) {
 
-    if (id_played != id) {
-        changeVideo(playlist[id]);
-    }
-
-    let currentTime = player.getCurrentTime();
-    let currentState = player.getPlayerState();
-
-    // En lecture, toutes les 5s. Sinon: ttes les secondes
-    if (pageUpdate_i == 4 || currentState != 1 || currentTime < 5) {
-        pageUpdate_i = 0;
-
-        let duration = player.getDuration();
-        let video_title = player.getVideoData().title;
-
-        console.log('MiYT state: ' + currentTime + '/' + duration + ' => ' + currentState);
-
-        if (currentTime < 10) {
-            if (video_title != '') {
-                document.title = video_title + ' | MialaMusic';
-                document.getElementById('infos_vid').innerText = video_title + ' (ID: ' + player.getVideoData().video_id + ' #' + id + ') - Lecteur MiYT';
-            }
+        if (id_played != id) {
+            changeVideo(playlist[id]);
         }
 
-        if (currentState === 0) {
-            next();
-        } else if (currentState === 1 && duration > 30) {
-            if (currentTime > (duration - 2)) {
-                next();
+        let currentTime = player.getCurrentTime();
+        let currentState = player.getPlayerState();
+
+        // En lecture, toutes les 5s. Sinon: ttes les secondes
+        if (pageUpdate_i == 4 || currentState != 1 || currentTime < 5) {
+            pageUpdate_i = 0;
+
+            let duration = player.getDuration();
+            let video_title = player.getVideoData().title;
+
+            console.log('MiYT state: ' + currentTime + '/' + duration + ' => ' + currentState);
+
+            if (currentTime < 10) {
+                if (video_title != '') {
+                    document.title = video_title + ' | MialaMusic';
+                    document.getElementById('infos_vid').innerText = video_title + ' (ID: ' + player.getVideoData().video_id + ' #' + id + ') - Lecteur MiYT';
+                }
             }
-        } else if (currentTime < 2) {
-            console.log('Try play');
-            player.playVideo();
 
-            currentState = player.getPlayerState();
-
-            if (currentState !== 1) {
-                console.log('Clicked');
-
-                if (currentState === -1 && video_title == '') {
-                    console.log('Video Indispo, next');
+            if (currentState === 0) {
+                next();
+            } else if (currentState === 1 && duration > 30) {
+                if (currentTime > (duration - 2)) {
                     next();
                 }
-                document.getElementsByClassName('ytp-button')[0].click();
-            }
-        } else if (currentState === 2 && nopause == 1) {
-            player.playVideo();
-        }
+            } else if (currentTime < 2) {
+                console.log('Try play');
+                player.playVideo();
 
-    } else {
-        pageUpdate_i += 1;
+                currentState = player.getPlayerState();
+
+                if (currentState !== 1) {
+                    console.log('Clicked');
+
+                    if (currentState === -1 && video_title == '') {
+                        console.log('Video Indispo, next');
+                        next();
+                    }
+                    document.getElementsByClassName('ytp-button')[0].click();
+                }
+            } else if (currentState === 2 && nopause == 1) {
+                player.playVideo();
+            }
+
+        } else {
+            pageUpdate_i += 1;
+        }
     }
 }
 
@@ -197,3 +199,4 @@ function waitPlayer() {
     }
 }
 
+waitPlayer();
