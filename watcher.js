@@ -1,4 +1,4 @@
-console.log('MiWatcher ID01');
+console.log('MiWatcher ID03');
 
 // File: Create Watcher Page
 
@@ -29,8 +29,8 @@ body.innerHTML = '';
 
 // Head Set
 head.innerHTML = `
-<link rel="stylesheet" href="https://mialaprog.github.io/MiYT/lib/bulma.min.css">
-<link rel="stylesheet" href="https://mialaprog.github.io/MiYT/lib/bulma-switch.min.css">
+<link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma.min.css">
+<link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma-switch.min.css">
 
 <title>Chargement en cours... | MialaMusic</title>
 <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/icon.png" type="image/png">
