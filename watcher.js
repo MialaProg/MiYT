@@ -1,4 +1,4 @@
-console.log('MiWatcher ID03');
+console.log('MiWatcher ID07');
 
 // File: Create Watcher Page
 
@@ -25,7 +25,6 @@ body.setAttribute('class', 'has-background-dark has-text-danger-light');
 
 // reset
 window.stop();
-body.innerHTML = '';
 
 // Head Set
 head.innerHTML = `
