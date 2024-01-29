@@ -49,7 +49,7 @@ $pllist = explode("\n", $content);
                     foreach ($pllist as $pl) {
                         if ($i % 2 === 1) {
                             $name = $pllist[$i - 1];
-                            echo '<li><a href="https://miala.000webhostapp.com/YT/load.php?list=' . $pl . '&title=' . $name . '">' . $name . '</a></li>';
+                            echo '<li><a href="https://miala.000webhostapp.com/YT/www.php?list=' . $pl . '&title=' . $name . '">' . $name . '</a></li>';
                         }
                         $i += 1;
                     }
