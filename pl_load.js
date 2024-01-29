@@ -1,4 +1,4 @@
-console.log('PLLOAD ID4');
+console.log('PLLOAD ID05');
 
 //Glbl Vars
 if (typeof lcl_LOADED === 'undefined') {
@@ -70,31 +70,27 @@ function sendToServer(playlist_txt, listID, nb) {
 
 
 
-    let data = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}`;
+    let http = new XMLHttpRequest();
+    let url = 'https://miala.000webhostapp.com/YT/add.php';
+    let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}`;
 
     pl_name = document.getElementById("pl_name")
     if (pl_name && pl_name != "") {
-        data += '&name=' + pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "");
+        params += '&name=' + pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "");
     }
 
-    const xhr = new XMLHttpRequest();
-
-    xhr.open("POST", "https://miala.000webhostapp.com/YT/add.php");
-    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            console.log('Server status 200 OK: ' + xhr.responseText);
+    http.open('POST', url, true);
+    //Send the proper header information along with the request
+    http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    http.onreadystatechange = function () {//Call a function when the state changes.
+        if (http.readyState == 4 && http.status == 200) {
+            console.log('Server status 200 OK');
+            console.log(http.responseText);
         } else {
-            console.log('Server status ' + xhr.status + ' ERR');
+            console.log('Server status ' + http.status + ' ERR');
         }
-    };
-    
-    xhr.onerror = function () {
-        console.error('Server status: Network error');
-    };
-
-    xhr.send(data);
+    }
+    http.send(params);
 }
 
 function shuffleAsk() {
