@@ -167,13 +167,16 @@ function setBackgroundAction() {
         ['stop', () => { nopause = 0; }]
     ];
     
+    var not_supported = '';
     for (const [action, handler] of actionHandlers) {
         try {
             navigator.mediaSession.setActionHandler(action, handler);
         } catch (error) {
-            console.log(`The media session action "${action}" is not supported yet.`);
+            not_supported += action;
         }
     }
+
+    console.log('setBackgroundAction OK (Not Supported: ' + not_supported);
     
     document.addEventListener('visibilitychange', function () {
         if (document.hidden && nopause) {
