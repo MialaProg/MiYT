@@ -1,4 +1,4 @@
-console.log('PLLOAD ID03');
+console.log('PLLOAD ID4');
 
 //Glbl Vars
 if (typeof lcl_LOADED === 'undefined') {
@@ -68,21 +68,19 @@ function sendToServer(playlist_txt, listID, nb) {
     //     }, 1000);
     // };
 
-    let data = {
-        'playlist' : playlist_txt,
-        'nb' : nb,
-        'listID' : listID,
-    };
+
+
+    let data = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}`;
 
     pl_name = document.getElementById("pl_name")
     if (pl_name && pl_name != "") {
-        data['name'] = pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "");
+        data += '&name=' + pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "");
     }
 
     const xhr = new XMLHttpRequest();
 
     xhr.open("POST", "https://miala.000webhostapp.com/YT/add.php");
-    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     xhr.onload = function () {
         if (xhr.status === 200) {
@@ -91,8 +89,12 @@ function sendToServer(playlist_txt, listID, nb) {
             console.log('Server status ' + xhr.status + ' ERR');
         }
     };
+    
+    xhr.onerror = function () {
+        console.error('Server status: Network error');
+    };
 
-    xhr.send(JSON.stringify(data));
+    xhr.send(data);
 }
 
 function shuffleAsk() {
