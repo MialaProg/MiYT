@@ -1,4 +1,4 @@
-console.log('PLLOAD ID01');
+console.log('PLLOAD ID02');
 
 //Glbl Vars
 if (typeof lcl_LOADED === 'undefined') {
@@ -91,7 +91,7 @@ function sendToServer(playlist_txt, listID, nb) {
         }
     };
 
-    xhr.send(data);
+    xhr.send(JSON.stringify(data));
 }
 
 function shuffleAsk() {
