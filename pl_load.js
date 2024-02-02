@@ -1,4 +1,4 @@
-console.log('PLLOAD ID07');
+console.log('PLLOAD ID09');
 
 //Glbl Vars
 if (typeof lcl_LOADED === 'undefined') {
@@ -173,14 +173,14 @@ function waitLib() {
         //Ajout de la balise dans la page
         document.body.appendChild(js);
 
-        let js = document.createElement("script");
-        js.type = "text/javascript";
-        js.src = "https://mialaprog.github.io/MiYT/lib/pl_view.js";
-        js.onreadystatechange = rsrcLoaded_pl_load;
-        js.onload = rsrcLoaded_pl_load;
-        js.id = "MiPlViewer";
+        js2 = document.createElement("script");
+        js2.type = "text/javascript";
+        js2.src = "https://mialaprog.github.io/MiYT/lib/pl_view.js";
+        js2.onreadystatechange = rsrcLoaded_pl_load;
+        js2.onload = rsrcLoaded_pl_load;
+        js2.id = "MiPlViewer";
         //Ajout de la balise dans la page
-        document.body.appendChild(js);
+        document.body.appendChild(js2);
 
         document.getElementById('inProgress').remove();
     } else {
