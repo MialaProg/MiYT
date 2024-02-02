@@ -1,4 +1,4 @@
-console.log('MiWatcher ID07');
+console.log('MiWatcher ID08');
 
 // File: Create Watcher Page
 
@@ -48,7 +48,7 @@ icon.rel = "icon";
 icon.href = "https://mialaprog.github.io/MiYT/lib/icon.png";
 icon.type = "image/png";
 
-head.append(icon);
+head.appendChild(icon);
 
 // Body set
 body.innerHTML = 

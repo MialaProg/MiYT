@@ -164,21 +164,23 @@ function waitLib() {
         }
 
         // => pl_load
-        var js = document.createElement("script");
+        let js = document.createElement("script");
         js.type = "text/javascript";
         js.src = "https://mialaprog.github.io/MiYT/loop.js";
         js.onreadystatechange = rsrcLoaded_pl_load;
         js.onload = rsrcLoaded_pl_load;
         js.id = "MiYTloop";
+        //Ajout de la balise dans la page
+        document.body.appendChild(js);
 
-        // var js = document.createElement("script");
-        // js.type = "text/javascript";
-        // js.src = "https://mialaprog.github.io/MiYT/lib/pl_view.js";
-        // js.onreadystatechange = rsrcLoaded_pl_load;
-        // js.onload = rsrcLoaded_pl_load;
-        // js.id = "MiPlViewer";
-        // //Ajout de la balise dans la page
-        // document.body.appendChild(js);
+        let js = document.createElement("script");
+        js.type = "text/javascript";
+        js.src = "https://mialaprog.github.io/MiYT/lib/pl_view.js";
+        js.onreadystatechange = rsrcLoaded_pl_load;
+        js.onload = rsrcLoaded_pl_load;
+        js.id = "MiPlViewer";
+        //Ajout de la balise dans la page
+        document.body.appendChild(js);
 
         document.getElementById('inProgress').remove();
     } else {
