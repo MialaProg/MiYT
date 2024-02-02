@@ -20,8 +20,8 @@ function rsrcLoaded_watcher() {
 
 // Dark Theme
 htmlElement.removeAttribute('style');
-htmlElement.setAttribute('class', 'has-background-black has-text-danger-light');
-body.setAttribute('class', 'has-background-black has-text-danger-light');
+htmlElement.setAttribute('class', 'has-background-dark has-text-danger-light');
+body.setAttribute('class', 'has-background-dark has-text-danger-light');
 
 // reset
 window.stop();
