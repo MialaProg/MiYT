@@ -67,7 +67,7 @@ body.innerHTML =
 `
 
 <div class="block">
-<div class="columns is-desktop">
+<div class="columns is-desktop is-variable is-8">
     <div class="column has-text-danger-light has-background-dark">
     <div class="tags are-medium">
     <span class="tag is-primary"><a href="https://miala.000webhostapp.com/YT/" class="has-text-warning-light">Lecteur MiYT</a></span>
