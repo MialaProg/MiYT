@@ -20,19 +20,19 @@ function rsrcLoaded_watcher() {
 
 // Dark Theme
 htmlElement.removeAttribute('style');
-htmlElement.setAttribute('class', 'has-background-dark has-text-danger-light');
-body.setAttribute('class', 'has-background-dark has-text-danger-light');
+htmlElement.setAttribute('class', 'has-background-black has-text-danger-light');
+body.setAttribute('class', 'has-background-black has-text-danger-light');
 
 // reset
 window.stop();
 
 // Head Set
+// <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/icon.png" type="image/png"></link>
 head.innerHTML = `
 <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma.min.css">
 <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma-switch.min.css">
 
 <title>Chargement en cours... | MialaMusic</title>
-<link rel="icon" href="https://mialaprog.github.io/MiYT/lib/icon.png" type="image/png">
 <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/lib/style.css">
 <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/fonts.css">`
 
@@ -42,6 +42,13 @@ scr_list.forEach(element => {
     js.src = element;
     body.appendChild(js);
 });
+
+let icon = document.createElement('link');
+icon.rel = "icon";
+icon.href = "https://mialaprog.github.io/MiYT/lib/icon.png";
+icon.type = "image/png";
+
+head.append(icon);
 
 // Body set
 body.innerHTML = 
@@ -60,49 +67,53 @@ body.innerHTML =
 `
 
 <div class="block">
-<div class="tags are-medium">
-<span class="tag is-primary"><a href="https://miala.000webhostapp.com/YT/" class="has-text-warning-light">Lecteur MiYT</a></span>
-<span class="tag is-danger"><a id="pllink" href="#" class="has-text-warning-light">Playlist</a></span>
-<span class="tag is-danger"><a href="https://www.youtube.com/?Mi=Music" class="has-text-warning-light">YouTube</a></span>
-</div>
-<br><br>
-<div id="player"></div>
-<br>
-<span id="infos_vid" class="tag">Chargement en cours... - MialaMusic</span><br><br>
-<br>
-<div class="buttons">
-    <button id="prev_btn" class="button is-danger">
-        <span class="material-symbols-outlined gfonticon_button icon is-small">
-            skip_previous
-        </span>
-    </button>
-    <button id="next_btn" class="button is-success">
-        <span class="material-symbols-outlined gfonticon_button icon is-small">
-            skip_next
-        </span></button>
-    <!--
-    <button id="PiP_btn" class="button is-info" onclick="if (document.pictureInPictureElement) {
-        document.exitPictureInPicture();
-      } else if (document.pictureInPictureEnabled) {
-        video.requestPictureInPicture();
-      }">
-        PiP</button> -->
-</div>
-<div class="field">
-    <label for="PauseForbidSw">Lecture automatique (pause interdite): Au début uniquement</label>
-    <input id="PauseForbidSw" type="checkbox" name="PauseForbidSw" class="switch is-danger">
-    <label for="PauseForbidSw" style="height: 0.5em; padding-left: 3.5rem;">Pendant toute la video</label>
-</div>
-<br>
+<div class="columns is-desktop">
+    <div class="column has-text-danger-light has-background-dark">
+    <div class="tags are-medium">
+    <span class="tag is-primary"><a href="https://miala.000webhostapp.com/YT/" class="has-text-warning-light">Lecteur MiYT</a></span>
+    <span class="tag is-danger"><a id="pllink" href="#" class="has-text-warning-light">Playlist</a></span>
+    <span class="tag is-danger"><a href="https://www.youtube.com/?Mi=Music" class="has-text-warning-light">YouTube</a></span>
+    </div>
+    <br><br>
+    <div id="player"></div>
+    <br>
+    <span id="infos_vid" class="tag">Chargement en cours... - MialaMusic</span><br><br>
+    <br>
+    <div class="buttons">
+        <button id="prev_btn" class="button is-danger">
+            <span class="material-symbols-outlined gfonticon_button icon is-small">
+                skip_previous
+            </span>
+        </button>
+        <button id="next_btn" class="button is-success">
+            <span class="material-symbols-outlined gfonticon_button icon is-small">
+                skip_next
+            </span></button>
+        <!--
+        <button id="PiP_btn" class="button is-info" onclick="if (document.pictureInPictureElement) {
+            document.exitPictureInPicture();
+        } else if (document.pictureInPictureEnabled) {
+            video.requestPictureInPicture();
+        }">
+            PiP</button> -->
+    </div>
+    <div class="field">
+        <label for="PauseForbidSw">Lecture automatique (pause interdite): Au début uniquement</label>
+        <input id="PauseForbidSw" type="checkbox" name="PauseForbidSw" class="switch is-danger">
+        <label for="PauseForbidSw" style="height: 0.5em; padding-left: 3.5rem;">Pendant toute la video</label>
+    </div>
+    <br>
 
-<div class="buttons">
-    <button id="reset_btn" class="button is-warning">
-        <span class="material-symbols-outlined gfonticon_button icon is-small">
-            restart_alt
-        </span>
-    </button>
+    <div class="buttons">
+        <button id="reset_btn" class="button is-warning">
+            <span class="material-symbols-outlined gfonticon_button icon is-small">
+                restart_alt
+            </span>
+        </button>
+    </div>
+    </div>
+<div class="column has-text-danger-light has-background-dark" id="pl_view">
 </div>
-<br>
 </div>
 `;
 

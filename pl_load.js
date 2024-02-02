@@ -1,4 +1,4 @@
-console.log('PLLOAD ID05');
+console.log('PLLOAD ID06');
 
 //Glbl Vars
 if (typeof lcl_LOADED === 'undefined') {
@@ -7,6 +7,8 @@ if (typeof lcl_LOADED === 'undefined') {
 if (typeof utilities_LOADED === 'undefined') {
     var utilities_LOADED = false;
 }
+var pl_view = false;
+
 var currentUrl = window.location.href;
 var url = new URL(currentUrl);
 var params = new URLSearchParams(url.search);
@@ -167,6 +169,13 @@ function waitLib() {
         js.onreadystatechange = rsrcLoaded_pl_load;
         js.onload = rsrcLoaded_pl_load;
         js.id = "MiYTloop";
+
+        var js = document.createElement("script");
+        js.type = "text/javascript";
+        js.src = "https://mialaprog.github.io/MiYT/lib/pl_view.js";
+        js.onreadystatechange = rsrcLoaded_pl_load;
+        js.onload = rsrcLoaded_pl_load;
+        js.id = "MiPlViewer";
         //Ajout de la balise dans la page
         document.body.appendChild(js);
 
