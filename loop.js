@@ -151,16 +151,16 @@ function onERR() {
 function setBackgroundAction() {
     const actionHandlers = [
         ['play', () => {
-            nopause = 1;
-            player.playVideo();
+            // nopause = 1;
+            // player.playVideo();
         }],
         ['pause', () => {
-            nopause = 0;
-            player.pauseVideo();
+            // nopause = 0;
+            // player.pauseVideo();
         }],
         ['previoustrack', () => { prev(); }],
-        ['nexttrack', () => { next(); }],
-        ['stop', () => { nopause = 0; }]
+        ['nexttrack', () => { next(); }]
+        // ['stop', () => { nopause = 0; }]
     ];
     
     var not_supported = '';
