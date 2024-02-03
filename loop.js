@@ -1,4 +1,4 @@
-console.log('Loop ID17');
+console.log('Loop ID18');
 
 // Glbl Vars
 var player = false;
@@ -146,7 +146,7 @@ function onERR() {
         next();
     }
 }
-
+// sV = function(a, b) {
 /// Arrière plan
 function setBackgroundAction() {
     const actionHandlers = [
@@ -191,6 +191,20 @@ function setBackgroundAction() {
     //     }
     // });
 }
+
+function waitSvDef() {
+    if (typeof sV !== 'undefined') {
+        sV = function(a, b) {
+            console.log("YT try edit: " + a);
+            console.log(b);
+        };
+        setBackgroundAction();
+    } else {
+        setTimeout(waitSvDef, 1000); // Vérifie toutes les 100 millisecondes
+    }
+}
+
+waitSvDef();
 
 function onYouTubeIframeAPIReady() {
     console.log("onYouTubeIframeAPIReady run...");

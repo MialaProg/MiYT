@@ -7,6 +7,9 @@ if (typeof lcl_LOADED === 'undefined') {
 if (typeof utilities_LOADED === 'undefined') {
     var utilities_LOADED = false;
 }
+if (typeof sV === 'undefined') {
+    var sV = false;
+}
 var pl_view = false;
 var pl_view_active = false;
 
