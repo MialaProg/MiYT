@@ -1,4 +1,4 @@
-console.log('Loop ID16');
+console.log('Loop ID17');
 
 // Glbl Vars
 var player = false;
@@ -160,20 +160,20 @@ function setBackgroundAction() {
             nopause = 0;
             player.pauseVideo();
         }],
-        ['previoustrack', () => { 
+        ['previoustrack', () => {
             prev();
             console.log("MediaSeSS>>PREV");
-         }],
+        }],
         ['nexttrack', () => {
-             next(); 
-             console.log("MediaSeSS>>NEXT");
-            }]
-        ['stop', () => { 
-            nopause = 0; 
+            next();
+            console.log("MediaSeSS>>NEXT");
+        }],
+        ['stop', () => {
+            nopause = 0;
             console.log("MediaSeSS>>STOP");
         }]
     ];
-    
+
     var not_supported = '';
     for (const [action, handler] of actionHandlers) {
         try {
@@ -184,7 +184,7 @@ function setBackgroundAction() {
     }
 
     console.log('setBackgroundAction OK (Not Supported: ' + not_supported);
-    
+
     // document.addEventListener('visibilitychange', function () {
     //     if (document.hidden && nopause) {
     //         player.playVideo();
@@ -193,6 +193,8 @@ function setBackgroundAction() {
 }
 
 function onYouTubeIframeAPIReady() {
+    console.log("onYouTubeIframeAPIReady run...");
+
     player = new YT.Player('player', {
         videoId: playlist[id],
         playerVars: { 'autoplay': 1, 'picture-in-picture': 1 },
@@ -221,6 +223,7 @@ function onYouTubeIframeAPIReady() {
     console.log(player);
 
     setInterval(pageUpdate, 1000);
+
     setBackgroundAction();
 }
 
