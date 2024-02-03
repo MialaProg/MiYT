@@ -1,4 +1,4 @@
-console.log('MiWatcher ID08');
+console.log('MiWatcher ID15');
 
 // File: Create Watcher Page
 
@@ -43,12 +43,13 @@ scr_list.forEach(element => {
     body.appendChild(js);
 });
 
-let icon = document.createElement('link');
-icon.rel = "icon";
-icon.href = "https://mialaprog.github.io/MiYT/lib/icon.png";
-icon.type = "image/png";
-
-head.appendChild(icon);
+let link_icon = document.querySelector("link[rel~='icon']");
+if (!link_icon) {
+    link_icon = document.createElement('link');
+    link_icon.rel = 'icon';
+    document.head.appendChild(link_icon);
+}
+link_icon.href = 'https://mialaprog.github.io/MiYT/lib/icon.png';
 
 // Body set
 body.innerHTML = 
