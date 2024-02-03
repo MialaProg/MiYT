@@ -1,4 +1,4 @@
-console.log('Loop ID15');
+console.log('Loop ID16');
 
 // Glbl Vars
 var player = false;
@@ -237,12 +237,12 @@ function waitPlayer() {
         } else {
             console.log('Wait for YTiframe API...');
             // Appel récursif avec un délai d'attente de 1 seconde
-            setTimeout(waitLoad, 1000);
+            setTimeout(waitPlayer, 1000);
         }
 
     } catch (error) {
         console.log('Wait for iframe_api.js run...');
-        setTimeout(waitLoad, 2000);
+        setTimeout(waitPlayer, 2000);
     }
 }
 
