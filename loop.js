@@ -1,4 +1,4 @@
-console.log('Loop ID08');
+console.log('Loop ID14');
 
 // Glbl Vars
 var player = false;
@@ -151,16 +151,27 @@ function onERR() {
 function setBackgroundAction() {
     const actionHandlers = [
         ['play', () => {
-            // nopause = 1;
-            // player.playVideo();
+            console.log("MediaSeSS>>PLAY");
+            nopause = 1;
+            player.playVideo();
         }],
         ['pause', () => {
-            // nopause = 0;
-            // player.pauseVideo();
+            console.log("MediaSeSS>>PAUSE");
+            nopause = 0;
+            player.pauseVideo();
         }],
-        ['previoustrack', () => { prev(); }],
-        ['nexttrack', () => { next(); }]
-        // ['stop', () => { nopause = 0; }]
+        ['previoustrack', () => { 
+            prev();
+            console.log("MediaSeSS>>PREV");
+         }],
+        ['nexttrack', () => {
+             next(); 
+             console.log("MediaSeSS>>NEXT");
+            }]
+        ['stop', () => { 
+            nopause = 0; 
+            console.log("MediaSeSS>>STOP");
+        }]
     ];
     
     var not_supported = '';
@@ -174,11 +185,11 @@ function setBackgroundAction() {
 
     console.log('setBackgroundAction OK (Not Supported: ' + not_supported);
     
-    document.addEventListener('visibilitychange', function () {
-        if (document.hidden && nopause) {
-            player.playVideo();
-        }
-    });
+    // document.addEventListener('visibilitychange', function () {
+    //     if (document.hidden && nopause) {
+    //         player.playVideo();
+    //     }
+    // });
 }
 
 function onYouTubeIframeAPIReady() {
