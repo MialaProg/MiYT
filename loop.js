@@ -36,7 +36,7 @@ function onPlayerReady(event) {
 // }
 
 function changeVideo(nid) {
-    id_played = id = nid;
+    id_played = id = parseInt(nid);
     console.log("VidChg: " + id);
     player.pauseVideo();
 
