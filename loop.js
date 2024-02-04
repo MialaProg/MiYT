@@ -192,24 +192,24 @@ function setBackgroundAction() {
     // });
 }
 
-var waitSv = true;
+var waitsV = true;
 
-function waitSvDef() {
-    if (waitSv) {
+function waitsVDef() {
+    if (waitsV) {
         if (typeof sV !== 'undefined') {
             var sV = function (a, b) {
                 console.log("YT try edit: " + a);
                 console.log(b);
             };
-            console.log('Sv definied');
-            waitSv = false;
+            console.log('sV definied');
+            waitsV = false;
         }
     } else {
         setBackgroundAction();
     }
 }
 
-setInterval(waitSvDef, 2000);
+setInterval(waitsVDef, 2000);
 
 function onYouTubeIframeAPIReady() {
     console.log("onYouTubeIframeAPIReady run...");
