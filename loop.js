@@ -1,4 +1,4 @@
-console.log('Loop ID20');
+console.log('Loop ID21');
 
 // Glbl Vars
 var player = false;
@@ -18,12 +18,20 @@ function changeVideo(vid_id) {
     id_played = id;
     player.loadVideoById(vid_id);
     player.playVideo();
-    document.title = 'MialaMusic Playlist Randomer';
+    document.title = 'Lecteur MiYT - Miala';
     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - MialaMusic Playlist Randomer';
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
     if (lcl_LOADED && !isNaN(lcl_pl_id)) {
         lcl_save_IN_list('watch_id', id, lcl_pl_id);
+    }
+
+    if (pl_view !== false){
+        if (pl_view_active !== false){
+            document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
+        }
+        pl_view_active = id;
+        document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
     }
 }
 
