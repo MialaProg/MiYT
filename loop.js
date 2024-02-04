@@ -1,4 +1,4 @@
-console.log('Loop ID21');
+console.log('Loop ID22');
 
 // Glbl Vars
 var player = false;
@@ -12,10 +12,35 @@ function onPlayerReady(event) {
     player.playVideo();
 }
 
-function changeVideo(vid_id) {
-    console.log("VidChg: " + vid_id);
+// function changeVideo_hist(vid_id) {
+//     console.log("VidChg: " + vid_id);
+//     player.pauseVideo();
+//     id_played = id;
+//     player.loadVideoById(vid_id);
+//     player.playVideo();
+//     document.title = 'Lecteur MiYT - Miala';
+//     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - MialaMusic Playlist Randomer';
+//     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
+
+//     if (lcl_LOADED && !isNaN(lcl_pl_id)) {
+//         lcl_save_IN_list('watch_id', id, lcl_pl_id);
+//     }
+
+//     if (pl_view !== false){
+//         if (pl_view_active !== false){
+//             document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
+//         }
+//         pl_view_active = id;
+//         document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
+//     }
+// }
+
+function changeVideo(nid) {
+    id_played = id = nid;
+    console.log("VidChg: " + id);
     player.pauseVideo();
-    id_played = id;
+
+    let vid_id = playlist[id]
     player.loadVideoById(vid_id);
     player.playVideo();
     document.title = 'Lecteur MiYT - Miala';
@@ -43,7 +68,7 @@ function prev() {
         alert("Début de la playlist.");
         id = 0;
     }
-    changeVideo(playlist[id]);
+    changeVideo(id);
 }
 
 function next() {
@@ -54,7 +79,7 @@ function next() {
         alert("Fin de la playlist.");
         window.location.href = "https://miala.000webhostapp.com/YT?todo=end&list=" + listID;
     } else {
-        changeVideo(playlist[id]);
+        changeVideo(id);
     }
 }
 
@@ -84,7 +109,7 @@ function pageUpdate() {
     if (player) {
 
         if (id_played != id) {
-            changeVideo(playlist[id]);
+            changeVideo(id);
         }
 
         let currentTime = player.getCurrentTime();
@@ -154,53 +179,53 @@ function onERR() {
         next();
     }
 }
-// sV = function(a, b) {
-/// Arrière plan
-function setBackgroundAction() {
-    const actionHandlers = [
-        ['play', () => {
-            console.log("MediaSeSS>>PLAY");
-            nopause = 1;
-            player.playVideo();
-        }],
-        ['pause', () => {
-            console.log("MediaSeSS>>PAUSE");
-            nopause = 0;
-            player.pauseVideo();
-        }],
-        ['previoustrack', () => {
-            prev();
-            console.log("MediaSeSS>>PREV");
-        }],
-        ['nexttrack', () => {
-            next();
-            console.log("MediaSeSS>>NEXT");
-        }],
-        ['stop', () => {
-            nopause = 0;
-            console.log("MediaSeSS>>STOP");
-        }]
-    ];
 
-    var not_supported = '';
-    for (const [action, handler] of actionHandlers) {
-        try {
-            navigator.mediaSession.setActionHandler(action, handler);
-        } catch (error) {
-            not_supported += action;
-        }
-    }
+/// Arrière plan [FAIL]
+// function setBackgroundAction() {
+//     const actionHandlers = [
+//         ['play', () => {
+//             console.log("MediaSeSS>>PLAY");
+//             nopause = 1;
+//             player.playVideo();
+//         }],
+//         ['pause', () => {
+//             console.log("MediaSeSS>>PAUSE");
+//             nopause = 0;
+//             player.pauseVideo();
+//         }],
+//         ['previoustrack', () => {
+//             prev();
+//             console.log("MediaSeSS>>PREV");
+//         }],
+//         ['nexttrack', () => {
+//             next();
+//             console.log("MediaSeSS>>NEXT");
+//         }],
+//         ['stop', () => {
+//             nopause = 0;
+//             console.log("MediaSeSS>>STOP");
+//         }]
+//     ];
 
-    console.log('setBackgroundAction OK (Not Supported: ' + not_supported);
+//     var not_supported = '';
+//     for (const [action, handler] of actionHandlers) {
+//         try {
+//             navigator.mediaSession.setActionHandler(action, handler);
+//         } catch (error) {
+//             not_supported += action;
+//         }
+//     }
 
-    // document.addEventListener('visibilitychange', function () {
-    //     if (document.hidden && nopause) {
-    //         player.playVideo();
-    //     }
-    // });
-}
+//     console.log('setBackgroundAction OK (Not Supported: ' + not_supported);
 
-setInterval(setBackgroundAction, 2000);
+//     // document.addEventListener('visibilitychange', function () {
+//     //     if (document.hidden && nopause) {
+//     //         player.playVideo();
+//     //     }
+//     // });
+// }
+
+// setInterval(setBackgroundAction, 2000);
 
 function onYouTubeIframeAPIReady() {
     console.log("onYouTubeIframeAPIReady run...");
