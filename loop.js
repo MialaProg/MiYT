@@ -1,4 +1,4 @@
-console.log('Loop ID22');
+console.log('Loop ID23');
 
 // Glbl Vars
 var player = false;
@@ -52,9 +52,11 @@ function changeVideo(nid) {
     }
 
     if (pl_view !== false){
-        if (pl_view_active !== false){
-            document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
-        }
+        try {
+            if (pl_view_active !== false){
+                document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
+            }
+        } catch (error) {}
         pl_view_active = id;
         document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
     }
