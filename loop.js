@@ -195,6 +195,7 @@ function setBackgroundAction() {
 var waitsV = true;
 
 function waitsVDef() {
+    console.log('waitsVDef ' + waitsV);
     if (waitsV) {
         if (typeof sV !== 'undefined') {
             var sV = function (a, b) {
