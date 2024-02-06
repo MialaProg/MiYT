@@ -113,8 +113,9 @@ body.innerHTML =
         </button>
     </div>
     </div>
-<div class="column has-text-danger-light has-background-dark" id="pl_view">
+<div class="column has-text-danger-light has-background-dark overflow-x-hidden scroll" id="pl_view">
 </div>
+<div id="pl_view_iframe" class="is-hidden"></div>
 </div>
 `;
 
