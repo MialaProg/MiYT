@@ -1,4 +1,4 @@
-console.log('Loop ID23');
+console.log('Loop ID24');
 
 // Glbl Vars
 var player = false;
@@ -161,7 +161,7 @@ function pageUpdate() {
                         console.log('Video Indispo, next');
                         next();
                     }
-                    document.getElementsByClassName('ytp-button')[0].click();
+                    // document.getElementsByClassName('ytp-button')[0].click();
                 }
             } else if (currentState === 2 && nopause == 1) {
                 player.playVideo();
