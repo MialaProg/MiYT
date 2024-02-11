@@ -27,7 +27,7 @@ var listID = params.get("list");
 var id = 0;
 var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 var playlist = pl_txt.split(';');
-var outro_pass_time = 1;
+var outro_skip_time = 1;
 
 var lcl_pl_id = NaN;
 

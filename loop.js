@@ -1,4 +1,4 @@
-console.log('Loop ID40');
+console.log('Loop ID42');
 
 // Glbl Vars
 var player = false;
@@ -66,7 +66,7 @@ function changeVideo(nid) {
     
     } catch (error) {console.log(error)}  
 
-    outro_pass_time = 1;
+    outro_skip_time = 1;
     try{
         let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + vid_id + '&format=json';
 
@@ -75,7 +75,8 @@ function changeVideo(nid) {
         .then(data => {
             let author_url = data.author_url;
             if (author_url in ytb_outro_pass) {
-                outro_pass_time = ytb_outro_pass[author_url];
+                outro_skip_time = ytb_outro_pass[author_url];
+                console.log('Set Outro Skipper to ' + outro_skip_time);
             } 
         })
         .catch(error => console.log(`SetTitleERR #${my_id} : ${error}`));
@@ -166,7 +167,8 @@ function pageUpdate() {
             if (currentState === 0) {
                 next();
             } else if (currentState === 1 && duration > 30) {
-                if (currentTime > (duration - outro_pass_time)) {
+                if (currentTime > (duration - outro_skip_time)) {
+                    console.log('Outro Skip');
                     next();
                 }
             } else if (currentTime < 2) {
