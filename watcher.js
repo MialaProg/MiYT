@@ -106,17 +106,25 @@ body.innerHTML =
         color: #fff;
     ">
         <div class="field">
+            <label for="SkipOutroSw">Skipper les outro:</label><br><span style="display:inline-block;width: 2vw;"></span>
+            <label for="SkipOutroSw">Désactivé</label>
+            <input id="SkipOutroSw" type="checkbox" name="SkipOutroSw" class="switch is-success" checked>
+            <label for="SkipOutroSw" style="height: 0.5em; padding-left: 3.5rem;">Activé</label>
+        </div>
+
+        <div class="field">
             <label for="PauseForbidSw">Lecture automatique (pause interdite):</label><br><span style="display:inline-block;width: 2vw;"></span>
             <label for="PauseForbidSw">Au début uniquement</label>
             <input id="PauseForbidSw" type="checkbox" name="PauseForbidSw" class="switch is-danger">
             <label for="PauseForbidSw" style="height: 0.5em; padding-left: 3.5rem;">Pendant toute la video</label>
         </div>
         
+        
         <div class="field">
-            <label for="SkipOutroSw">Skipper les outro:</label><br><span style="display:inline-block;width: 2vw;"></span>
-            <label for="SkipOutroSw">Désactiver</label>
-            <input id="SkipOutroSw" type="checkbox" name="SkipOutroSw" class="switch is-success" checked>
-            <label for="SkipOutroSw" style="height: 0.5em; padding-left: 3.5rem;">Activer</label>
+            <label for="LoopPlaySw">Lecture de la playlist en boucle:</label><br><span style="display:inline-block;width: 2vw;"></span>
+            <label for="LoopPlaySw">Désactivée</label>
+            <input id="LoopPlaySw" type="checkbox" name="LoopPlaySw" class="switch is-link">
+            <label for="LoopPlaySw" style="height: 0.5em; padding-left: 3.5rem;">Activée</label>
         </div>
     </div>
     <br>

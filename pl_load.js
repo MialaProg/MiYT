@@ -34,7 +34,12 @@ var checkbox_skip = document.getElementById("SkipOutroSw");
 checkbox_skip.addEventListener("change", function () {
     outro_skip = checkbox_skip.checked;
     outro_skip_time = 1;
-    // setBackgroundAction();
+});
+
+var LoopPlay = false;
+var checkbox_loop = document.getElementById("LoopPlaySw");
+checkbox_loop.addEventListener("change", function () {
+    LoopPlay = checkbox_loop.checked;
 });
 
 var lcl_pl_id = NaN;

@@ -1,4 +1,4 @@
-console.log('Loop ID42');
+console.log('Loop ID45');
 
 // Glbl Vars
 var player = false;
@@ -101,9 +101,14 @@ function next() {
     id += 1;
     if (id >= playlist.length) {
         // window.location.href = "end.php?v=js";
-        window.stop();
-        alert("Fin de la playlist.");
-        window.location.href = "https://miala.000webhostapp.com/YT?todo=end&list=" + listID;
+        if (LoopPlay) {
+            id = 0;
+            changeVideo(id);
+        } else {
+            window.stop();
+            alert("Fin de la playlist.");
+            window.location.href = "https://miala.000webhostapp.com/YT?todo=end&list=" + listID;
+        }
     } else {
         changeVideo(id);
     }
