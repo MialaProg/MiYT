@@ -1,4 +1,4 @@
-console.log('Loop ID24');
+console.log('Loop ID40');
 
 // Glbl Vars
 var player = false;
@@ -47,19 +47,40 @@ function changeVideo(nid) {
     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - MialaMusic Playlist Randomer';
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
-    if (lcl_LOADED && !isNaN(lcl_pl_id)) {
-        lcl_save_IN_list('watch_id', id, lcl_pl_id);
-    }
+    try {
+        if (lcl_LOADED && !isNaN(lcl_pl_id)) {
+            lcl_save_IN_list('watch_id', id, lcl_pl_id);
+        }
+    } catch (error) {console.log(error)}    
 
-    if (pl_view !== false){
-        try {
-            if (pl_view_active !== false){
-                document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
-            }
-        } catch (error) {}
-        pl_view_active = id;
-        document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
-    }
+    try{
+        if (pl_view !== false){
+            try {
+                if (pl_view_active !== false){
+                    document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
+                }
+            } catch (error) {}
+            pl_view_active = id;
+            document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
+        }
+    
+    } catch (error) {console.log(error)}  
+
+    outro_pass_time = 1;
+    try{
+        let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + vid_id + '&format=json';
+
+        fetch(apiUrl)
+        .then(response => response.json())
+        .then(data => {
+            let author_url = data.author_url;
+            if (author_url in ytb_outro_pass) {
+                outro_pass_time = ytb_outro_pass[author_url];
+            } 
+        })
+        .catch(error => console.log(`SetTitleERR #${my_id} : ${error}`));
+        
+    } catch (error) {console.log(error)}  
 }
 
 // <<| |>>
@@ -145,7 +166,7 @@ function pageUpdate() {
             if (currentState === 0) {
                 next();
             } else if (currentState === 1 && duration > 30) {
-                if (currentTime > (duration - 2)) {
+                if (currentTime > (duration - outro_pass_time)) {
                     next();
                 }
             } else if (currentTime < 2) {

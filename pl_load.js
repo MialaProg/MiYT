@@ -1,5 +1,11 @@
 console.log('PLLOAD ID09');
 
+//Perma data
+var ytb_outro_pass = {
+    //url : secondes d'outro
+    "https://www.youtube.com/@originalsoundtrack4548": 30
+};
+
 //Glbl Vars
 if (typeof lcl_LOADED === 'undefined') {
     var lcl_LOADED = false;
@@ -21,6 +27,7 @@ var listID = params.get("list");
 var id = 0;
 var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 var playlist = pl_txt.split(';');
+var outro_pass_time = 1;
 
 var lcl_pl_id = NaN;
 
