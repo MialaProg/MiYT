@@ -98,7 +98,7 @@ body.innerHTML =
         }">
             PiP</button> -->
             
-        <span style="display:inline-block;width: 4vw;">
+        <span style="display:inline-block;width: 4vw;"></span>
         <button id="reset_btn" class="button is-warning">
             <span class="material-symbols-outlined gfonticon_button icon is-small">
                 playlist_remove
