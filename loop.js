@@ -67,21 +67,23 @@ function changeVideo(nid) {
     } catch (error) {console.log(error)}  
 
     outro_skip_time = 1;
-    try{
-        let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + vid_id + '&format=json';
+    if (outro_skip){
+        try{
+            let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + vid_id + '&format=json';
 
-        fetch(apiUrl)
-        .then(response => response.json())
-        .then(data => {
-            let author_url = data.author_url;
-            if (author_url in ytb_outro_pass) {
-                outro_skip_time = ytb_outro_pass[author_url];
-                console.log('Set Outro Skipper to ' + outro_skip_time);
-            } 
-        })
-        .catch(error => console.log(`SetTitleERR #${my_id} : ${error}`));
-        
-    } catch (error) {console.log(error)}  
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                let author_url = data.author_url;
+                if (author_url in ytb_outro_pass) {
+                    outro_skip_time = ytb_outro_pass[author_url];
+                    console.log('Set Outro Skipper to ' + outro_skip_time);
+                } 
+            })
+            .catch(error => console.log(`SetTitleERR #${my_id} : ${error}`));
+            
+        } catch (error) {console.log(error)}  
+    }
 }
 
 // <<| |>>

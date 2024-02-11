@@ -1,4 +1,4 @@
-console.log('PLLOAD ID09');
+console.log('PLLOAD ID43');
 
 //Perma data
 var ytb_outro_pass = {
@@ -27,7 +27,15 @@ var listID = params.get("list");
 var id = 0;
 var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 var playlist = pl_txt.split(';');
+
+var outro_skip = true;
 var outro_skip_time = 1;
+var checkbox_skip = document.getElementById("SkipOutroSw");
+checkbox_skip.addEventListener("change", function () {
+    outro_skip = checkbox_skip.checked;
+    outro_skip_time = 1;
+    // setBackgroundAction();
+});
 
 var lcl_pl_id = NaN;
 
