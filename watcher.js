@@ -1,4 +1,4 @@
-console.log('MiWatcher ID15');
+console.log('MiWatcher ID44');
 
 // File: Create Watcher Page
 
@@ -98,18 +98,26 @@ body.innerHTML =
         }">
             PiP</button> -->
     </div>
-    <div class="field">
-        <label for="PauseForbidSw">Lecture automatique (pause interdite):</label><br><span style="display:inline-block;width: 2vw;"></span>
-        <label for="PauseForbidSw">Au début uniquement</label>
-        <input id="PauseForbidSw" type="checkbox" name="PauseForbidSw" class="switch is-danger">
-        <label for="PauseForbidSw" style="height: 0.5em; padding-left: 3.5rem;">Pendant toute la video</label>
-    </div>
-    
-    <div class="field">
-        <label for="SkipOutroSw">Skipper les outro:</label><br><span style="display:inline-block;width: 2vw;"></span>
-        <label for="SkipOutroSw">Désactiver</label>
-        <input id="SkipOutroSw" type="checkbox" name="SkipOutroSw" class="switch is-success" checked>
-        <label for="SkipOutroSw" style="height: 0.5em; padding-left: 3.5rem;">Activer</label>
+
+    <div class="box" style="
+        background-color: #005b42;
+        border-radius: 18px;
+        box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10), 0 0 0 1px rgb(10 10 10);
+        color: #fff;
+    ">
+        <div class="field">
+            <label for="PauseForbidSw">Lecture automatique (pause interdite):</label><br><span style="display:inline-block;width: 2vw;"></span>
+            <label for="PauseForbidSw">Au début uniquement</label>
+            <input id="PauseForbidSw" type="checkbox" name="PauseForbidSw" class="switch is-danger">
+            <label for="PauseForbidSw" style="height: 0.5em; padding-left: 3.5rem;">Pendant toute la video</label>
+        </div>
+        
+        <div class="field">
+            <label for="SkipOutroSw">Skipper les outro:</label><br><span style="display:inline-block;width: 2vw;"></span>
+            <label for="SkipOutroSw">Désactiver</label>
+            <input id="SkipOutroSw" type="checkbox" name="SkipOutroSw" class="switch is-success" checked>
+            <label for="SkipOutroSw" style="height: 0.5em; padding-left: 3.5rem;">Activer</label>
+        </div>
     </div>
     <br>
 
