@@ -80,7 +80,7 @@ function changeVideo(nid) {
                     console.log('Set Outro Skipper to ' + outro_skip_time);
                 } 
             })
-            .catch(error => console.log(`SetTitleERR #${my_id} : ${error}`));
+            .catch(error => console.log(`Set Outro SkipperERR #${id} : ${error}`));
             
         } catch (error) {console.log(error)}  
     }

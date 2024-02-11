@@ -1,4 +1,4 @@
-console.log('MiWatcher ID44');
+console.log('MiWatcher ID45');
 
 // File: Create Watcher Page
 
@@ -97,6 +97,13 @@ body.innerHTML =
             video.requestPictureInPicture();
         }">
             PiP</button> -->
+            
+        <span style="display:inline-block;width: 4vw;">
+        <button id="reset_btn" class="button is-warning">
+            <span class="material-symbols-outlined gfonticon_button icon is-small">
+                playlist_remove
+            </span>
+        </button>
     </div>
 
     <div class="box" style="
@@ -129,13 +136,6 @@ body.innerHTML =
     </div>
     <br>
 
-    <div class="buttons">
-        <button id="reset_btn" class="button is-warning">
-            <span class="material-symbols-outlined gfonticon_button icon is-small">
-                restart_alt
-            </span>
-        </button>
-    </div>
     </div>
 <div class="column has-text-danger-light has-background-dark overflow-x-hidden scroll" id="pl_view">
 </div>
