@@ -261,7 +261,7 @@ function onYouTubeIframeAPIReady() {
 
     setInterval(pageUpdate, 1000);
 
-    setBackgroundAction();
+    // setBackgroundAction();
 }
 
 function waitPlayer() {
@@ -288,7 +288,7 @@ function waitPlayer() {
 
 checkbox_nopause.addEventListener("change", function () {
     nopause = checkbox_nopause.checked;
-    setBackgroundAction();
+    // setBackgroundAction();
 });
 
 waitPlayer();
