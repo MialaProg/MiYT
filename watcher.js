@@ -133,6 +133,33 @@ body.innerHTML =
             <input id="LoopPlaySw" type="checkbox" name="LoopPlaySw" class="switch is-link">
             <label for="LoopPlaySw" style="height: 0.5em; padding-left: 3.5rem;">Activée</label>
         </div>
+
+        <div class="field is-grouped">
+            <p class="control"> 
+                <button id="reset_btn" class="button is-success">
+                    <span class="material-symbols-outlined gfonticon_button icon is-small">
+                    download_for_offline
+                    </span>
+                </button>
+            </p>
+            <p class="control"> 
+                <div class="file is-warning">
+                <label class="file-label">
+                    <input class="file-input" type="file" name="resume" id="fichierRestauration">
+                    <span class="file-cta">
+                        <span class="file-icon">
+                            <span class="material-symbols-outlined gfonticon_button icon is-small">
+                                backup
+                            </span>
+                        </span>
+                        <span class="file-label">
+                            Choose a file…
+                        </span>
+                    </span>
+                </label>
+                </div>
+            </p>
+        </div>
     </div>
     <br>
 
