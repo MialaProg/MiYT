@@ -136,7 +136,7 @@ body.innerHTML =
 
         <div class="field is-grouped">
             <p class="control"> 
-                <button id="reset_btn" class="button is-success">
+                <button id="SaveButton" class="button is-success">
                     <span class="material-symbols-outlined gfonticon_button icon is-small">
                     download_for_offline
                     </span>
@@ -145,7 +145,7 @@ body.innerHTML =
             <p class="control"> 
                 <div class="file is-warning">
                 <label class="file-label">
-                    <input class="file-input" type="file" name="resume" id="fichierRestauration">
+                    <input class="file-input" type="file" name="resume" id="RestFile">
                     <span class="file-cta">
                         <span class="file-icon">
                             <span class="material-symbols-outlined gfonticon_button icon is-small">
