@@ -1,4 +1,4 @@
-console.log('MiWatcher ID45');
+console.log('MiWatcher ID02');
 
 // File: Create Watcher Page
 
@@ -10,6 +10,7 @@ var scr_list = [
     "https://www.youtube.com/iframe_api",
     "https://mialaprog.github.io/MiYT/lib/lcl_svg.js", // +  Math.random(), //MàJ auto
     "https://mialaprog.github.io/MiYT/lib/utilities.js",
+    "https://mialaprog.github.io/MiYT/lib/inFile_svg.js",
     "https://mialaprog.github.io/MiYT/ext/jquery.js",
     "https://mialaprog.github.io/MiYT/lib/stop_pub.js"
 ];
