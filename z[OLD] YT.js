@@ -1,8 +1,8 @@
 console.log('YT.js >> V2.02.27');
 
 var player = false;
-if (typeof lcl_LOADED === 'undefined') {
-    var lcl_LOADED = false;
+if (typeof $LOCAL_STORAGE === 'undefined') {
+    var $LOCAL_STORAGE = false;
 }
 var lcl_pl_id = NaN;
 
@@ -145,7 +145,7 @@ function changeVideo(vid_id) {
     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - MialaMusic Playlist Randomer';
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
-    if (lcl_LOADED && !isNaN(lcl_pl_id)) {
+    if ($LOCAL_STORAGE && !isNaN(lcl_pl_id)) {
         lcl_save_IN_list('watch_id', id, lcl_pl_id);
     }
 }
@@ -378,9 +378,9 @@ function waitLib() {
     var lcl_REPRISE = false;
 
 
-    if (lcl_LOADED || waitLibI == 11) {
+    if ($LOCAL_STORAGE || waitLibI == 11) {
 
-        if (lcl_LOADED) {
+        if ($LOCAL_STORAGE) {
             let list_pl_id = lcl_load_list('plid');
             let lcl_pl_id = list_pl_id.indexOf(listID);
 
@@ -407,7 +407,7 @@ function waitLib() {
 
         let list_length = my_playlist.length;
         if (list_length > 1) {
-            if (!lcl_LOADED) { shuffleAsk(); }
+            if (!$LOCAL_STORAGE) { shuffleAsk(); }
 
             sendToServer(my_playlist_txt, listID, list_length);
             try {

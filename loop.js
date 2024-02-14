@@ -22,7 +22,7 @@ function onPlayerReady(event) {
 //     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - MialaMusic Playlist Randomer';
 //     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
-//     if (lcl_LOADED && !isNaN(lcl_pl_id)) {
+//     if ($LOCAL_STORAGE && !isNaN(lcl_pl_id)) {
 //         lcl_save_IN_list('watch_id', id, lcl_pl_id);
 //     }
 
@@ -48,7 +48,7 @@ function changeVideo(nid) {
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
     try {
-        if (lcl_LOADED && !isNaN(lcl_pl_id)) {
+        if ($LOCAL_STORAGE && !isNaN(lcl_pl_id)) {
             lcl_save_IN_list('watch_id', id, lcl_pl_id);
         }
     } catch (error) {console.log(error)}    

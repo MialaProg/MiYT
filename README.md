@@ -20,3 +20,8 @@ F : Finale => Releases disponible, point de sauvegarde
 3- watcher.js => mise en page du lecteur<br>
 3- pl_load.js => traitement de la playlist<br>
 4- loop.js => Code s'executant en arrière plan<br>
+
+## Infos sur les variables:
+Forme de la variable (xxx: nom) | Signification / Valeur
+ --- | --- 
+$XXX | True si Xxx est chargé.e.

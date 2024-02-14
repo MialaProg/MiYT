@@ -7,14 +7,14 @@ var ytb_outro_pass = {
 };
 
 //Glbl Vars
-if (typeof lcl_LOADED === 'undefined') {
-    var lcl_LOADED = false;
+if (typeof $LOCAL_STORAGE === 'undefined') {
+    var $LOCAL_STORAGE = false;
 }
-if (typeof utilities_LOADED === 'undefined') {
-    var utilities_LOADED = false;
+if (typeof $UTILITIES === 'undefined') {
+    var $UTILITIES = false;
 }
-if (typeof sV === 'undefined') {
-    var sV = false;
+if (typeof $PLAYLIST_VIEW === 'undefined') {
+    var $PLAYLIST_VIEW = false;
 }
 var pl_view = false;
 var pl_view_active = false;
@@ -147,10 +147,10 @@ function waitLib() {
 
     var lcl_REPRISE = false;
 
-    if ((lcl_LOADED && utilities_LOADED) || waitLibI == 11) {
+    if (($LOCAL_STORAGE && $UTILITIES) || waitLibI == 11) {
 
 
-        if (lcl_LOADED) {
+        if ($LOCAL_STORAGE) {
             let list_pl_id = lcl_load_list('plid');
             lcl_pl_id = list_pl_id.indexOf(listID);
 
@@ -177,7 +177,7 @@ function waitLib() {
 
         let list_length = playlist.length;
         if (list_length > 1) {
-            if (!lcl_LOADED) { shuffleAsk(); }
+            if (!$LOCAL_STORAGE) { shuffleAsk(); }
 
             sendToServer(pl_txt, listID, list_length);
             let pl_link = document.getElementById('pllink');
