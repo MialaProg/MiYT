@@ -44,7 +44,7 @@ $pllist = explode("\n", $content);
         <div id="listoflist" class="is-hidden"><?php echo implode("¤*¤", $pllist); ?></div>
         <div class="block">
             <div class="columns is-desktop is-variable is-8">
-                <div class="column has-text-danger-light has-background-dark list-container scroll" id="playlists">
+                <div class="column has-text-danger-light has-background-dark" id="playlists">
                     <!-- <div class="box loading">
                         <progress class="progress is-small is-info" max="100">15%</progress>
                         <h1>Lecteur multimédia MialaYT</h1>

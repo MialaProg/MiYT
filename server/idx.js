@@ -25,7 +25,7 @@ function ListPl() {
     let playlists = document.getElementById("listoflist").innerHTML.split("¤*¤");
 
     let pl_view_HTML = `
-    <div class="card has-background-info-dark has-text-primary-light">
+    <div class="card has-background-info-dark has-text-primary-light list-container scroll">
     <header class="card-header">
         <p class="card-header-title">
         Vidéos de la liste de lecture (Beta)  
