@@ -26,6 +26,7 @@ else:
         <html>
 
             <head>
+                <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/icon.png" type="image/png">
             </head>
 
             <body>

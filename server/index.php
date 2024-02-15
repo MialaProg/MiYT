@@ -28,6 +28,8 @@ $pllist = explode("\n", $content);
     <title>Accueil || Lecteur MiYT</title>
     <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/icon.png" type="image/png">
 
+    <script type="text/javascript" src="https://mialaprog.github.io/MiYT/server/idx.js"></script>
+
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -38,27 +40,35 @@ $pllist = explode("\n", $content);
         de le consulter, veuillez le
         quitter immediatement.</h4>
     <div class="content">
+        <div class="listoflist"><?php echo implode("¤*¤", $pllist); ?></div>
         <div class="block">
-
-            <div class="box">
-                <h1>Lecteur multimédia MialaYT</h1>
-                <h2>Dernières playlist jouées (veuillez activer les popups depuis ce site: miala.000webhostapp.com): </h2>
-                <ul>
-                    <?php
-                    $i = 0;
-                    foreach ($pllist as $pl) {
-                        if ($i % 2 === 1) {
-                            $name = $pllist[$i - 1];
-                            echo '<li><a href="https://miala.000webhostapp.com/YT/www.php?list=' . $pl . '&title=' . $name . '">' . $name . '</a></li>';
-                        }
-                        $i += 1;
-                    }
-                    ?>
-                </ul>
+            <div class="columns is-desktop is-variable is-8">
+                <div class="column has-text-danger-light has-background-dark">
+                    <div class="box loading">
+                        <progress class="progress is-small is-info" max="100">15%</progress>
+                        <h1>Lecteur multimédia MialaYT</h1>
+                        <h2>Dernières playlist jouées (veuillez activer les popups depuis ce site: miala.000webhostapp.com): </h2>
+                        <ul>
+                            <?php
+                            $i = 0;
+                            foreach ($pllist as $pl) {
+                                if ($i % 2 === 1) {
+                                    $name = $pllist[$i - 1];
+                                    echo '<li><a href="https://miala.000webhostapp.com/YT/www.php?list=' . $pl . '&title=' . $name . '">' . $name . '</a></li>';
+                                }
+                                $i += 1;
+                            }
+                            ?>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="column has-text-danger-light has-background-dark">
+                    <iframe width="100%" height="100%" src="https://mialaprog.github.io/MiYT/"></iframe>
+                </div>
             </div>
         </div>
     </div>
-    <iframe width="100%" height="100%" src="https://mialaprog.github.io/MiYT/"></iframe>
 
 </body>
 
