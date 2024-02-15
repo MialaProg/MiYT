@@ -65,7 +65,7 @@ $pllist = explode("\n", $content);
                 </div>
                 
                 <div class="column has-text-danger-light has-background-dark">
-                    <iframe width="100%" height="100%" src="https://mialaprog.github.io/MiYT/"></iframe>
+                    <iframe width="100%" height="100%" src="https://mialaprog.github.io/MiYT/" style="border-radius: 0.25rem;"></iframe>
                 </div>
             </div>
         </div>
