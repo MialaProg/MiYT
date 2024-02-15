@@ -1,4 +1,4 @@
-console.log('SrvIdx ID-05');
+console.log('SrvIdx ID-06');
 
 function setYouTubePlDt(PlID) {
     let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/playlist?list=' + PlID + '&format=json';
@@ -22,7 +22,7 @@ function setYouTubePlDt(PlID) {
 function ListPl() {
    
         
-    let playlists = document.getElementById("listoflist").innerHTML.split("¤*¤");
+    let playlists = document.getElementById("listoflist").innerHTML.split("¤*¤").reverse();
 
     let pl_view_HTML = `
     <div class="card has-background-info-dark has-text-primary-light list-container scroll">
