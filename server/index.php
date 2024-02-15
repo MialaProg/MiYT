@@ -40,11 +40,11 @@ $pllist = explode("\n", $content);
         de le consulter, veuillez le
         quitter immediatement.</h4>
     <div class="content">
-        <div class="listoflist"><?php echo implode("¤*¤", $pllist); ?></div>
+        <div id="listoflist"><?php echo implode("¤*¤", $pllist); ?></div>
         <div class="block">
             <div class="columns is-desktop is-variable is-8">
-                <div class="column has-text-danger-light has-background-dark">
-                    <div class="box loading">
+                <div class="column has-text-danger-light has-background-dark list-container scroll" id="playlists">
+                    <!-- <div class="box loading">
                         <progress class="progress is-small is-info" max="100">15%</progress>
                         <h1>Lecteur multimédia MialaYT</h1>
                         <h2>Dernières playlist jouées (veuillez activer les popups depuis ce site: miala.000webhostapp.com): </h2>
@@ -60,7 +60,7 @@ $pllist = explode("\n", $content);
                             }
                             ?>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
                 
                 <div class="column has-text-danger-light has-background-dark">
