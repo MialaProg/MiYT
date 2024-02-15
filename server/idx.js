@@ -1,4 +1,4 @@
-console.log('SrvIdx ID-03');
+console.log('SrvIdx ID-04');
 
 function setYouTubePlDt(PlID) {
     let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/playlist?list=' + PlID + '&format=json';
@@ -51,7 +51,7 @@ function ListPl() {
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                        <p id=pl-txt-${pl}">
+                        <p id="pl-txt-${pl}">
                         ${name}
                         <small>#${i} : ${pl}</small>
                         </p>
