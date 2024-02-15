@@ -1,4 +1,5 @@
-
+document.addEventListener('DOMContentLoaded', function() {
+    
 let playlists = document.getElementById("listoflist").innerHTML.split("¤*¤");
 
 let pl_view_HTML = `
@@ -50,3 +51,5 @@ pl_view_HTML += `</ol>
 
 var pl_view = document.getElementById("playlists");
 pl_view.innerHTML = pl_view_HTML;
+
+});

@@ -11,7 +11,7 @@ $pllist = explode("\n", $content);
 ?>
 
 
-<html lang="fr">
+<html lang="fr" class="has-text-danger-light has-background-dark">
 
 <head>
     <meta charset="utf-8">
@@ -40,7 +40,7 @@ $pllist = explode("\n", $content);
         de le consulter, veuillez le
         quitter immediatement.</h4>
     <div class="content">
-        <div id="listoflist"><?php echo implode("¤*¤", $pllist); ?></div>
+        <div id="listoflist" class="is-hidden"><?php echo implode("¤*¤", $pllist); ?></div>
         <div class="block">
             <div class="columns is-desktop is-variable is-8">
                 <div class="column has-text-danger-light has-background-dark list-container scroll" id="playlists">
@@ -50,14 +50,14 @@ $pllist = explode("\n", $content);
                         <h2>Dernières playlist jouées (veuillez activer les popups depuis ce site: miala.000webhostapp.com): </h2>
                         <ul>
                             <?php
-                            $i = 0;
-                            foreach ($pllist as $pl) {
-                                if ($i % 2 === 1) {
-                                    $name = $pllist[$i - 1];
-                                    echo '<li><a href="https://miala.000webhostapp.com/YT/www.php?list=' . $pl . '&title=' . $name . '">' . $name . '</a></li>';
-                                }
-                                $i += 1;
-                            }
+                            // $i = 0;
+                            // foreach ($pllist as $pl) {
+                            //     if ($i % 2 === 1) {
+                            //         $name = $pllist[$i - 1];
+                            //         echo '<li><a href="https://miala.000webhostapp.com/YT/www.php?list=' . $pl . '&title=' . $name . '">' . $name . '</a></li>';
+                            //     }
+                            //     $i += 1;
+                            // }
                             ?>
                         </ul>
                     </div> -->
