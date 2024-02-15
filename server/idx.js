@@ -1,4 +1,4 @@
-console.log('SrvIdx ID-04');
+console.log('SrvIdx ID-05');
 
 function setYouTubePlDt(PlID) {
     let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/playlist?list=' + PlID + '&format=json';
@@ -14,7 +14,7 @@ function setYouTubePlDt(PlID) {
 
         let img = data.thumbnail_url;
         let imgElement = document.getElementById(`pl-img-${PlID}`)
-        imgElement.innerHTML = img;
+        imgElement.src = img;
       })
       .catch(error => console.log(`SetDataERR #${PlID} : ${error}`));
 }
