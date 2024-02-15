@@ -1,4 +1,4 @@
-console.log('SrvIdx ID-06');
+console.log('SrvIdx ID-07');
 
 function setYouTubePlDt(PlID) {
     let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/playlist?list=' + PlID + '&format=json';
@@ -36,7 +36,7 @@ function ListPl() {
     `;
 
     playlists.forEach((pl, i) => {
-        if (i % 2 === 1) {
+        if (i % 2 === 0) {
             let name = playlists[i - 1];
             let link = 'https://miala.000webhostapp.com/YT/www.php?list=' + pl + '&title=' + name;
             // pl_view_HTML += '<li><a href="' + link + '">' + name + '</a></li>';
@@ -73,7 +73,7 @@ function ListPl() {
     pl_view.innerHTML = pl_view_HTML;
 
     playlists.forEach((pl, index) => {
-        if (index % 2 === 1) {
+        if (index % 2 === 0) {
             setYouTubePlDt(pl);
         }
     });
