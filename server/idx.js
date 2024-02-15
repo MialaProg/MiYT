@@ -1,4 +1,25 @@
-document.addEventListener('DOMContentLoaded', function() {
+
+function setYouTubePlDt(PlID) {
+    let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + PlID + '&format=json';
+
+  
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(data => {
+        // console.log(data);
+        let title = data.title;
+        let txtElement = document.getElementById(`pl-txt-${PlID}`)
+        txtElement.innerHTML = title;
+
+        let img = data.thumbnail_url;
+        let imgElement = document.getElementById(`pl-img-${PlID}`)
+        imgElement.innerHTML = img;
+      })
+      .catch(error => console.log(`SetDataERR #${PlID} : ${error}`));
+}
+
+function ListPl() {
+   
     
 let playlists = document.getElementById("listoflist").innerHTML.split("¤*¤");
 
@@ -25,12 +46,12 @@ playlists.forEach((pl, index) => {
             <article id="pl_view_article_${i}" class="media video_selection">
                 <figure class="media-left" style="width: 7rem">
                     <p class="image is-4by3">
-                    <img src="https://i.ytimg.com/vi/${pl}/hqdefault.jpg">
+                    <img id="pl-img-${pl}" src="https://i.ytimg.com/vi/${pl}/hqdefault.jpg">
                     </p>
                 </figure>
                 <div class="media-content">
                     <div class="content">
-                    <p id="pl_view_txt_${i}">
+                    <p id=pl-txt-${pl}">
                     ${name}
                     <small>#${i} : ${pl}</small>
                     </p>
@@ -52,4 +73,8 @@ pl_view_HTML += `</ol>
 var pl_view = document.getElementById("playlists");
 pl_view.innerHTML = pl_view_HTML;
 
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    ListPl();
 });
