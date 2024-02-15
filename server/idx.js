@@ -1,3 +1,4 @@
+console.log('SrvIdx ID-01');
 
 function setYouTubePlDt(PlID) {
     let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + PlID + '&format=json';
