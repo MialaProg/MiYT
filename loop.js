@@ -19,6 +19,7 @@ function onPlayerReady(event) {
     smallElement.innerText = spanElement.innerText;
     spanElement.replaceWith(smallElement);
     smallElement.classList.remove("tag");
+    smallElement.id = "infos_vid";
 
     var playerWidth = playerElement.offsetWidth;
     smallElement.style.width = playerWidth + "px";
@@ -56,7 +57,7 @@ function changeVideo(nid) {
     player.loadVideoById(vid_id);
     player.playVideo();
     document.title = 'Lecteur MiYT - Miala';
-    document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - MialaMusic Playlist Randomer';
+    document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - Lecteur MiYT';
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
     try {
