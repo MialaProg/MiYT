@@ -16,7 +16,7 @@ function onPlayerReady(event) {
 
     var spanElement = document.querySelector("#infos_vid");
     var smallElement = document.createElement("small");
-    smallElement.textContent = spanElement.textContent;
+    smallElement.innerText = spanElement.innerText;
     spanElement.replaceWith(smallElement);
     smallElement.classList.remove("tag");
 
