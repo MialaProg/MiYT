@@ -49,7 +49,7 @@ function ListPl() {
                 <article id="pl_view_article_${i}" class="media video_selection">
                     <figure class="media-left" style="width: 7rem">
                         <p class="image is-4by3">
-                        <img id="pl-img-${pl}" src="https://i.ytimg.com/vi/${pl}/hqdefault.jpg">
+                        <img id="pl-img-${pl}" src="https://i.ytimg.com/">
                         </p>
                     </figure>
                     <div class="media-content">
