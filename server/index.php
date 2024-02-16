@@ -17,6 +17,13 @@ $pllist = explode("\n", $content);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property="og:title" content="Lecteur MiYT - Client YouTube alternatif">
+    <meta property="od:description" content="Objectif: permettre la lecture d'une vidéo / playliste YT (en mode aléatoire quelque soit
+    sa taille) directement depuis la barre de favoris sans installation requise.">
+    <meta name="description" content="Objectif: permettre la lecture d'une vidéo / playliste YT (en mode aléatoire quelque soit
+    sa taille) directement depuis la barre de favoris sans installation requise.">
+    
+
     <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma.min.css">
 
     <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/lib/style.css">
@@ -37,9 +44,7 @@ $pllist = explode("\n", $content);
 </head>
 
 <body>
-    <h4>Ce site est prévu pour un usage privé et educatif uniquement. Si le développeur ne vous a donné l'autorisation
-        de le consulter, veuillez le
-        quitter immediatement.</h4>
+    <h4>Ce site est prévu pour un usage educatif uniquement.</h4>
     <div class="content">
         <div id="listoflist" class="is-hidden"><?php echo implode("¤*¤", $pllist); ?></div>
         <div class="block">
