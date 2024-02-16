@@ -1,4 +1,4 @@
-console.log('Loop ID45');
+console.log('Loop ID50');
 
 // Glbl Vars
 var player = false;
@@ -7,9 +7,21 @@ var nopause = 0;
 var id_played = -1;
 
 function onPlayerReady(event) {
-    console.log(event, ': Player Ready => ', player);
+    console.log('MiYT Player Ready');
     event.target.playVideo();
     player.playVideo();
+
+    var playerElement = document.querySelector("#player");
+    playerElement.style.borderRadius = "18px";
+
+    var spanElement = document.querySelector("#infos_vid");
+    var smallElement = document.createElement("small");
+    smallElement.textContent = spanElement.textContent;
+    spanElement.replaceWith(smallElement);
+    smallElement.classList.remove("tag");
+
+    var playerWidth = playerElement.offsetWidth;
+    smallElement.style.width = playerWidth + "px";
 }
 
 // function changeVideo_hist(vid_id) {
