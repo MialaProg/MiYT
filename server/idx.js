@@ -9,11 +9,14 @@ function setYouTubePlDt(PlID) {
       .then(data => {
         // console.log(data);
         let title = data.title;
-        let txtElement = document.getElementById(`pl-txt-${PlID}`)
+        let txtElement = document.getElementById(`pl-txt-${PlID}`);
         txtElement.innerHTML = title;
+        let a = document.getElementById(`pl_view_${PlID}`);
+        a.href = 'https://miala.000webhostapp.com/YT/www.php?list=' + PlID + '&title=' + title;
+
 
         let img = data.thumbnail_url;
-        let imgElement = document.getElementById(`pl-img-${PlID}`)
+        let imgElement = document.getElementById(`pl-img-${PlID}`);
         imgElement.src = img;
       })
       .catch(error => console.log(`SetDataERR #${PlID} : ${error}`));
@@ -37,12 +40,12 @@ function ListPl() {
 
     playlists.forEach((pl, i) => {
         if (i % 2 === 0) {
-            let name = playlists[i - 1];
+            let name = playlists[i + 1];
             let link = 'https://miala.000webhostapp.com/YT/www.php?list=' + pl + '&title=' + name;
             // pl_view_HTML += '<li><a href="' + link + '">' + name + '</a></li>';
             
             pl_view_HTML += `
-            <li><a id="pl_view_${i}" class="has-text-success-light" href="${link}">
+            <li><a id="pl_view_${pl}" class="has-text-success-light" href="${link}">
                 <article id="pl_view_article_${i}" class="media video_selection">
                     <figure class="media-left" style="width: 7rem">
                         <p class="image is-4by3">
