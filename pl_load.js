@@ -143,6 +143,8 @@ window.addEventListener('resize', function() {
     let bodyWidth = document.getElementsByTagName('body').clientWidth;
     player.width = bodyWidth;
     player.height = bodyWidth * 360 / 640;
+
+    console.log('>>Resize: ' + bodyWidth);
 });
 
 // Attente du chargement des bibliothèques externes: lcl, ...
