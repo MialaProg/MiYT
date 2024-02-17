@@ -141,8 +141,8 @@ window.addEventListener('resize', function() {
     // Code à exécuter lorsque la fenêtre est redimensionnée
     let playerIframe = document.getElementById('player');
     let bodyWidth = document.getElementsByTagName('body')[0].clientWidth;
-    player.width = bodyWidth;
-    player.height = bodyWidth * 360 / 640;
+    playerIframe.width = bodyWidth;
+    playerIframe.height = bodyWidth * 360 / 640;
 
     console.log('>>Resize: ' + bodyWidth);
 });
