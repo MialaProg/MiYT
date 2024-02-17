@@ -25,29 +25,6 @@ function onPlayerReady(event) {
     smallElement.style.width = playerWidth + "px";
 }
 
-// function changeVideo_hist(vid_id) {
-//     console.log("VidChg: " + vid_id);
-//     player.pauseVideo();
-//     id_played = id;
-//     player.loadVideoById(vid_id);
-//     player.playVideo();
-//     document.title = 'Lecteur MiYT - Miala';
-//     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - MialaMusic Playlist Randomer';
-//     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
-
-//     if ($LOCAL_STORAGE && !isNaN(lcl_pl_id)) {
-//         lcl_save_IN_list('watch_id', id, lcl_pl_id);
-//     }
-
-//     if (pl_view !== false){
-//         if (pl_view_active !== false){
-//             document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
-//         }
-//         pl_view_active = id;
-//         document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
-//     }
-// }
-
 function changeVideo(nid) {
     id_played = id = parseInt(nid);
     console.log("VidChg: " + id);
@@ -61,41 +38,60 @@ function changeVideo(nid) {
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
     try {
-        if ($LOCAL_STORAGE && !isNaN(lcl_pl_id)) {
-            lcl_save_IN_list('watch_id', id, lcl_pl_id);
-        }
-    } catch (error) {console.log(error)}    
-
-    try{
-        if ($PLAYLIST_VIEW !== false){
+        if ($LOCAL_STORAGE) {
             try {
-                if (pl_view_active !== false){
+                if (!isNaN(lcl_pl_id)) {
+                    lcl_save_IN_list('watch_id', id, lcl_pl_id);
+                }
+            } catch (error) { }
+            try {
+                let list_vid_id = lcl_load_list('vidid');
+                lcl_vid_id = list_vid_id.indexOf(vid_id);
+                if (lcl_vid_id == -1){
+                    lcl_vid_id = list_vid_id.length;
+                    list_vid_id.push(vid_id);
+                    lcl_save_list('vidid', list_vid_id);
+                }else{
+                    let progression = lcl_load_LIST_IN_list('vid_pgs', lcl_vid_id);
+                    if ((progression[1] > 440) && (parseInt(progression[1]) - parseInt(progression[0]) > 130)) {
+                        player.seekTo(progression[0]);
+                    }
+                }
+                 
+            } catch (error) { console.log(error) }
+        }
+    } catch (error) { }
+
+    try {
+        if ($PLAYLIST_VIEW !== false) {
+            try {
+                if (pl_view_active !== false) {
                     document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
                 }
-            } catch (error) {}
+            } catch (error) { }
             pl_view_active = id;
             document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
         }
-    
-    } catch (error) {console.log(error)}  
+
+    } catch (error) { console.log(error) }
 
     outro_skip_time = 1;
-    if (outro_skip){
-        try{
+    if (outro_skip) {
+        try {
             let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=' + vid_id + '&format=json';
 
             fetch(apiUrl)
-            .then(response => response.json())
-            .then(data => {
-                let author_url = data.author_url;
-                if (author_url in ytb_outro_pass) {
-                    outro_skip_time = ytb_outro_pass[author_url];
-                    console.log('Set Outro Skipper to ' + outro_skip_time);
-                } 
-            })
-            .catch(error => console.log(`Set Outro SkipperERR #${id} : ${error}`));
-            
-        } catch (error) {console.log(error)}  
+                .then(response => response.json())
+                .then(data => {
+                    let author_url = data.author_url;
+                    if (author_url in ytb_outro_pass) {
+                        outro_skip_time = ytb_outro_pass[author_url];
+                        console.log('Set Outro Skipper to ' + outro_skip_time);
+                    }
+                })
+                .catch(error => console.log(`Set Outro SkipperERR #${id} : ${error}`));
+
+        } catch (error) { console.log(error) }
     }
 }
 
@@ -191,6 +187,7 @@ function pageUpdate() {
                     console.log('Outro Skip');
                     next();
                 }
+                lcl_save_LIST_IN_list('vid_pgs', [currentTime, duration, Math.round(currentTime / duration * 100)], lcl_vid_id);
             } else if (currentTime < 2) {
                 console.log('Try play');
                 player.playVideo();
