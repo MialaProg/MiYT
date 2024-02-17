@@ -2,7 +2,14 @@
     padding-top: 1rem;
     padding-left: 3%;
     padding-right: 3%;
+    /* font-size: 1em; */
 }
+
+/* @media (max-width: 450px) {
+    .block {
+      font-size: 1.7em;
+    }
+} */
 
 /* .block .top-sep {
     padding-top: 3%; => inutile

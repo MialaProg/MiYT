@@ -30,6 +30,9 @@ window.stop();
 // Head Set
 // <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/icon.png" type="image/png"></link>
 head.innerHTML = `
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma.min.css">
 <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma-switch.min.css">
 

@@ -275,9 +275,12 @@ function onERR() {
 function onYouTubeIframeAPIReady() {
     console.log("onYouTubeIframeAPIReady run...");
 
+    let playerDivWidth = document.getElementById('player').clientWidth;
     player = new YT.Player('player', {
         videoId: playlist[id],
         playerVars: { 'autoplay': 1, 'picture-in-picture': 1 },
+        width: playerDivWidth,
+        height: playerDivWidth * 360 / 640,
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange,
