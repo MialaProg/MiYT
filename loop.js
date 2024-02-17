@@ -67,7 +67,7 @@ function changeVideo(nid) {
     } catch (error) {console.log(error)}    
 
     try{
-        if (pl_view !== false){
+        if ($PLAYLIST_VIEW !== false){
             try {
                 if (pl_view_active !== false){
                     document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');

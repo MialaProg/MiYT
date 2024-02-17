@@ -16,7 +16,6 @@ if (typeof $UTILITIES === 'undefined') {
 if (typeof $PLAYLIST_VIEW === 'undefined') {
     var $PLAYLIST_VIEW = false;
 }
-var pl_view = false;
 var pl_view_active = false;
 
 var currentUrl = window.location.href;

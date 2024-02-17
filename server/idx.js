@@ -31,7 +31,7 @@ function ListPl() {
     <div class="card has-background-info-dark has-text-primary-light list-container scroll">
     <header class="card-header">
         <p class="card-header-title">
-        Vidéos de la liste de lecture (Beta)  
+            Listes de lecture récemments jouées
         </p>
     </header>
     <div class="card-content">
