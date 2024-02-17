@@ -17,6 +17,7 @@ if (typeof $PLAYLIST_VIEW === 'undefined') {
     var $PLAYLIST_VIEW = false;
 }
 var pl_view_active = false;
+var lcl_vid_id = false;
 
 var currentUrl = window.location.href;
 var url = new URL(currentUrl);
@@ -127,7 +128,7 @@ function shuffleAsk() {
 }
 
 document.getElementById('reset_btn').onclick = function () {
-    var reponse = confirm("Souhaitez-vous réinitialiser les progressions pour toutes les listes de lecture ?\nPS: Autorisez les popups pour que cela fonctionne.");
+    var reponse = confirm("Souhaitez-vous réinitialiser les progressions pour toutes les listes de lecture et vidéos ?\nPS: Autorisez les popups pour que cela fonctionne.");
     let list_length = playlist.length;
 
     if (reponse) {
@@ -138,13 +139,12 @@ document.getElementById('reset_btn').onclick = function () {
 };
 
 window.addEventListener('resize', function() {
-    // Code à exécuter lorsque la fenêtre est redimensionnée
+    // Code à exécuter lorsque la fenêtre est redimensionnée  
     let playerIframe = document.getElementById('player');
-    let bodyWidth = document.getElementsByTagName('body')[0].clientWidth;
-    playerIframe.width = bodyWidth;
-    playerIframe.height = bodyWidth * 360 / 640;
+    let infoWidth = document.getElementById('infos_vid').offsetWidth ;
+    playerIframe.width = infoWidth;
+    playerIframe.height = infoWidth * 360 / 640;
 
-    console.log('>>Resize: ' + bodyWidth);
 });
 
 // Attente du chargement des bibliothèques externes: lcl, ...
@@ -181,6 +181,9 @@ function waitLib() {
                 lcl_save_LIST_IN_list('pl_ctn', playlist, lcl_pl_id);
                 lcl_save_IN_list('watch_id', 0, lcl_pl_id);
             }
+
+            
+
 
         }
 

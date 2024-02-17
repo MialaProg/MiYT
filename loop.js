@@ -168,14 +168,14 @@ function pageUpdate() {
 
             console.log('MiYT state: ' + currentTime + '/' + duration + ' => ' + currentState);
 
-            try {
-                if ('setPositionState' in navigator.mediaSession) {
-                    navigator.mediaSession.setPositionState({
-                        duration: duration,
-                        position: currentTime,
-                    });
-                }
-            } catch (error) { console.log('mediaSess set Pos impossible: ERR'); }
+            // try {
+            //     if ('setPositionState' in navigator.mediaSession) {
+            //         navigator.mediaSession.setPositionState({
+            //             duration: duration,
+            //             position: currentTime,
+            //         });
+            //     }
+            // } catch (error) { console.log('mediaSess set Pos impossible: ERR'); }
 
             if (currentTime < 10) {
                 if (video_title != '') {
