@@ -1,0 +1,29 @@
+{
+  "name": "Lecteur Miala YT",
+  "short_name": "MiYT",
+  "description": "Un lecteur vidéos et playlists alternatif à YouTube regorgant de fonctionnalitées !",
+  "icons": [
+    {
+      "src": "https://mialaprog.github.io/MiYT/lib/logo MiYT Tr Zoom.png",
+      "sizes": ["988x988"],
+      "type": "image/png"
+    },
+    {
+      "src": "https://mialaprog.github.io/MiYT/lib/logo MiYT 512x512.png",
+      "sizes": ["512x512"],
+      "type": "image/png"
+    },
+    {
+      "src": "https://mialaprog.github.io/MiYT/lib/logo MiYT 192x192.png",
+      "sizes": ["192x192"],
+      "type": "image/png"
+    }
+
+  ],
+  "start_url": "https://miala.000webhostapp.com/YT/",
+  "theme_color": "#FF0000",
+  "lang": "fr-fr",
+  "display": "minimal-ui",
+  "splash_screen": "https://mialaprog.github.io/MiYT/lib/icon.png"
+  
+}

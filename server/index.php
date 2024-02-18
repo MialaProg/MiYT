@@ -23,6 +23,7 @@ $pllist = explode("\n", $content);
     <meta name="description" content="Objectif: permettre la lecture d'une vidéo / playliste YT (en mode aléatoire quelque soit
     sa taille) directement depuis la barre de favoris sans installation requise.">
     
+    <link rel="manifest" href="https://mialaprog.github.io/MiYT/lib/MiYT.webmanifest">
 
     <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma.min.css">
 
