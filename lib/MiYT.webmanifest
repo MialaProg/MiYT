@@ -5,7 +5,7 @@
   "icons": [
     {
       "src": "https://mialaprog.github.io/MiYT/lib/logo MiYT Tr Zoom.png",
-      "sizes": "988x988",
+      "sizes": "945x945",
       "type": "image/png"
     },
     {
@@ -24,6 +24,19 @@
   "theme_color": "#FF0000",
   "lang": "fr-fr",
   "display": "minimal-ui",
-  "splash_screen": "https://mialaprog.github.io/MiYT/lib/icon.png"
+  "screenshots": [
+    {
+      "src": "https://mialaprog.github.io/MiYT/lib/",
+      "type": "image/png",
+      "sizes": "",
+      "form_factor": "wide"
+    },
+    {
+      "src": "https://mialaprog.github.io/MiYT/lib/",
+      "type": "image/png",
+      "sizes": "",
+      "form_factor": "wide"
+    }
+  ]
   
 }
