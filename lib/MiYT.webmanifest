@@ -5,17 +5,17 @@
   "icons": [
     {
       "src": "https://mialaprog.github.io/MiYT/lib/logo MiYT Tr Zoom.png",
-      "sizes": ["988x988"],
+      "sizes": "988x988",
       "type": "image/png"
     },
     {
       "src": "https://mialaprog.github.io/MiYT/lib/logo MiYT 512x512.png",
-      "sizes": ["512x512"],
+      "sizes": "512x512",
       "type": "image/png"
     },
     {
       "src": "https://mialaprog.github.io/MiYT/lib/logo MiYT 192x192.png",
-      "sizes": ["192x192"],
+      "sizes": "192x192",
       "type": "image/png"
     }
 
