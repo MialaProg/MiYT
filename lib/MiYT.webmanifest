@@ -28,14 +28,14 @@
     {
       "src": "https://mialaprog.github.io/MiYT/lib/capt_1.jpg",
       "type": "image/jpg",
-      "sizes": "",
+      "sizes": "1080x2400",
       "form_factor": "wide"
     },
     {
       "src": "https://mialaprog.github.io/MiYT/lib/capt_2.jpg",
       "type": "image/jpg",
-      "sizes": "",
-      "form_factor": "wide"
+      "sizes": "1080x2400",
+      "form_factor": "narrow"
     }
   ]
   
