@@ -82,7 +82,7 @@ body.innerHTML =
     <span class="tag is-danger"><a href="https://www.youtube.com/?Mi=Music" class="has-text-warning-light">YouTube</a></span>
     </div>
     <br><br>
-    <div id="player"></div>
+    <div id="player-box"><div id="player"></div></div>
     <br>
     <span id="infos_vid" class="tag">Chargement en cours... - MialaMusic</span><br><br>
     <br>
