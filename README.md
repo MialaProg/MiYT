@@ -7,11 +7,11 @@ Plus d'informations sur le projet ainsi que la mise en place / installation (mê
     https://mialaprog.github.io/MiYT/ (Version client uniquement)
 
 ## Codes de version:
-α : Ne fonctionne pas
-β : Certaines fonctionnalités ne fonctionnent pas 
-U : Unstable => Manque de tests 
-S : Stable => Fonctionne correctement (sauf bugs mineurs)
-F : Finale => Releases disponible, point de sauvegarde
+<br>α : Ne fonctionne pas
+<br>β : Certaines fonctionnalités ne fonctionnent pas 
+<br>U : Unstable => Manque de tests 
+<br>S : Stable => Fonctionne correctement (sauf bugs mineurs)
+<br>F : Finale => Releases disponible, point de sauvegarde
 
 ## Ordre d'execution et rôle:
 1- index.html (js) => code min à mettre en favoris <br>
