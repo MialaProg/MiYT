@@ -34,7 +34,7 @@ $pllist = explode("\n", $content);
 
 
     <title>Accueil || Lecteur MiYT</title>
-    <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/icon.png" type="image/png">
+    <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/logo%20MiYT%20192x192.png" type="image/png">
 
     <script type="text/javascript" src="https://mialaprog.github.io/MiYT/server/idx.js"></script>
     <script type="text/javascript" src="https://mialaprog.github.io/MiYT/lib/stop_pub.js"></script>

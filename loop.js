@@ -5,6 +5,7 @@ var player = false;
 var checkbox_nopause = document.getElementById("PauseForbidSw");
 var nopause = 0;
 var id_played = -1;
+var inChg = false;
 
 function onPlayerReady(event) {
     console.log('MiYT Player Ready');
@@ -25,10 +26,11 @@ function onPlayerReady(event) {
     smallElement.style.width = playerWidth + "px";
 }
 
-function changeVideo(nid) {
+function changeVideo(nid, pgs_rest = true) {
+    inChg = true;
     id_played = id = parseInt(nid);
     console.log("VidChg: " + id);
-    player.pauseVideo();
+    // player.pauseVideo();
 
     let vid_id = playlist[id]
     player.loadVideoById(vid_id);
@@ -37,7 +39,6 @@ function changeVideo(nid) {
     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - Lecteur MiYT';
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
-    try {
         if ($LOCAL_STORAGE) {
             try {
                 if (!isNaN(lcl_pl_id)) {
@@ -51,16 +52,15 @@ function changeVideo(nid) {
                     lcl_vid_id = list_vid_id.length;
                     list_vid_id.push(vid_id);
                     lcl_save_list('vidid', list_vid_id);
-                }else{
+                }else if (pgs_rest){
                     let progression = lcl_load_LIST_IN_list('vid_pgs', lcl_vid_id);
                     if ((progression[1] > 440) && (parseInt(progression[1]) - parseInt(progression[0]) > 130)) {
                         player.seekTo(progression[0]);
                     }
                 }
                  
-            } catch (error) { console.log(error) }
+            } catch (error) {}
         }
-    } catch (error) { }
 
     try {
         if ($PLAYLIST_VIEW !== false) {
@@ -93,6 +93,40 @@ function changeVideo(nid) {
 
         } catch (error) { console.log(error) }
     }
+    inChg = false;
+}
+
+
+function data_update() {
+    inChg = true;
+    if ($PLAYLIST_VIEW){
+        plv_load();
+    }
+
+    //pl_load#151-2857
+    let pl_link = document.getElementById('pllink');
+    if (pl_link) {
+        pl_link.setAttribute("href", "https://www.youtube.com/playlist?list=" + listID);
+    }
+
+    if  ($LOCAL_STORAGE){
+        
+        try {
+            let list_vid_id = lcl_load_list('vidid');
+            lcl_vid_id = list_vid_id.indexOf(vid_id);
+            if (lcl_vid_id == -1){
+                lcl_vid_id = list_vid_id.length;
+                list_vid_id.push(vid_id);
+                lcl_save_list('vidid', list_vid_id);
+            }
+                        
+            lcl_save_IN_list('vid_pgs', vid_pgs, lcl_vid_id);
+             
+        } catch (error) {}
+    }
+
+    changeVideo(id);
+    
 }
 
 // <<| |>>
@@ -146,13 +180,13 @@ function pageUpdate() {
     // 2: En pause
     // 3: En file d’attente
     // 5: Vidéo en file d’attente interrompue
-    if (player) {
+    if (player && !inChg) {
 
         if (id_played != id) {
             changeVideo(id);
         }
 
-        let currentTime = player.getCurrentTime();
+        let currentTime = Math.floor(player.getCurrentTime());
         let currentState = player.getPlayerState();
 
         // En lecture, toutes les 5s. Sinon: ttes les secondes
@@ -187,7 +221,17 @@ function pageUpdate() {
                     console.log('Outro Skip');
                     next();
                 }
-                lcl_save_LIST_IN_list('vid_pgs', [currentTime, duration, Math.round(currentTime / duration * 100)], lcl_vid_id);
+                if ($LOCAL_STORAGE && lcl_vid_id){
+                    if (duration - currentTime > 130){
+                        let currentPercent = Math.round(currentTime / duration * 100);
+                        vid_pgs = lcl_save_LIST_IN_list('vid_pgs', [currentTime, duration, currentPercent], lcl_vid_id);    
+                    }else{
+                        lcl_del_IN_list('vid_pgs', lcl_vid_id);
+                        lcl_del_IN_list('vidid', lcl_vid_id);
+                        lcl_vid_id = false;
+                        vid_pgs = false;
+                    }
+                }
             } else if (currentTime < 2) {
                 console.log('Try play');
                 player.playVideo();
