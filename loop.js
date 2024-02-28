@@ -54,8 +54,9 @@ function changeVideo(nid, pgs_rest = true) {
                     lcl_save_list('vidid', list_vid_id);
                 }else if (pgs_rest){
                     let progression = lcl_load_LIST_IN_list('vid_pgs', lcl_vid_id);
-                    if ((progression[1] > 440) && (parseInt(progression[1]) - parseInt(progression[0]) > 130)) {
-                        player.seekTo(progression[0]);
+                    if ((parseInt(progression[1]) > 440) && (parseInt(progression[1]) - parseInt(progression[0]) > 130)) {
+                        player.seekTo(parseInt(progression[0]));
+                        console.log('seekTo: ' + progression[0]);
                     }
                 }
                  

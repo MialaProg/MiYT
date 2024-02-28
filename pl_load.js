@@ -97,9 +97,9 @@ document.getElementById('reset_btn').onclick = function () {
 window.addEventListener('resize', function() {
     // Code à exécuter lorsque la fenêtre est redimensionnée  
     let playerIframe = document.getElementById('player');
-    let infoWidth = document.getElementById('infos_vid').offsetWidth ;
-    playerIframe.width = infoWidth;
-    playerIframe.height = infoWidth * 360 / 640;
+    let playerBox_width = document.getElementById('player-box').offsetWidth ;
+    playerIframe.width = playerBox_width;
+    playerIframe.height = playerBox_width * 360 / 640;
 
 });
 
