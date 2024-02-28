@@ -7,6 +7,9 @@ var ytb_outro_pass = {
 };
 
 //Glbl Vars
+if (typeof $SCANNED === 'undefined') {
+    var $SCANNED = false;
+}
 if (typeof $LOCAL_STORAGE === 'undefined') {
     var $LOCAL_STORAGE = false;
 }
@@ -120,7 +123,7 @@ function waitLib() {
             lcl_pl_id = list_pl_id.indexOf(listID);
 
             if (lcl_pl_id != -1) {
-                lcl_REPRISE = confirm("Reprendre où vous en étiez ?\nOK = Oui | Annuler = Non");
+                lcl_REPRISE = $SCANNED ? confirm("Reprendre où vous en étiez ?\nOK = Oui | Annuler = Non") : false;
             } else {
                 lcl_pl_id = list_pl_id.length;
             }

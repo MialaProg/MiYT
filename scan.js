@@ -1,6 +1,7 @@
 console.log('ScanMi ID02');
 
 //Glbl Vars
+var $SCANNED = true;
 var videos = [];
 var infini_detect = 0;
 var play_buttons = document.getElementsByClassName("yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--overlay yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading");
