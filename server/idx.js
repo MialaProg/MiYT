@@ -12,7 +12,7 @@ function setYouTubePlDt(PlID) {
         let txtElement = document.getElementById(`pl-txt-${PlID}`);
         txtElement.innerHTML = title;
         let a = document.getElementById(`pl_view_${PlID}`);
-        a.href = 'https://miala.000webhostapp.com/YT/www.php?list=' + PlID + '&title=' + title;
+        a.href = 'https://yt.mi.42web.io/www.php?list=' + PlID + '&title=' + title;
 
 
         let img = data.thumbnail_url;
@@ -41,7 +41,7 @@ function ListPl() {
     playlists.forEach((pl, i) => {
         if (i % 2 === 0) {
             let name = playlists[i + 1];
-            let link = 'https://miala.000webhostapp.com/YT/www.php?list=' + pl + '&title=' + name;
+            let link = 'https://yt.mi.42web.io/www.php?list=' + pl + '&title=' + name;
             // pl_view_HTML += '<li><a href="' + link + '">' + name + '</a></li>';
             
             pl_view_HTML += `

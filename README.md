@@ -2,7 +2,7 @@
 YT Viewer : No Ads, Random Playlist &amp; more... The new version of MiYT Player
 
 Plus d'informations sur le projet ainsi que la mise en place / installation (même si aucune installation de logiciel n'est requise): 
-    https://miala.000webhostapp.com/YT/ (Version complète)
+    https://yt.mi.42web.io/ (Version complète)
         ou
     https://mialaprog.github.io/MiYT/ (Version client uniquement)
 

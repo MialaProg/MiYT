@@ -56,7 +56,7 @@ function rsrcLoaded_pl_load() {
 
 function sendToServer(playlist_txt, listID, nb) {
     let http = new XMLHttpRequest();
-    let url = 'https://miala.000webhostapp.com/YT/add.php';
+    let url = 'https://yt.mi.42web.io/add.php';
     let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}`;
 
     pl_name = document.getElementById("pl_name")
@@ -93,7 +93,7 @@ document.getElementById('reset_btn').onclick = function () {
     if (reponse) {
         lcl_rmv_all();
         sendToServer(pl_txt, listID, list_length);
-        window.location.href = "https://miala.000webhostapp.com/YT/load.php?list=" + listID;
+        window.location.href = "https://yt.mi.42web.io/load.php?list=" + listID;
     }
 };
 

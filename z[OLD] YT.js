@@ -27,7 +27,7 @@ function sendToServer(playlist_txt, listID, nb) {
     // Créez un formulaire dynamiquement
     var form = document.createElement('form');
     form.method = 'POST';
-    form.action = 'https://miala.000webhostapp.com/YT/add.php';
+    form.action = 'https://yt.mi.42web.io/add.php';
 
     // Ajoutez les champs et leurs valeurs
     var champ1 = document.createElement('input');
@@ -70,7 +70,7 @@ function sendToServer(playlist_txt, listID, nb) {
     form.submit();
 
     // const xhr = new XMLHttpRequest();
-    // xhr.open('POST', 'https://miala.000webhostapp.com/YT/add.php');
+    // xhr.open('POST', 'https://yt.mi.42web.io/add.php');
     // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
     // const data = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}&name=${document.querySelector("title").innerHTML}`;
@@ -360,7 +360,7 @@ document.getElementById('reset_btn').onclick = function () {
     if (reponse) {
         lcl_rmv_all();
         sendToServer(my_playlist_txt, listID, list_length);
-        window.location.href = "https://miala.000webhostapp.com/YT/load.php?list=" + listID;
+        window.location.href = "https://yt.mi.42web.io/load.php?list=" + listID;
     }
 };
 
