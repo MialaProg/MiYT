@@ -54,8 +54,8 @@ function ListPl() {
                     </figure>
                     <div class="media-content">
                         <div class="content">
-                        <p id="pl-txt-${pl}">
-                        ${name}
+                        <p><div id="pl-txt-${pl}">
+                        ${name}</div>
                         <small>#${i} : ${pl}</small>
                         </p>
                         </div>
