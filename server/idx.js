@@ -35,7 +35,7 @@ function ListPl() {
         </p>
     </header>
     <div class="card-content">
-        <div class="content"><ol>
+        <div class="content">
     `;
 
     playlists.forEach((pl, i) => {
@@ -45,7 +45,7 @@ function ListPl() {
             // pl_view_HTML += '<li><a href="' + link + '">' + name + '</a></li>';
             
             pl_view_HTML += `
-            <li><a id="pl_view_${pl}" class="has-text-success-light" href="${link}">
+            <a id="pl_view_${pl}" class="has-text-success-light" href="${link}">
                 <article id="pl_view_article_${i}" class="media video_selection">
                     <figure class="media-left" style="width: 7rem">
                         <p class="image is-4by3">
@@ -61,12 +61,12 @@ function ListPl() {
                         </div>
                     </div>
                 </article>
-            </a></li>`;
+            </a><br>`;
         }
     });
 
 
-    pl_view_HTML += `</ol>
+    pl_view_HTML += `
     </div>
     </div>
     </div>
