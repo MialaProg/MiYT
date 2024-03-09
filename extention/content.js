@@ -34,12 +34,24 @@ function sendToServer(playlist_txt, listID, nb) {
     form.submit();
 }
 
-
-chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-    if (changeInfo.status === 'complete' && tab.url.startsWith('https://www.youtube.com/')) {
+chrome.webNavigation.onCommitted.addListener(function (details) {
+    if (details.frameUrl.includes("youtube.com")) {
         chrome.tabs.sendMessage(tabId, "MiYT-page_ready");
+    } else if (details.frameUrl.includes('yt.mi.42web.io/empty')) {
+        chrome.storage.local.get(["pl", "id", "len"], function (result) {
+            sendToServer(result.pl, result.id, result.len);
+        });
     }
 });
+
+
+// chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+//     if (changeInfo.status === 'complete') {
+//         if (tab.url.startsWith('https://www.youtube.com/')) {
+
+//     }
+// });
+
 
 chrome.runtime.onMessage.addListener(function (message) {
     if (message === "MiYT_ready") {
@@ -47,9 +59,7 @@ chrome.runtime.onMessage.addListener(function (message) {
         chrome.tabs.executeScript(null, { file: "fav.js" });
     }
 
-    chrome.storage.sync.get("maCle", function (result) {
-        console.log(result.maCle); // "maValeur"
-    });
+
 
 });
 
