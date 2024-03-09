@@ -61,41 +61,6 @@ function extractVideos() {
 }
 
 
-function sendToServer(playlist_txt, listID, nb) {
-    // Créez un formulaire dynamiquement
-    var form = document.createElement('form');
-    form.method = 'POST';
-    form.action = 'https://yt.mi.42web.io/add.php?i=1';
-
-    // Ajoutez les champs et leurs valeurs
-    var champ1 = document.createElement('input');
-    champ1.type = 'hidden';
-    champ1.name = 'playlist';
-    champ1.value = playlist_txt;
-    form.appendChild(champ1);
-
-    var champ2 = document.createElement('input');
-    champ2.type = 'hidden';
-    champ2.name = 'nb';
-    champ2.value = nb;
-    form.appendChild(champ2);
-
-    var champ3 = document.createElement('input');
-    champ3.type = 'hidden';
-    champ3.name = 'listID';
-    champ3.value = listID;
-    form.appendChild(champ3);
-
-
-    var champ4 = document.createElement('input');
-    champ4.type = 'hidden';
-    champ4.name = 'name';
-    champ4.value = document.title;
-    form.appendChild(champ4);
-
-    document.body.appendChild(form);
-    form.submit();
-}
 
 function end_scan() {
     // Sélectionnez tous les éléments du body sauf celui avec l'id "Miala"
@@ -122,11 +87,15 @@ function end_scan() {
     // WatcherMi.id = "WatcherMi";
     // //Ajout de la balise dans la page
     // document.body.appendChild(WatcherMi);
-    sendToServer(
-        videos.join(";").replace(/&list/gi, ""),
-        new URLSearchParams(new URL(window.location.href).search).get("list"),
-        videos.length
-    );
+
+    chrome.runtime.sendMessage({
+        action: "MiYT-storage",
+        data: {
+            pl: videos.join(";").replace(/&list/gi, ""),
+            id: new URLSearchParams(new URL(window.location.href).search).get("list"),
+            len: videos.length
+        }
+    });
 }
 
 function scan_vids() {
