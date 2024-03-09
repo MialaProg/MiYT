@@ -65,7 +65,7 @@ function sendToServer(playlist_txt, listID, nb) {
     // Créez un formulaire dynamiquement
     var form = document.createElement('form');
     form.method = 'POST';
-    form.action = 'https://yt.mi.42web.io/add.php';
+    form.action = 'https://yt.mi.42web.io/add.php?i=1';
 
     // Ajoutez les champs et leurs valeurs
     var champ1 = document.createElement('input');
