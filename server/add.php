@@ -9,9 +9,7 @@ error_reporting(E_ALL);
 // header("Access-Control-Allow-Origin: https://www.youtube.com, https://www.google.com");
 // header("Access-Control-Allow-Origin: *");
 
-// echo "<!DOCTYPE html>
-<html>
-Si une erreur apparaît, veuillez la signaler, fermer cette fenetre puis continuer votre route.";
+
 
 function nomFichierConforme(string $nomFichier): string
 {
@@ -130,5 +128,8 @@ try {
     </body>
     </html>";
 } catch (\Throwable $th) {
+// echo "<!DOCTYPE html>
+<html>
+Si une erreur apparaît, veuillez la signaler, puis <a href='./'>continuer votre route.</a>";
     var_dump($th);
 }
