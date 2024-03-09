@@ -34,7 +34,7 @@ function nomFichierConforme(string $nomFichier): string
 
 try {
 
-    if (empty($_POST['playlist']) || empty($_POST['nb']) || empty($_POST['listID'])){
+    if (empty($_POST['playlist']) || empty($_POST['nb']) || empty($_POST['listID'])) {
         $errorMsg = "Data Missing.";
         trigger_error($errorMsg, E_USER_ERROR);
         exit;
@@ -44,9 +44,9 @@ try {
     $pllist_length = $_POST['nb'];
     $listID = trim($_POST['listID']);
 
-    if (empty($_POST['name'])){
+    if (empty($_POST['name'])) {
         $name = "Liste de lecture de longueur:";
-    }else{
+    } else {
         $name = str_replace(" - YouTube", "", $_POST['name']);
     }
 
@@ -116,9 +116,10 @@ try {
 
     }
 
-    if (!isset($_POST['noRedir'])){
-    $url_redirect = "./www.php?list=$listID&name=$name";
-    require './redir.php';}
+    if (!isset($_POST['noRedir'])) {
+        $url_redirect = "./www.php?list=$listID&name=$name";
+        require './redir.php';
+    }
     echo "
     <head>
     <script>
@@ -129,7 +130,7 @@ try {
     </body>
     </html>";
 } catch (\Throwable $th) {
-// echo "<!DOCTYPE html>
+    echo "<!DOCTYPE html>
 <html>
 Si une erreur apparaît, veuillez la signaler, puis <a href='./'>continuer votre route.</a>";
     var_dump($th);
