@@ -116,9 +116,10 @@ try {
 
     }
 
-    $url_redirect = './www.php?'
-    require './redir.php';
-    // echo "
+    if (!isset($_POST['noRedir'])){
+    $url_redirect = "./www.php?list=$listID&name=$name";
+    require './redir.php';}
+    echo "
     <head>
     <script>
     window.close();
