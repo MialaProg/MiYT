@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "MiYT",
+    "version": "0.03.4",
+    "description": "Objectif: permettre la lecture d'une vidéo / playliste YT (en mode aléatoire quelque soit sa taille) directement depuis YouTube.",
+    "content_scripts": [
+      {
+        "matches": [
+          "https://www.youtube.com/*"
+        ],
+        "js": [
+          "content.js"
+        ]
+      }
+    ],
+    "permissions": ["activeTab"],
+    "background": {
+      "service_worker": "content.js"
+    },
+    "action": {
+      "default_icon": "logo.png"
+    }
+  }
+  
