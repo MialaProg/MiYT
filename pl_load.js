@@ -57,7 +57,7 @@ function rsrcLoaded_pl_load() {
 function sendToServer(playlist_txt, listID, nb) {
     let http = new XMLHttpRequest();
     let url = 'https://yt.mi.42web.io/add.php';
-    let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}`;
+    let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}&noRedir`;
 
     pl_name = document.getElementById("pl_name")
     if (pl_name && pl_name != "") {
