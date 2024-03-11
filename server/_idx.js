@@ -42,6 +42,9 @@ function ListPl() {
         // Tps, ID, Nb, TITRE
         if (i % 4 === 0) {
             let name = playlists[i + 3];
+            if (name === 'TITRE'){
+                return;
+            }
             let id = playlists[i + 1];
             let link = 'https://yt.mi.42web.io/www.php?list=' + id + '&title=' + name + '&time=' + pl;
             // pl_view_HTML += '<li><a href="' + link + '">' + name + '</a></li>';
