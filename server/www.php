@@ -10,14 +10,13 @@ else:
     $listID = $_GET['list'];
     $path = './db/' . $listID . '.Mpl';
 
-    if (!file_exists($path)):
-        header('Location: ./index.php?loaderr=nofile');
-    else:
-
-
+    if (file_exists($path)){
         $handle = fopen($path, "r");
         $my_playlist = fread($handle, filesize($path));
         fclose($handle);
+    }else{
+        $my_playlist = 'toBEloaded';
+    }
 
 
 
@@ -55,5 +54,4 @@ else:
 
 
 
-    endif;
 endif;

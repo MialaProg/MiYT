@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 $dir = './db/';
 $path = $dir . 'index.list';
