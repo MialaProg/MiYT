@@ -7,7 +7,7 @@ $handle = fopen($path, "r");
 $content = fread($handle, filesize($path));
 fclose($handle);
 
-$pllist = explode("\n", $content);
+$pllist = array_slice(explode("\n", $content), -148);
 ?>
 
 
@@ -36,7 +36,7 @@ $pllist = explode("\n", $content);
     <title>Accueil || Lecteur MiYT</title>
     <link rel="icon" href="https://mialaprog.github.io/MiYT/lib/logo%20MiYT%20192x192.png" type="image/png">
 
-    <script type="text/javascript" src="https://mialaprog.github.io/MiYT/server/idx.js"></script>
+    <script type="text/javascript" src="https://mialaprog.github.io/MiYT/server/_idx.js"></script>
     <script type="text/javascript" src="https://mialaprog.github.io/MiYT/lib/stop_pub.js"></script>
 
     <!--[if lt IE 7]>
