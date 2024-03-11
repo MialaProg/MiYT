@@ -10,6 +10,12 @@ else:
     $listID = $_GET['list'];
     $path = './db/' . $listID . '.Mpl';
 
+    if (empty($_GET['time'])){
+        $reload = True;
+    }else{
+        $reload = ((time() - $_GET['time']) > 3888000);
+    }
+
     if (file_exists($path)){
         $handle = fopen($path, "r");
         $my_playlist = fread($handle, filesize($path));
