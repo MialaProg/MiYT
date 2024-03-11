@@ -31,6 +31,7 @@ var listID = params.get("list");
 var id = 0;
 var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 
+var pl_name = document.getElementById("pl_name");
 
 function pl_loaded(playlist) {
 
@@ -61,7 +62,6 @@ function pl_loaded(playlist) {
         let url = 'https://yt.mi.42web.io/add.php';
         let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}&noRedir`;
 
-        pl_name = document.getElementById("pl_name")
         if (pl_name && pl_name != "") {
             params += '&name=' + pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "");
         }
@@ -191,9 +191,53 @@ function pl_loaded(playlist) {
     waitLib();
 }
 
-if (pl_txt == 'toBEloaded'){
+if (pl_txt == 'toBEloaded') {
+    async function getPlaylistItems(playlistId) {
+        const MAX_RESULTS = 50;
+        const baseUrl = "https://yt.lemnoslife.com/noKey/playlistItems";
+        const params = {
+            part: "id",
+            playlistId,
+            maxResults: MAX_RESULTS,
+        };
 
-}else{
+        let allItems = [];
+        let nextPageToken;
+
+        do {
+            const response = await fetch(`${baseUrl}?${new URLSearchParams(params)}`);
+            const data = await response.json();
+
+            if (response.ok) {
+                allItems = allItems.concat(data.items.map((item) => item.etag));
+                nextPageToken = data.nextPageToken;
+
+                // Mettre à jour les paramètres pour la prochaine requête
+                params.pageToken = nextPageToken;
+            } else {
+                // Gérer l'erreur
+                console.error("Une erreur est survenue:", data.error);
+                return;
+            }
+        } while (nextPageToken);
+
+        return allItems;
+    }
+
+    getPlaylistItems(listID).then((items) => {
+        pl_loaded(items);
+    });
+
+    //   Explication du code:
+    // La fonction getPlaylistItems prend en paramètre l'ID de la playlist YouTube.
+    // On définit une constante MAX_RESULTS pour limiter le nombre de résultats par requête.
+    // On construit l'URL de base de l'API avec les paramètres part, playlistId et maxResults.
+    // On utilise une boucle do...while pour itérer sur les pages de résultats.
+    // Dans la boucle, on fait une requête à l'API et on récupère les ID des vidéos (items.etag).
+    // Si la requête est un succès, on stocke les ID des vidéos et on récupère le nextPageToken pour la prochaine page.
+    // Si la requête échoue, on affiche un message d'erreur.
+    // On retourne la liste des ID des vidéos une fois la boucle terminée.
+} else {
     pl_loaded(pl_txt.split(';'));
 }
 
