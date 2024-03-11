@@ -58,25 +58,36 @@ function pl_loaded(playlist) {
     }
 
     function sendToServer(playlist_txt, listID, nb) {
-        let http = new XMLHttpRequest();
-        let url = 'https://yt.mi.42web.io/add.php';
-        let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}&noRedir`;
 
-        if (pl_name && pl_name != "") {
-            params += '&name=' + pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "");
-        }
+        // Fonction pour obtenir la date de la dernière modification d'une playlist YouTube
+        fetch(`https://yt.lemnoslife.com/noKey/playlists?part=snippet&id=${listID}`)
+            .then((response) => response.json())
+            .then((data) => {
+                // Extraire la date de la dernière modification
+                let publishedAt = data.items[0].snippet.publishedAt;
+                // Convertir la date en temps Unix
+                let unixTime = Date.parse(publishedAt) / 1000;
 
-        http.open('POST', url, true);
-        //Send the proper header information along with the request
-        http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-        http.onreadystatechange = function () {//Call a function when the state changes.
-            if (http.readyState == 4 && http.status == 200) {
-                console.log('Server status 200 OK');
-            } else {
-                console.log('Server status ' + http.status + ' ERR');
-            }
-        }
-        http.send(params);
+                let http = new XMLHttpRequest();
+                let url = 'https://yt.mi.42web.io/add.php';
+                let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}&time=` + unixTime;
+
+                if (pl_name && pl_name != "") {
+                    params += '&name=' + pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "");
+                }
+
+                http.open('POST', url, true);
+                //Send the proper header information along with the request
+                http.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                http.onreadystatechange = function () {//Call a function when the state changes.
+                    if (http.readyState == 4 && http.status == 200) {
+                        console.log('Server status 200 OK');
+                    } else {
+                        console.log('Server status ' + http.status + ' ERR');
+                    }
+                }
+                http.send(params);
+            });
     }
 
     function shuffleAsk() {

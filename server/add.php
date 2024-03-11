@@ -11,30 +11,30 @@ error_reporting(E_ALL);
 
 
 
-function nomFichierConforme(string $nomFichier): string
-{
-    // Étape 1: Échapper les caractères spéciaux
-    $nomFichier = str_replace(["'", "\"", "\\"], " ", $nomFichier);
+// function nomFichierConforme(string $nomFichier): string
+// {
+//     // Étape 1: Échapper les caractères spéciaux
+//     $nomFichier = str_replace(["'", "\"", "\\"], " ", $nomFichier);
 
-    // Étape 2: Supprimer les caractères non autorisés
-    $nomFichier = preg_replace("/[^\w\d\.-]/", " ", $nomFichier);
+//     // Étape 2: Supprimer les caractères non autorisés
+//     $nomFichier = preg_replace("/[^\w\d\.-]/", " ", $nomFichier);
 
-    // Étape 3: Vérifier la longueur du nom de fichier
-    if (strlen($nomFichier) > 45) {
-        $nomFichier = substr($nomFichier, 0, 45);
-    }
+//     // Étape 3: Vérifier la longueur du nom de fichier
+//     if (strlen($nomFichier) > 45) {
+//         $nomFichier = substr($nomFichier, 0, 45);
+//     }
 
-    // Étape 4: Normaliser l'encodage
-    $nomFichier = iconv("UTF-8", "ASCII//TRANSLIT", $nomFichier);
+//     // Étape 4: Normaliser l'encodage
+//     $nomFichier = iconv("UTF-8", "ASCII//TRANSLIT", $nomFichier);
 
-    $nomFichier = trim($nomFichier);
+//     $nomFichier = trim($nomFichier);
 
-    return $nomFichier;
-}
+//     return $nomFichier;
+// }
 
 try {
 
-    if (empty($_POST['playlist']) || empty($_POST['nb']) || empty($_POST['listID'])) {
+    if (empty($_POST['playlist']) || empty($_POST['nb']) || empty($_POST['listID']) || empty($_POST['time'])) {
         $errorMsg = "Data Missing.";
         trigger_error($errorMsg, E_USER_ERROR);
         exit;
@@ -43,14 +43,15 @@ try {
     $playlist = trim($_POST['playlist']);
     $pllist_length = $_POST['nb'];
     $listID = trim($_POST['listID']);
+    $time = (int) trim($_POST['time']);
 
     if (empty($_POST['name'])) {
-        $name = "Liste de lecture de longueur:";
+        $name = "Liste de lecture inconnue";
     } else {
         $name = str_replace(" - YouTube", "", $_POST['name']);
     }
 
-    $name = trim($name) . ' [' . $pllist_length . ']';
+    // $name = trim($name) . ' [' . $pllist_length . ']';
 
     $dir = './db/';
     $path = $dir . 'index.list';
@@ -76,14 +77,15 @@ try {
         fwrite($handle, $playlist);
         fclose($handle);
 
-        $list[] = $name;
-        $list[] = $listID;
-        $del_path = $dir . trim($list[1]) . '.Mpl';
+        $list += [$name, $pllist_length, $listID, $time];
+        $del_path = $dir . trim($list[2]) . '.Mpl'; //ID
         if (file_exists($del_path)) {
             unlink($del_path);
         }
-        unset($list[1]);
-        unset($list[0]);
+
+        for ($i = 0; $i < 4; $i++) {
+            array_shift($list); // Supprime le premier élément de la liste
+        }
 
         $content = implode("\n", $list);
 
@@ -91,15 +93,15 @@ try {
         fwrite($handle, $content);
         fclose($handle);
     } else {
-        $name_idx = $id_idx - 1;
-        $list[] = $name;
-        $list[] = $listID;
+        $list += [$name, $pllist_length, $listID, $time];
         $del_path = $dir . trim($list[$id_idx]) . '.Mpl';
         if (file_exists($del_path)) {
             unlink($del_path);
         }
-        unset($list[$id_idx]);
-        unset($list[$name_idx]);
+
+        for ($i = 0; $i < 4; $i++) {
+            unset($list[$id_idx + 1 - $i]);
+        }
 
         $content = implode("\n", $list);
 
@@ -112,14 +114,8 @@ try {
         $handle = fopen($path_myfile, "w");
         fwrite($handle, $playlist);
         fclose($handle);
-
-
     }
 
-    if (!isset($_POST['noRedir'])) {
-        $url_redirect = "./www.php?list=$listID&name=$name";
-        require './redir.php';
-    }
     echo "
     <head>
     <script>
