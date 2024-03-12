@@ -1,10 +1,11 @@
+
 /* HTML: <div class="loader"></div> */
 .loaderPlay {
-  width: 200px; /* Increase width for larger size */
-  height: 200px; /* Add height to match width for aspect ratio */
+  width: 38vh; /* Increase width for larger size */
+  height: 60vw; /* Add height to match width for aspect ratio */
   aspect-ratio: 1;
   clip-path: polygon(50% 0, 100% 100%, 0 100%);
-  --c: no-repeat linear-gradient(#f03355 0 0);
+  --c: no-repeat linear-gradient(red 0 0);
   background: var(--c), var(--c), var(--c), var(--c), var(--c);
   background-size: 100% calc(100%/5 + 1px);
   animation: l15 2s infinite;
@@ -26,8 +27,13 @@
 
 /* HTML: <div class="loader"></div> */
 .loaderFactory {
+position: absolute; /* Assumes parent has position: relative */
+  top: 70%;
+  left: 20%;
+  width: 60vw;
+  height: 8vh;/*
   width: 90px;
-  height: 14px;
+  height: 14px; */
   box-shadow: 0 3px 0 #fff;
   background: linear-gradient(#fff 0 0) 50%/2px 100% no-repeat;
   display: grid;
@@ -50,13 +56,18 @@
 
 /* HTML: <div class="loader"></div> */
 .loaderSlash {
-  width: 120px;
+position: absolute; /* Assumes parent has position: relative */
+  top: 78%;
+  left: 18%;
+  width: 64vw;
   height: 20px;
+  /*width: 120px;
+  height: 20px;*/
   transform: skewX(-45deg);
   background: 
-    linear-gradient(#f03355 0 0) left -30px top 0/30px 20px no-repeat 
+    linear-gradient(red 0 0) left -30px top 0/30px 20px no-repeat 
     #ccc;
-  animation: l32 1s infinite linear;
+  animation: l32 2s infinite linear;
 }
 
 @keyframes l32 {
@@ -64,15 +75,38 @@
 }
 
 /* HTML: <div class="loader"></div> */
-.loaderFill {
-  width: 120px;
-  height: 20px;
-  background: linear-gradient(#514b82 0 0) left -40px top 0/40px 100% no-repeat #eee;
+.top{
+position: absolute; /* Assumes parent has position: relative */
+  top: 1%;
+  left: 5%;
+  width: 90vw;
+  height: 5vh;
+}
+.txtop{
+position: absolute; /* Assumes parent has position: relative */
+color:white;
+  top: 7%;
+  left: 5%;
+  width: 90vw;
+  height: 10vh;
+}
+.down{
+position: absolute; /* Assumes parent has position: relative */
+  top: 94%;
+  left: 5%;
+  width: 90vw;
+  height: 5vh;
+}
+.loaderFilm {
+  /*#514b82*/
+  background: linear-gradient(red 0 0) left -40px top 0/40px 100% no-repeat #eee;
   -webkit-mask:
     conic-gradient(from 90deg at 5px 5px,#0000 25%,#000 0)
      0 0/calc((100% - 5px)/5) calc(100% - 5px);
-  animation: l10 1s infinite linear;
+  animation: l10 3s infinite linear;
 }
 @keyframes l10 {
   100% {background-position: right -40px top 0}
 }
+
+body{background-color: black;}
