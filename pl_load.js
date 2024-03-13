@@ -209,7 +209,7 @@ if (pl_txt == 'toBEloaded') {
         const baseUrl = "https://yt.lemnoslife.com/noKey/playlistItems";
         const params = {
             part: "id",
-            playlistId,
+            playlistId: playlistId,
             maxResults: MAX_RESULTS,
         };
 
@@ -217,7 +217,9 @@ if (pl_txt == 'toBEloaded') {
         let nextPageToken;
 
         do {
-            const response = await fetch(`${baseUrl}?${new URLSearchParams(params)}`);
+let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
+console.log(plgeturl);
+            const response = await fetch(plgeturl);
             const data = await response.json();
 
             if (response.ok) {
@@ -229,7 +231,7 @@ if (pl_txt == 'toBEloaded') {
                 params.pageToken = nextPageToken;
             } else {
                 // Gérer l'erreur
-                console.error("Une erreur est survenue:", data.error);
+                console.error("Une erreur est survenue: ", data.error);
                 return;
             }
         } while (nextPageToken);
