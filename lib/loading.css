@@ -75,7 +75,7 @@ position: absolute; /* Assumes parent has position: relative */
 }
 
 /* HTML: <div class="loader"></div> */
-.top{
+.loaderFilm.top{
 position: absolute; /* Assumes parent has position: relative */
   top: 1%;
   left: 5%;
@@ -90,7 +90,7 @@ color:white;
   width: 90vw;
   height: 10vh;
 }
-.down{
+.loaderFilm.down{
 position: absolute; /* Assumes parent has position: relative */
   top: 94%;
   left: 5%;
@@ -109,4 +109,4 @@ position: absolute; /* Assumes parent has position: relative */
   100% {background-position: right -40px top 0}
 }
 
-body{background-color: black;}
+/* body{background-color: black;} */

@@ -14,12 +14,12 @@ Plus d'informations sur le projet ainsi que la mise en place / installation (mê
 <br>F : Finale => Releases disponible, point de sauvegarde
 
 ## Ordre d'execution et rôle:
-1- index.html (js) => code min à mettre en favoris <br>
-2- scan.js => scanner de playlist<br>
+( 1- index.html (js) => code min à mettre en favoris <br>
+2- scan.js => scanner de playlist )<br>
 <br>
 3- watcher.js => mise en page du lecteur<br>
-3- pl_load.js => traitement de la playlist<br>
-4- loop.js => Code s'executant en arrière plan<br>
+4- pl_load.js => traitement de la playlist<br>
+5- loop.js => Code s'executant en arrière plan<br>
 
 ## Infos sur les variables:
 Forme de la variable (xxx: nom) | Signification / Valeur

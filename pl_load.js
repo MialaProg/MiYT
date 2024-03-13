@@ -32,9 +32,10 @@ var id = 0;
 var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 
 var pl_name = document.getElementById("pl_name");
+var playlist = false;
 
-function pl_loaded(playlist) {
-
+function pl_loaded(pl) {
+    playlist = pl;
     var outro_skip = true;
     var outro_skip_time = 1;
     var checkbox_skip = document.getElementById("SkipOutroSw");
@@ -128,8 +129,8 @@ function pl_loaded(playlist) {
 
         var lcl_REPRISE = false;
 
-        if (($LOCAL_STORAGE && $UTILITIES) || waitLibI == 11) {
-
+        if (($LOCAL_STORAGE && $UTILITIES && $PLAYLIST_VIEW) || waitLibI == 11) {
+            setTimeout(plv_load, 5);
 
             if ($LOCAL_STORAGE) {
                 let list_pl_id = lcl_load_list('plid');
