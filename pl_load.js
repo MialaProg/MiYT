@@ -217,7 +217,9 @@ if (pl_txt == 'toBEloaded') {
         let nextPageToken;
 
         do {
-            const response = await fetch(`${baseUrl}?${new URLSearchParams(params)}`);
+let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
+console.log(plgeturl);
+            const response = await fetch(plgeturl);
             const data = await response.json();
 
             if (response.ok) {
