@@ -221,6 +221,7 @@ if (pl_txt == 'toBEloaded') {
             const data = await response.json();
 
             if (response.ok) {
+                console.log(data);
                 allItems = allItems.concat(data.items.map((item) => item.etag));
                 nextPageToken = data.nextPageToken;
 
