@@ -69,16 +69,32 @@ document.body.appendChild(js);
     <p class="MiFont">Mersi ! - Miala</p>
     <div class="content">
         <div class="block">
-            <form action="https://yt.mi.42web.io/www.php" method="get" class="box">
+            <div class="box">
                 <div class="field has-addons">
                     <div class="control">
-                        <input class="input" type="text" name="list" placeholder="Playlist URL">
+                        <input class="input is-full-width" type="text" id="list_url_input" placeholder="Playlist URL">
                     </div>
                     <div class="control">
-                        <button class="button is-danger">Lire</button>
+                        <button class="button is-danger" id="list_url_submit">Lire</button>
                     </div>
                 </div>
-            </form>
+<script>
+document.getElementById("list_url_submit").addEventListener("click", function() {
+ // Extrait la partie "list" de l'URL 
+ const enteredUrl = document.getElementById("list_url_input").value;
+ const listId = enteredUrl.split("list=")[1]. split("&")[0];
+
+ // Valide que l'élément "list" est récupéré
+ if (listId) {
+   // Effectue la redirection
+   window.location.href = "https://yt.mi.42web.io/www.php?list=" + listId;
+ } else {
+   // Traitement si l'élément "list" est absent de l'URL
+   alert("URL invalide : L'élément list n'a pas été trouvé.");
+ }
+});
+</script>
+            </div>
 
             <div class="box">
                 <article class="media">
