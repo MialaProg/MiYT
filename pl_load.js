@@ -221,6 +221,7 @@ if (pl_txt == 'toBEloaded') {
             const data = await response.json();
 
             if (response.ok) {
+                console.log(data);
                 allItems = allItems.concat(data.items.map((item) => item.etag));
                 nextPageToken = data.nextPageToken;
 
@@ -228,7 +229,7 @@ if (pl_txt == 'toBEloaded') {
                 params.pageToken = nextPageToken;
             } else {
                 // Gérer l'erreur
-                console.error("Une erreur est survenue:", data.error);
+                console.error("Une erreur est survenue: ", data.error);
                 return;
             }
         } while (nextPageToken);
