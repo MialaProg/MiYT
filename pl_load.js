@@ -209,7 +209,7 @@ if (pl_txt == 'toBEloaded') {
         const baseUrl = "https://yt.lemnoslife.com/noKey/playlistItems";
         const params = {
             part: "id",
-            playlistId,
+            playlistId: playlistId,
             maxResults: MAX_RESULTS,
         };
 
