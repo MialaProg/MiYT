@@ -208,7 +208,7 @@ if (pl_txt == 'toBEloaded') {
         const MAX_RESULTS = 50;
         const baseUrl = "https://yt.lemnoslife.com/noKey/playlistItems";
         const params = {
-            part: "id",
+            part: "contentDetails",
             playlistId: playlistId,
             maxResults: MAX_RESULTS,
         };
@@ -224,7 +224,7 @@ console.log(plgeturl);
 
             if (response.ok) {
                 console.log(data);
-                allItems = allItems.concat(data.items.map((item) => item.etag));
+                allItems = allItems.concat(data.items.map((item) => item.contentDetails.videoId));
                 nextPageToken = data.nextPageToken;
 
                 // Mettre à jour les paramètres pour la prochaine requête
