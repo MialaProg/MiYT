@@ -1,4 +1,4 @@
-console.log('PLLOAD v>> 42');
+console.log('PLLOAD v>>43');
 
 //Perma data
 var ytb_outro_pass = {
@@ -34,8 +34,7 @@ var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 var pl_name = document.getElementById("pl_name");
 var playlist = false;
 
-function pl_loaded(pl) {
-    playlist = pl;
+function pl_loaded() {
     var outro_skip = true;
     var outro_skip_time = 1;
     var checkbox_skip = document.getElementById("SkipOutroSw");
@@ -245,7 +244,9 @@ if (pl_txt == 'toBEloaded') {
     }
 
     getPlaylistItems(listID).then((items) => {
-        pl_loaded(items);
+        playlist = items;
+        pl_txt = items.join(';');
+        pl_loaded();
     });
 
     //   Explication du code:
