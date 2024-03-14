@@ -107,7 +107,7 @@ function pl_loaded(pl) {
         if (reponse) {
             lcl_rmv_all();
             sendToServer(pl_txt, listID, list_length);
-            window.location.href = "https://yt.mi.42web.io/load.php?list=" + listID;
+            window.location.href = "https://yt.mi.42web.io/www.php?list=" + listID;
         }
     };
 
