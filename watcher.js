@@ -1,4 +1,4 @@
-console.log('MiWatcher ID02');
+console.log('MiWatcher v>> 42');
 
 // File: Create Watcher Page
 
