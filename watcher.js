@@ -61,8 +61,8 @@ link_icon.href = 'https://mialaprog.github.io/MiYT/lib/icon.png';
 // Body set
 body.innerHTML = 
 `
-<div class="loaderPlay"></div><div class="loaderFactory"></div><div class="loaderSlash"></div><div class="loaderFilm top"></div><div class="loaderFilm down"></div>
 <div id='inProgress' class='block'>
+<div class="loaderPlay"></div><div class="loaderFactory"></div><div class="loaderSlash"></div><div class="loaderFilm top"></div><div class="loaderFilm down"></div>
 <div class='content'>
     <progress id="loading_progress" class="progress is-large is-link" value="50" max="100">Attente de votre réponse...</progress><br><br>
     <h1 class="txtop">Veuillez répondre à la question: OK = Oui , Annuler = Non</h1><br>
