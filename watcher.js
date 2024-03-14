@@ -64,7 +64,8 @@ body.innerHTML =
 <div id='inProgress' class='block'>
 <div class="loaderPlay"></div><div class="loaderFactory"></div><div class="loaderSlash"></div><div class="loaderFilm top"></div><div class="loaderFilm down"></div>
 <div class='content'>
-    <progress id="loading_progress" class="progress is-large is-link" value="50" max="100">Attente de votre réponse...</progress><br><br>
+    <br>
+    <progress id="loading_progress" class="progress is-large is-danger" value="0" max="100">Attente de votre réponse...</progress><br><br>
     <h1 class="txtop">Veuillez répondre à la question: OK = Oui , Annuler = Non</h1><br>
     
     <p class="image is-128x128 is-centered">
@@ -75,7 +76,7 @@ body.innerHTML =
 + body.innerHTML +
 `
 
-<div class="block">
+<div id="pageContent" class="block is-hidden">
 <div class="columns is-desktop is-variable is-8">
     <div class="column has-text-danger-light has-background-dark">
     <div class="tags are-medium">

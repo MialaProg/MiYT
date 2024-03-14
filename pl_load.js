@@ -192,9 +192,10 @@ function pl_loaded(pl) {
             document.body.appendChild(js2);
 
             document.getElementById('inProgress').remove();
+            document.getElementById('pageContent').classList.remove('is-hidden');
         } else {
 
-            document.getElementById('loading_progress').setAttribute("value", waitLibI * 100);
+            document.getElementById('loading_progress').setAttribute("value", 90 + waitLibI);
             setTimeout(waitLib, waitLibI * 100);
         }
 
@@ -205,9 +206,9 @@ function pl_loaded(pl) {
 
 if (pl_txt == 'toBEloaded') {
     async function getPlaylistItems(playlistId) {
-        const MAX_RESULTS = 50;
-        const baseUrl = "https://yt.lemnoslife.com/noKey/playlistItems";
-        const params = {
+        let MAX_RESULTS = 50;
+        let baseUrl = "https://yt.lemnoslife.com/noKey/playlistItems";
+        let params = {
             part: "contentDetails",
             playlistId: playlistId,
             maxResults: MAX_RESULTS,
@@ -215,12 +216,14 @@ if (pl_txt == 'toBEloaded') {
 
         let allItems = [];
         let nextPageToken;
+        let req_i = 0;
+
 
         do {
-let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
-console.log(plgeturl);
-            const response = await fetch(plgeturl);
-            const data = await response.json();
+            let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
+            console.log(plgeturl);
+            let response = await fetch(plgeturl);
+            let data = await response.json();
 
             if (response.ok) {
                 console.log(data);
@@ -229,6 +232,8 @@ console.log(plgeturl);
 
                 // Mettre à jour les paramètres pour la prochaine requête
                 params.pageToken = nextPageToken;
+
+                document.getElementById('loading_progress').setAttribute("value", (req_i / data.pageInfo.totalResults) * 100);
             } else {
                 // Gérer l'erreur
                 console.error("Une erreur est survenue: ", data.error);
@@ -245,8 +250,8 @@ console.log(plgeturl);
 
     //   Explication du code:
     // La fonction getPlaylistItems prend en paramètre l'ID de la playlist YouTube.
-    // On définit une constante MAX_RESULTS pour limiter le nombre de résultats par requête.
-    // On construit l'URL de base de l'API avec les paramètres part, playlistId et maxResults.
+    // On définit une letante MAX_RESULTS pour limiter le nombre de résultats par requête.
+    // On letruit l'URL de base de l'API avec les paramètres part, playlistId et maxResults.
     // On utilise une boucle do...while pour itérer sur les pages de résultats.
     // Dans la boucle, on fait une requête à l'API et on récupère les ID des vidéos (items.etag).
     // Si la requête est un succès, on stocke les ID des vidéos et on récupère le nextPageToken pour la prochaine page.
