@@ -82,6 +82,10 @@ function ListPl() {
 
     playlists.forEach((pl, index) => {
         if (index % 4 === 0) {
+            let name = playlists[i + 3].trim();
+            if (name === 'TITRE'){
+                return;
+            }
             setYouTubePlDt(playlists[index + 1], pl);
         }
     });
