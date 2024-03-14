@@ -3,7 +3,6 @@ console.log('SrvIdx v>>42<');
 function setYouTubePlDt(PlID, time) {
     let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/playlist?list=' + PlID + '&format=json';
 
-
     fetch(apiUrl)
         .then(response => response.json())
         .then(data => {
@@ -113,7 +112,7 @@ function getGitIdx() {
             let contenu = xhr.responseText;
 
             // Insérer le contenu dans la div
-            document.getElementById(MiYT-git-idx).innerHTML = contenu;
+            document.getElementById(MiYT - git - idx).innerHTML = contenu;
         } else {
             // Afficher une erreur
             console.error("Erreur lors de la requête : " + xhr.status);

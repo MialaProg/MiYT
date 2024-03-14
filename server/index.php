@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $dir = './db/';
 $path = $dir . 'index.list';
@@ -22,7 +22,7 @@ $pllist = array_slice(explode("\n", $content), -148);
     sa taille) directement depuis la barre de favoris sans installation requise.">
     <meta name="description" content="Objectif: permettre la lecture d'une vidéo / playliste YT (en mode aléatoire quelque soit
     sa taille) directement depuis la barre de favoris sans installation requise.">
-    
+
     <link rel="manifest" href="https://mialaprog.github.io/MiYT/lib/MiYT.webmanifest">
 
     <link rel="stylesheet" href="https://mialaprog.github.io/MiYT/ext/bulma.min.css">
@@ -69,7 +69,7 @@ $pllist = array_slice(explode("\n", $content), -148);
                         </ul>
                     </div> -->
                 </div>
-                
+
                 <div class="column has-text-danger-light has-background-dark">
                     <div id="MiYT-git-idx" style="border-radius: 0.25rem;">
                         <iframe id='MiYT-git-iframe' width="100%" height="100%" src="https://mialaprog.github.io/MiYT/" style="border-radius: 0.25rem;"></iframe>
