@@ -1,4 +1,4 @@
-console.log('SrvIdx ID-07');
+console.log('SrvIdx v>>42<');
 
 function setYouTubePlDt(PlID, time) {
     let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/playlist?list=' + PlID + '&format=json';
@@ -42,7 +42,7 @@ function ListPl() {
         // Tps, ID, Nb, TITRE
         if (i % 4 === 0) {
             let name = playlists[i + 3].trim();
-            if (name === 'TITRE'){
+            if (name === 'TITRE') {
                 return;
             }
             let id = playlists[i + 1].trim();
@@ -83,7 +83,7 @@ function ListPl() {
     playlists.forEach((pl, index) => {
         if (index % 4 === 0) {
             let name = playlists[i + 3].trim();
-            if (name === 'TITRE'){
+            if (name === 'TITRE') {
                 return;
             }
             setYouTubePlDt(playlists[index + 1], pl);
@@ -91,6 +91,40 @@ function ListPl() {
     });
 }
 
+
+function getGitIdx() {
+    // Créer une nouvelle requête XMLHttpRequest
+    var xhr = new XMLHttpRequest();
+
+    let gitIframe = document.getElementById('MiYT-git-iframe');
+    let gitURL = gitIframe.src;
+
+    // Ouvrir la requête en GET
+    xhr.open("GET", gitURL, true);
+
+    // Définir le type de contenu attendu
+    xhr.responseType = "text";
+
+    // Ecouter l'événement "load" de la requête
+    xhr.onload = function () {
+        // Si la requête a réussi
+        if (xhr.status === 200) {
+            // Obtenir le contenu de la réponse
+            let contenu = xhr.responseText;
+
+            // Insérer le contenu dans la div
+            document.getElementById(MiYT-git-idx).innerHTML = contenu;
+        } else {
+            // Afficher une erreur
+            console.error("Erreur lors de la requête : " + xhr.status);
+        }
+    };
+
+    // Envoyer la requête
+    xhr.send();
+}
+
 document.addEventListener('DOMContentLoaded', function () {
+    getGitIdx();
     ListPl();
 });
