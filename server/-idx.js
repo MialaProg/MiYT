@@ -41,11 +41,11 @@ function ListPl() {
     playlists.forEach((pl, i) => {
         // Tps, ID, Nb, TITRE
         if (i % 4 === 0) {
-            let name = playlists[i + 3];
+            let name = playlists[i + 3].trim();
             if (name === 'TITRE'){
                 return;
             }
-            let id = playlists[i + 1];
+            let id = playlists[i + 1].trim();
             let link = 'https://yt.mi.42web.io/www.php?list=' + id + '&title=' + name + '&time=' + pl;
             // pl_view_HTML += '<li><a href="' + link + '">' + name + '</a></li>';
 
