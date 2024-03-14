@@ -129,8 +129,8 @@ function pl_loaded(pl) {
 
         var lcl_REPRISE = false;
 
-        if (($LOCAL_STORAGE && $UTILITIES && $PLAYLIST_VIEW) || waitLibI == 11) {
-            setTimeout(plv_load, 5);
+        if (($LOCAL_STORAGE && $UTILITIES) || waitLibI == 11) {
+            //setTimeout(plv_load, 5);
 
             if ($LOCAL_STORAGE) {
                 let list_pl_id = lcl_load_list('plid');
