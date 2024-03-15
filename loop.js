@@ -33,8 +33,12 @@ function changeVideo(nid, pgs_rest = true) {
     // player.pauseVideo();
 
     let vid_id = playlist[id]
+try {
     player.loadVideoById(vid_id);
     player.playVideo();
+} catch (error){
+console.log(error);
+}
     document.title = 'Lecteur MiYT - Miala';
     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - Lecteur MiYT';
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
