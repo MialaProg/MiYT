@@ -194,7 +194,7 @@ function pl_loaded() {
             document.getElementById('pageContent').classList.remove('is-hidden');
         } else {
 
-            document.getElementById('loading_progress').setAttribute("value", 90 + waitLibI);
+            document.getElementById('loading_progress').setAttribute("value", (90 + waitLibI).toString());
             setTimeout(waitLib, waitLibI * 100);
         }
 
@@ -232,7 +232,7 @@ if (pl_txt == 'toBEloaded') {
                 // Mettre à jour les paramètres pour la prochaine requête
                 params.pageToken = nextPageToken;
 
-                document.getElementById('loading_progress').setAttribute("value", (req_i / data.pageInfo.totalResults) * 100);
+                document.getElementById('loading_progress').setAttribute("value", parseInt((req_i / data.pageInfo.totalResults) * 100).toString());
             } else {
                 // Gérer l'erreur
                 console.error("Une erreur est survenue: ", data.error);
