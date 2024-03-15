@@ -161,17 +161,6 @@ function next() {
 document.getElementById('prev_btn').onclick = function () { prev() };
 document.getElementById('next_btn').onclick = function () { next() };
 
-// 2. Écoutez l'événement onStateChange
-function onPlayerStateChange(event) {
-    console.log(event);
-    if (event.data == YT.PlayerState.ENDED) {
-        next();
-    } else {
-        clear_pubs();
-    }
-}
-
-
 var pageUpdate_i = 0;
 
 function pageUpdate() {
@@ -256,6 +245,15 @@ function pageUpdate() {
         } else {
             pageUpdate_i += 1;
         }
+    }
+}
+
+
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.ENDED) {
+        next();
+    } else {
+        pageUpdate();
     }
 }
 
