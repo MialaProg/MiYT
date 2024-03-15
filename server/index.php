@@ -72,7 +72,7 @@ $pllist = array_slice(explode("\n", $content), -148);
 
                 <div class="column has-text-danger-light has-background-dark">
                     <div id="MiYT-git-idx" style="border-radius: 0.25rem;">
-                        <iframe id='MiYT-git-iframe' width="100%" height="100%" src="https://mialaprog.github.io/MiYT/" style="border-radius: 0.25rem;"></iframe>
+                        <iframe id='MiYT-git-iframe' width="100%" height="100%" src="https://mialaprog.github.io/MiYT?noinput" style="border-radius: 0.25rem;"></iframe>
                     </div>
                 </div>
             </div>

@@ -96,7 +96,7 @@ function getGitIdx() {
     var xhr = new XMLHttpRequest();
 
     let gitIframe = document.getElementById('MiYT-git-iframe');
-    let gitURL = gitIframe.src;
+    let gitURL = gitIframe.src.split('?')[0];
 
     // Ouvrir la requête en GET
     xhr.open("GET", gitURL, true);
@@ -112,7 +112,7 @@ function getGitIdx() {
             let contenu = xhr.responseText;
 
             // Insérer le contenu dans la div
-            document.getElementById(MiYT - git - idx).innerHTML = contenu;
+            document.getElementById('MiYT - git - idx').innerHTML = contenu;
         } else {
             // Afficher une erreur
             console.error("Erreur lors de la requête : " + xhr.status);
