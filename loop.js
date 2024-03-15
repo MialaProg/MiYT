@@ -333,6 +333,7 @@ function onYouTubeIframeAPIReady() {
             'onError': onERR
         },
         controlslist: ["previous", "playpause", "next", "mute", "volume", "fullscreen", "pip"],
+        origin: 'https://yt.mi.42web.io'
     });
 
 
