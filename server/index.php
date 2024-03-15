@@ -3,6 +3,8 @@
 $dir = './db/';
 $path = $dir . 'index.list';
 
+clearstatcache();
+
 $handle = fopen($path, "r");
 $content = fread($handle, filesize($path));
 fclose($handle);

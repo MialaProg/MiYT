@@ -56,6 +56,8 @@ try {
     $dir = './db/';
     $path = $dir . 'index.list';
 
+    clearstatcache();
+
     $handle = fopen($path, "r");
     $content = fread($handle, filesize($path));
     fclose($handle);
@@ -77,7 +79,6 @@ try {
         fwrite($handle, $playlist);
         fclose($handle);
 
-        $list += [$name, $pllist_length, $listID, $time];
         $del_path = $dir . trim($list[2]) . '.Mpl'; //ID
         if (file_exists($del_path)) {
             unlink($del_path);
@@ -87,6 +88,7 @@ try {
             array_shift($list); // Supprime le premier élément de la liste
         }
 
+        $list += [$name, $pllist_length, $listID, $time];
         $content = implode("\n", $list);
 
         $handle = fopen($path, "w");

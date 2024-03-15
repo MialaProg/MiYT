@@ -220,12 +220,12 @@ if (pl_txt == 'toBEloaded') {
 
         do {
             let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
-            console.log(plgeturl);
+            // console.log(plgeturl);
             let response = await fetch(plgeturl);
             let data = await response.json();
 
             if (response.ok) {
-                console.log(data);
+                // console.log(data);
                 allItems = allItems.concat(data.items.map((item) => item.contentDetails.videoId));
                 nextPageToken = data.nextPageToken;
 

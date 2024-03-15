@@ -16,6 +16,8 @@ else:
         $reload = ((time() - $_GET['time']) > 3888000);
     }
 
+    clearstatcache();
+    
     if (file_exists($path)){
         $handle = fopen($path, "r");
         $my_playlist = fread($handle, filesize($path));
