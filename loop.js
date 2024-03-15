@@ -332,8 +332,7 @@ function onYouTubeIframeAPIReady() {
             'onStateChange': onPlayerStateChange,
             'onError': onERR
         },
-        controlslist: ["previous", "playpause", "next", "mute", "volume", "fullscreen", "pip"],
-        origin: 'https://yt.mi.42web.io'
+        controlslist: ["previous", "playpause", "next", "mute", "volume", "fullscreen", "pip"]
     });
 
 
