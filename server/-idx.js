@@ -109,10 +109,10 @@ function getGitIdx() {
         // Si la requête a réussi
         if (xhr.status === 200) {
             // Obtenir le contenu de la réponse
-            let contenu = xhr.responseText;
+            let content = xhr.responseText;
 
             // Insérer le contenu dans la div
-            document.getElementById('MiYT - git - idx').innerHTML = contenu;
+            document.getElementById('MiYT-git-idx').innerHTML = content;
         } else {
             // Afficher une erreur
             console.error("Erreur lors de la requête : " + xhr.status);
