@@ -79,13 +79,13 @@ function ListPl() {
     var pl_view = document.getElementById("playlists");
     pl_view.innerHTML = pl_view_HTML;
 
-    playlists.forEach((pl, index) => {
-        if (index % 4 === 0) {
+    playlists.forEach((pl, i) => {
+        if (i % 4 === 0) {
             let name = playlists[i + 3].trim();
             if (name === 'TITRE') {
                 return;
             }
-            setYouTubePlDt(playlists[index + 1], pl);
+            setYouTubePlDt(playlists[i + 1], pl);
         }
     });
 }
