@@ -124,6 +124,6 @@ function getGitIdx() {
 }
 
 document.addEventListener('DOMContentLoaded', function () {
-    getGitIdx();
+    // getGitIdx();
     ListPl();
 });

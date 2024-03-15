@@ -38,6 +38,7 @@ $pllist = array_slice(explode("\n", $content), -148);
 
     <script type="text/javascript" src="https://mialaprog.github.io/MiYT/server/-idx.js"></script>
     <script type="text/javascript" src="https://mialaprog.github.io/MiYT/lib/stop_pub.js"></script>
+    <script type="text/javascript" src="https://mialaprog.github.io/MiYT/lib/PLinput.js"></script>
 
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
@@ -71,8 +72,9 @@ $pllist = array_slice(explode("\n", $content), -148);
                 </div>
 
                 <div class="column has-text-danger-light has-background-dark">
-                    <div id="MiYT-git-idx" style="border-radius: 0.25rem;">
-                        <iframe id='MiYT-git-iframe' width="100%" height="100%" src="https://mialaprog.github.io/MiYT?noinput" style="border-radius: 0.25rem;"></iframe>
+                    <div style="border-radius: 0.25rem;" class="list-container scroll">
+                        <div id='PLinput'></div>
+                        <iframe width="100%" height="95%" src="https://mialaprog.github.io/MiYT?noinput" style="border-radius: 0.25rem;"></iframe>
                     </div>
                 </div>
             </div>
