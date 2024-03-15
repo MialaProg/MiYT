@@ -76,7 +76,7 @@ $pllist = array_slice(explode("\n", $content), -148);
                 <div class="column has-text-danger-light has-background-dark">
                     <div style="border-radius: 0.25rem;" class="list-container scroll">
                         <div id='PLinput'></div>
-                        <iframe width="100%" height="95%" src="https://mialaprog.github.io/MiYT?noinput" style="border-radius: 0.25rem;"></iframe>
+                        <iframe width="100%" height="100%" src="https://mialaprog.github.io/MiYT?noinput"></iframe>
                     </div>
                 </div>
             </div>
