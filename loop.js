@@ -317,6 +317,10 @@ function onERR() {
 function onYouTubeIframeAPIReady() {
     console.log("onYouTubeIframeAPIReady run...");
 
+    if (player){
+        return 'Already created';
+    }
+
     let playerDivWidth = document.getElementById('player').clientWidth;
     player = new YT.Player('player', {
         videoId: playlist[id],
@@ -359,8 +363,8 @@ function waitPlayer() {
     try {
 
         if (YT.loaded === 1) {
-            console.log('YTiframe API ready !');
-            onYouTubeIframeAPIReady();
+            console.log('YTiframe API ready ! Wait 1s...');
+            setTimeout(onYouTubeIframeAPIReady, 1000);
             return 'Player created';
         } else {
             console.log('Wait for YTiframe API...');
