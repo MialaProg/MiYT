@@ -88,14 +88,14 @@ try {
             array_shift($list); // Supprime le premier élément de la liste
         }
 
-        $list += [$name, $pllist_length, $listID, $time];
+        $list = array_merge($list, [$name, $pllist_length, $listID, $time]);
         $content = implode("\n", $list);
 
         $handle = fopen($path, "w");
         fwrite($handle, $content);
         fclose($handle);
     } else {
-        $list += [$name, $pllist_length, $listID, $time];
+        $list = array_merge($list, [$name, $pllist_length, $listID, $time]);
         $del_path = $dir . trim($list[$id_idx]) . '.Mpl';
         if (file_exists($del_path)) {
             unlink($del_path);
