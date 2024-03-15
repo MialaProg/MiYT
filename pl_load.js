@@ -259,7 +259,9 @@ if (pl_txt == 'toBEloaded') {
     // Si la requête échoue, on affiche un message d'erreur.
     // On retourne la liste des ID des vidéos une fois la boucle terminée.
 } else {
-    pl_loaded(pl_txt.split(';'));
+    // take playlist from the server return
+    playlist = pl_txt.split(';');
+    pl_loaded();
 }
 
 
