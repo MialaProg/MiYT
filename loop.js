@@ -39,29 +39,29 @@ function changeVideo(nid, pgs_rest = true) {
     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - Lecteur MiYT';
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
 
-        if ($LOCAL_STORAGE) {
-            try {
-                if (!isNaN(lcl_pl_id)) {
-                    lcl_save_IN_list('watch_id', id, lcl_pl_id);
+    if ($LOCAL_STORAGE) {
+        try {
+            if (!isNaN(lcl_pl_id)) {
+                lcl_save_IN_list('watch_id', id, lcl_pl_id);
+            }
+        } catch (error) { }
+        try {
+            let list_vid_id = lcl_load_list('vidid');
+            lcl_vid_id = list_vid_id.indexOf(vid_id);
+            if (lcl_vid_id == -1) {
+                lcl_vid_id = list_vid_id.length;
+                list_vid_id.push(vid_id);
+                lcl_save_list('vidid', list_vid_id);
+            } else if (pgs_rest) {
+                let progression = lcl_load_LIST_IN_list('vid_pgs', lcl_vid_id);
+                var pgs_time = parseInt(progression[0]);
+                if ((parseInt(progression[1]) > 440) && (parseInt(progression[1]) - pgs_time > 130)) {
+                    setTimeout(() => { player.seekTo(pgs_time); }, 1000);
                 }
-            } catch (error) { }
-            try {
-                let list_vid_id = lcl_load_list('vidid');
-                lcl_vid_id = list_vid_id.indexOf(vid_id);
-                if (lcl_vid_id == -1){
-                    lcl_vid_id = list_vid_id.length;
-                    list_vid_id.push(vid_id);
-                    lcl_save_list('vidid', list_vid_id);
-                }else if (pgs_rest){
-                    let progression = lcl_load_LIST_IN_list('vid_pgs', lcl_vid_id);
-                    var pgs_time = parseInt(progression[0]);
-                    if ((parseInt(progression[1]) > 440) && (parseInt(progression[1]) - pgs_time > 130)) {
-                        setTimeout(() => {player.seekTo(pgs_time);}, 1000);
-                    }
-                }
-                 
-            } catch (error) {}
-        }
+            }
+
+        } catch (error) { }
+    }
 
     try {
         if ($PLAYLIST_VIEW !== false) {
@@ -100,7 +100,7 @@ function changeVideo(nid, pgs_rest = true) {
 
 function data_update() {
     inChg = true;
-    if ($PLAYLIST_VIEW){
+    if ($PLAYLIST_VIEW) {
         plv_load();
     }
 
@@ -110,24 +110,24 @@ function data_update() {
         pl_link.setAttribute("href", "https://www.youtube.com/playlist?list=" + listID);
     }
 
-    if  ($LOCAL_STORAGE){
-        
+    if ($LOCAL_STORAGE) {
+
         try {
             let list_vid_id = lcl_load_list('vidid');
             lcl_vid_id = list_vid_id.indexOf(vid_id);
-            if (lcl_vid_id == -1){
+            if (lcl_vid_id == -1) {
                 lcl_vid_id = list_vid_id.length;
                 list_vid_id.push(vid_id);
                 lcl_save_list('vidid', list_vid_id);
             }
-                        
+
             lcl_save_IN_list('vid_pgs', vid_pgs, lcl_vid_id);
-             
-        } catch (error) {}
+
+        } catch (error) { }
     }
 
     changeVideo(id);
-    
+
 }
 
 // <<| |>>
@@ -163,6 +163,7 @@ document.getElementById('next_btn').onclick = function () { next() };
 
 // 2. Écoutez l'événement onStateChange
 function onPlayerStateChange(event) {
+    console.log(event);
     if (event.data == YT.PlayerState.ENDED) {
         next();
     } else {
@@ -222,11 +223,11 @@ function pageUpdate() {
                     console.log('Outro Skip');
                     next();
                 }
-                if ($LOCAL_STORAGE && lcl_vid_id){
-                    if (duration - currentTime > 130){
+                if ($LOCAL_STORAGE && lcl_vid_id) {
+                    if (duration - currentTime > 130) {
                         let currentPercent = Math.round(currentTime / duration * 100);
-                        vid_pgs = lcl_save_LIST_IN_list('vid_pgs', [currentTime, duration, currentPercent], lcl_vid_id);    
-                    }else{
+                        vid_pgs = lcl_save_LIST_IN_list('vid_pgs', [currentTime, duration, currentPercent], lcl_vid_id);
+                    } else {
                         lcl_del_IN_list('vid_pgs', lcl_vid_id);
                         lcl_del_IN_list('vidid', lcl_vid_id);
                         lcl_vid_id = false;
@@ -317,7 +318,7 @@ function onERR() {
 function onYouTubeIframeAPIReady() {
     console.log("onYouTubeIframeAPIReady run...");
 
-    if (player){
+    if (player) {
         return 'Already created';
     }
 
@@ -348,6 +349,7 @@ function onYouTubeIframeAPIReady() {
             prev()
         }
     });
+
 
     console.log(player);
 
