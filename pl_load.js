@@ -53,6 +53,13 @@ var outro_skip = true;
 
     var waitLibI = 0; //end if too much
 
+function checkJSONerror(data){
+    if (data.error) {
+      return [data.error.code, data.error.message, data.error.status]
+    } 
+    return False;
+}
+
     function rsrcLoaded_pl_load() {
         console.log('Une ressource à été chargée <= PlLoad');
     }
