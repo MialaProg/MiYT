@@ -57,7 +57,7 @@ function checkJSONerror(data) {
     if (data.error) {
         return [data.error.code, data.error.message, data.error.status]
     }
-    return False;
+    return false;
 }
 
 function rsrcLoaded_pl_load() {
