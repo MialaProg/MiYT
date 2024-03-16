@@ -207,7 +207,7 @@ function pageUpdate(act = false) {
                 if (video_title != '') {
                     document.title = video_title + ' | MialaMusic';
                     document.getElementById('infos_vid').innerText = video_title + ' (ID: ' + player.getVideoData().video_id + ' #' + id + ') - Lecteur MiYT';
-                    if ($PLAYLIST_VIEW && !$plv_loaded){
+                    if ($PLAYLIST_VIEW && !plv_loaded){
                         plv_load();
                     }
                 }
