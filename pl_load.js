@@ -42,6 +42,12 @@ checkbox_skip.addEventListener("change", function () {
     outro_skip_time = 1;
 });
 
+var indispo_skip = true;
+var checkbox_Iskip = document.getElementById("SkipIndispoSw");
+checkbox_Iskip.addEventListener("change", function () {
+    indispo_skip = checkbox_Iskip.checked;
+});
+
 var LoopPlay = false;
 var checkbox_loop = document.getElementById("LoopPlaySw");
 checkbox_loop.addEventListener("change", function () {
