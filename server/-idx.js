@@ -1,4 +1,4 @@
-console.log('SrvIdx v>>43<');
+console.log('SrvIdx v¤>44<');
 
 function setYouTubePlDt(PlID, time) {
     let apiUrl = 'https://www.youtube.com/oembed?url=https://www.youtube.com/playlist?list=' + PlID + '&format=json';

@@ -1,4 +1,4 @@
-console.log('MiWatcher v>>43<');
+console.log('MiWatcher v¤>44<');
 
 // File: Create Watcher Page
 
