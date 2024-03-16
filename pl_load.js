@@ -34,7 +34,7 @@ var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 var pl_name = document.getElementById("pl_name");
 var playlist = false;
 
-    var outro_skip = true;
+var outro_skip = true;
     var outro_skip_time = 1;
     var checkbox_skip = document.getElementById("SkipOutroSw");
     checkbox_skip.addEventListener("change", function () {
@@ -49,6 +49,7 @@ var playlist = false;
     });
 
     var lcl_pl_id = NaN;
+
 
     var waitLibI = 0; //end if too much
 
