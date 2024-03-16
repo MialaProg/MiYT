@@ -122,16 +122,12 @@ body.innerHTML =
         color: #fff;
     ">
         <div class="field">
-            <label for="SkipIndispoSw">Passer les vidéos indisponibles: </label><!--<br><span style="display:inline-block;width: 2vw;"></span>
-            <label for="SkipIndispoSw">Désactivé</label>-->
-            <input id="SkipIndispoSw" type="checkbox" name="SkipIndispoSw" class="switch" checked>
-            <!--<label for="SkipIndispoSw" style="height: 0.5em; padding-left: 3.5rem;">Activé</label>-->
+            <input id="SkipIndispoSw" type="checkbox" name="SkipIndispoSw" class="switch is-outlined is-warning" checked>
+            <label for="SkipIndispoSw" style="height: 0.5em; padding-left: 3.5rem;">Passer les vidéos indisponibles</label>
         </div>
         <div class="field">
-            <label for="SkipOutroSw">Skipper les outro: </label><!--<br><span style="display:inline-block;width: 2vw;"></span>
-            <label for="SkipOutroSw">Désactivé</label>-->
             <input id="SkipOutroSw" type="checkbox" name="SkipOutroSw" class="switch is-success" checked>
-            <!--<label for="SkipOutroSw" style="height: 0.5em; padding-left: 3.5rem;">Activé</label>-->
+            <label for="SkipOutroSw" style="height: 0.5em; padding-left: 3.5rem;">Skipper les outro</label>
         </div>
 
         <div class="field">
