@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Intégrer une vidéo YouTube avec Video.js</title>
+  <link href="ext/video-js.min.css" rel="stylesheet">
+  <script src="ext/video.min.js"></script>
+</head>
+<body>
+  <div id="video-player"></div>
+
+  <script>
+    var player = videojs("video-player", {
+      techOrder: ["youtube"],
+      youtube: {
+        videoId: "ID_DE_LA_VIDEO",
+      },
+    });
+  </script>
+</body>
+</html>
