@@ -1,4 +1,4 @@
-console.log('Loop v>>42<');
+console.log('Loop v>>43<');
 
 // Glbl Vars
 var player = false;
@@ -33,12 +33,12 @@ function changeVideo(nid, pgs_rest = true) {
     // player.pauseVideo();
 
     let vid_id = playlist[id]
-try {
-    player.loadVideoById(vid_id);
-    player.playVideo();
-} catch (error){
-console.log(error);
-}
+    try {
+        player.loadVideoById(vid_id);
+        player.playVideo();
+    } catch (error) {
+        console.log(error);
+    }
     document.title = 'Lecteur MiYT - Miala';
     document.getElementById('infos_vid').innerText = 'Chargement... (ID: ' + vid_id + ' #' + id + ') - Lecteur MiYT';
     // window.history.pushState(null, '', '/YT/watch.php?idx=' + id);
@@ -166,8 +166,9 @@ document.getElementById('prev_btn').onclick = function () { prev() };
 document.getElementById('next_btn').onclick = function () { next() };
 
 var pageUpdate_i = 0;
+var next_wait = false;
 
-function pageUpdate() {
+function pageUpdate(act = false) {
     //currentState : 
     //-1: Non initialisé
     // 0: Terminé
@@ -233,15 +234,25 @@ function pageUpdate() {
 
                 currentState = player.getPlayerState();
 
-                if (currentState !== 1) {
-                    console.log('Clicked');
+                // if (currentState !== 1) {
+                //     console.log('Clicked');
 
-                    if (currentState === -1 && video_title == '') {
-                        console.log('Video Indispo, next');
+                if (currentState === -1 && video_title == '') {
+                    console.log('Video Indispo, next');
+                    if (act) {
+                        next_wait = false;
                         next();
+                    }else{
+                        if (!next_wait) {
+                            next_wait = true;
+                            setTimeout(() => {
+                                pageUpdate(true);
+                            }, 3000);
+                        }
                     }
-                    // document.getElementsByClassName('ytp-button')[0].click();
                 }
+                // document.getElementsByClassName('ytp-button')[0].click();
+                // }
             } else if (currentState === 2 && nopause == 1) {
                 player.playVideo();
             }

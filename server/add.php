@@ -124,8 +124,8 @@ try {
     window.close();
     </script>
     </head>
-    <body>$content<br>";
-    var_dump($list);
+    <body>";
+    // var_dump($list);
 } catch (\Throwable $th) {
     echo "<!DOCTYPE html>
 <html>
