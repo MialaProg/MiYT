@@ -125,6 +125,7 @@ body.innerHTML =
             <input id="SkipIndispoSw" type="checkbox" name="SkipIndispoSw" class="switch is-outlined is-warning" checked>
             <label for="SkipIndispoSw" style="height: 0.5em; padding-left: 3.5rem;">Passer les vidéos indisponibles</label>
         </div>
+        <br>
         <div class="field">
             <input id="SkipOutroSw" type="checkbox" name="SkipOutroSw" class="switch is-success" checked>
             <label for="SkipOutroSw" style="height: 0.5em; padding-left: 3.5rem;">Skipper les outro</label>

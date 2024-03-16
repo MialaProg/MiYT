@@ -1,0 +1,309 @@
+<!--     
+javascript:(function(){ ... })();
+
+Archives:
+javascript:var videos=[],infini_detect=0;function scrollPage(){body=document.getElementById("contents"),window.scrollTo(0,body.scrollHeight)}function extractVideos(){for(var t=document.querySelectorAll("#video-title"),n=0;n<t.length;n++)try{var e=t[n].href.split("=")[1];videos.includes(e)||(videos.push(e),infini_detect=0)}catch(e){console.log("VIDEO IGNOREE: "),console.log(t[n])}}function end_scan(){var e=document.createElement("form");e.setAttribute("method","post"),e.setAttribute("action","http://yt.mi.42web.io/custom.php");var t=document.createElement("input");t.setAttribute("type","hidden"),t.setAttribute("name","videos"),t.setAttribute("value",videos.join(">>43<100?setTimeout(scan_vids,500):end_scan()}var scan_buttons=document.getElementsByClassName("yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--overlay yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading");Array.from(scan_buttons).forEach(e=>{e.removeAttribute("href"),e.innerHTML="Scanner la playlist",e.onclick=function(){e.setAttribute("disabled",""),scan_vids()}});
+javascript:(function(){var monNouveauCode=function(){console.log("Go !")},b=document.createElement("script");b.type="text/javascript",b.src="https://mialaprog.github.io/MiYT/fav.js",b.onreadystatechange=monNouveauCode,b.onload=monNouveauCode,b.id="PlayMI",document.body.appendChild(b)})();
+
+Actuel:
+javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
+javascript:(function(){ ... })();
+javascript:(function(){ ... })();
+javascript:(function(){ ... })();
+javascript:(function(){ ... })();
+javascript:(function(){ ... })();
+
+## Code entier:
+
+var go = function()  
+{
+  console.log("Go !");
+};
+
+var js = document.createElement("script");
+js.type = "text/javascript";
+js.src = "https://mialaprog.github.io/MiYT/scan.js" ;
+js.onreadystatechange = go;
+js.onload = go;
+js.id = "ScanMi";
+//Ajout de la balise dans la page
+document.body.appendChild(js);
+
+  
+ -->
+
+<html lang="fr">
+
+<head>
+    <meta http-equiv="X-Frame-Options" content="ALLOWALL">
+
+
+    <link rel="manifest" href="https://mialaprog.github.io/MiYT/lib/MiYT.webmanifest">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:title" content="Lecteur MiYT - Client YouTube alternatif">
+    <meta property="od:description" content="Objectif: permettre la lecture d'une vidéo / playliste YT (en mode aléatoire quelque soit
+    sa taille) directement depuis la barre de favoris sans installation requise.">
+    <meta name="description" content="Objectif: permettre la lecture d'une vidéo / playliste YT (en mode aléatoire quelque soit
+    sa taille) directement depuis la barre de favoris sans installation requise.">
+
+    <link rel="stylesheet" href="ext/bulma.min.css">
+
+    <link rel="stylesheet" href="lib/style.css">
+    <link rel="stylesheet" href="ext/fonts.css">
+    <!-- <script type="text/javascript" src="_lib/script.js?v=321"></script> -->
+
+
+    <title>Accueil || Lecteur MiYT</title>
+    <link rel="icon" href="./lib/icon.png" type="image/png">
+    <script type="text/javascript" src="https://mialaprog.github.io/MiYT/lib/PLinput.js"></script>
+
+    <!--[if lt IE 7]>
+              <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+          <![endif]-->
+</head>
+
+<body>
+    <h4>Ce site est prévu pour un usage educatif uniquement.</h4>
+    <p class="MiFont">Attention : votre connexion est lente</p>
+    <div class="content">
+        <div class="block">
+            <div class="box is-hidden" id="PLinput">
+            </div>
+
+            <div class="box">
+                <article class="media">
+                    <figure class="media-left">
+                        <p class="image is-64x64">
+                            <img class="is-rounded" src="./lib/icon.png">
+                        </p>
+                    </figure>
+                    <div class="media-content">
+                        <div class="content" style="width: 50vw;">
+                            <h1>Lecteur MiYT - Musique & Videos</h1>
+                            <p>Objectif: permettre la lecture d'une vidéo / playliste YT (en mode aléatoire quelque soit
+                                sa taille) directement depuis la barre de favoris sans installation requise.</p>
+                        </div>
+                    </div>
+                </article><br><br>
+                <div class="content" style="width: 70vw;">
+
+                    <p>Fonctionnalités:</p>
+                    <ul>
+                        <li>Lecture de vidéos / Listes de lectures</li>
+                        <li>Sauvegarde de la progression (playlists)</li>
+                        <li>Sans pubs, en boucle ou en arrière plan</li>
+                    </ul>
+
+                    <!--
+                    <p>Pour scanner, il existe deux options après avoir choisi votre playlist puis
+                        actualiser (Ordi uniquement, veuillez AUTORISER les popups depuis youtube.com pour le
+                        scan):</p>
+                    <ol>
+                        <li>Procédure standard, veuillez suivres ces étapes sur une page de playlist, avec
+                            YouTube en français:
+                            <ol>
+                                <li><a href='
+                                            javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
+'>
+                                        (Installation. Si déjà fait, suivant) Copiez ce lien et mettez-le en
+                                        favoris: nommez-le 'Scan MiYT' (Une bonne fois pour toute); </a>
+                                </li>
+                                <li>Actualiser la page de votre playlist YouTube (URL-Type:
+                                    youtube.com/playlist?list=....); </li>
+                                <li>Sur la page de la playlist, cliquez sur votre
+                                    favoris 'Scan MiYT'; </li>
+                                <li>Appuyez sur le bouton 'OK' pour confirmer que vous avez fait l'étape 2.;
+                                </li>
+                                <li>Appuyez sur le bouton 'Scanner la playlist'; </li>
+                                <li>Patientez jusqu'à 100% (dans le titre)... Un popup va s'ouvrir puis se
+                                    fermer afin d'enregistrer la liste de lecture sur le serveur.</li>
+                                <li>Lecture en mode aléatoire ? OK=Oui, Annuler=Non </li>
+                                <li>Et voilà ! Il vous suffit de démarer la première vidéo !</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p>Procédure exceptionnelle: Copiez le code ci-dessous. Etape 2.
+                                Collez le code dans la console (dans inspecter).
+                                Suivez ensuite le tuto à partir du 3.</p>
+                            <code>
+                                        javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
+                                   </code>
+                        </li>
+                    </ol>
+-->
+                    <a href='
+                                            javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
+'>
+                        Vous pouvez mettre ce code en favoris afin d'accéder plus facilement à MiYT depuis YouTube.
+                        (Scan automatique de l'URL) <br>Version code: </a>
+                    <code>
+                                        javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
+                                   </code>
+                    <p>Liens rapides: </p>
+                    <ul>
+                        <li><a href="./faq/">FAQ - Foire Aux Questions</a></li>
+                        <li><a href="./lib/politique_confid.txt">Politique de confidentialité</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="content box">
+                <h1>Version actuelle: <code>0.04.0β</code></h1>
+                <ul>
+                    <li>
+                        <h2>Versions futurs (projets par ordre de priorités):</h2>
+                        <ol>
+                            <li>___ Pour proposer de nouvelles fonctionnalités / bugs:
+                                <a target="_blank"
+                                    href="https://github.com/MialaProg/MiYT/issues">https://github.com/MialaProg/MiYT/issues</a>
+                                ___
+                            </li>
+                        </ol>
+                        <!-- <li>Résolutions de bugs mineurs:
+                              <ul>
+                                  <li></li>
+                              </ul>
+                          </li> -->
+                    </li>
+                    <li>
+                        <h2>V0.04.0 - **/0*/2024</h2>
+                        <ul>
+                            <li>Résolutions de bugs mineurs:
+                                <ul>
+                                    <li>Modification du lien playlist lors de la restauration depuis φMi</li>
+                                    <li>Dimensions du lecteur</li>
+                                    <li>Ne pas demander la reprise lors du scan (cf. <a target="_blank"
+                                            href="https://github.com/MialaProg/MiYT/issues/16">Pb#16</a>)</li>
+                                </ul>
+                            </li>
+                            <li>Reprise de la vidéo à x minutes (cf. <a target="_blank"
+                                    href="https://github.com/MialaProg/MiYT/issues/15">Pb#15</a>)</li>
+                            <li>Mise en page du chargement</li>
+                            <li>Migration vers yt.mi.42web.io => [ECHEC] Extention chrome</li>
+                            <li>=> Utilisation de cette super API:
+                                https://yt.lemnoslife.com/noKey/playlistItems?part=id&playlistId=OLAK5uy_nn6BTcY4y9dTM8FB8ZWv_7Sqi1uB3LHus&maxResults=50
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.03.3 - 15/02/2024</h2>
+                        <ul>
+                            <!-- <li>Résolutions de bugs mineurs:
+                                <ul>
+                                    <li>Style de la séction des switch amélioré</li>
+                                </ul>
+                            </li> -->
+                            <li>Choix des playlists amélioré (cf. <a target="_blank"
+                                    href="https://github.com/MialaProg/MiYT/issues/10">Pb#10</a>)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.03.2 - 14/02/2024</h2>
+                        <ul>
+                            <li>Résolutions de bugs mineurs:
+                                <ul>
+                                    <li>Style de la séction des switch amélioré</li>
+                                    <li>Style global amélioré</li>
+                                </ul>
+                            </li>
+                            <li>Passage des outro de certains youtubers (cf. <a target="_blank"
+                                    href="https://github.com/MialaProg/MiYT/issues/9">Pb#9</a>)</li>
+                            <li>Lecture en boucle de la liste de lecture (cf. <a target="_blank"
+                                    href="https://github.com/MialaProg/MiYT/issues/8">Pb#8</a>)</li>
+                            <li>Sauvegarde dans un fichier (cf. <a target="_blank"
+                                    href="https://github.com/MialaProg/MiYT/issues/7">Pb#7</a>)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.03.1 - 11/02/2024</h2>
+                        <ul>
+                            <li>Résolutions de bugs mineurs:
+                                <ul>
+                                    <li>Play Pause Infini</li>
+                                </ul>
+                            </li>
+                            <li>Liste de lecture affichée</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.03.0 - 29/01/2024</h2>
+                        <ul>
+                            <li>Résolutions de bugs mineurs:
+                                <ul>
+                                    <li>Sauvegarde serveur sur firefox</li>
+                                    <li>Redirection https pour les playlists récentes</li>
+                                </ul>
+                            </li>
+                            <li>Réorganisation du code</li>
+                            <li>git MialaProg</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.02.3 - 16/01/2024</h2>
+                        <ul>
+                            <li>Résolutions de bugs mineurs:
+                                <ul>
+                                    <li>Lien sur l'en-tête YT</li>
+                                    <li>/li dans index.html</li>
+                                    <li>1e vidéo en mode aléatoire</li>
+                                </ul>
+                            </li>
+                            <li>Sauvegarde locale multi-listes</li>
+                            <li>Mode sombre β</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.02.2 - 12/01/2024</h2>
+                        <ul>
+                            <li>Résolutions de bugs mineurs:
+                                <ul>
+                                    <li>Confirmation de restauration des données locales</li>
+                                    <li>Firefox Fav Bookmark</li>
+                                </ul>
+                            </li>
+                            <li>Ajout mineur de commentaires dans le code.</li>
+                            <li>Ajout d'un bouton dans l'en-tête YT</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.02.1 - 07/01/2024</h2>
+                        <ul>
+                            <li>local sauvgarde</li>
+                            <li>Lecture de vidéos uniques</li>
+                            <li>Mode "pause interdite"</li>
+                            <li>Mise en page de la question #ranQ?</li>
+                            <li>Résolutions de bugs mineurs:
+                                <ul>
+                                    <li>Suppretion des [x] à répétition à la fin des noms</li>
+                                    <li>Vidéos recommandées => mais en FR uniquement</li>
+                                    <li>Amélioration de la fonction aléatoire</li>
+                                    <li>augmentation de la place côté serveur</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.02.0 - 30/12/2023</h2>
+                        <ul>
+                            <li>Serveur pour appareils inaptes au scan (téléphones) & accès rapide</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <h2>V0.01.0 - 27/12/2023</h2>
+                        <ul>
+                            <li>Création du repo github</li>
+                            <li>Tout côté client (fav)</li>
+                            <li>MàJ automatique</li>
+                            <li>Lecture des playlist en mode aléatoire ou pas</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+</body>
+
+</html>

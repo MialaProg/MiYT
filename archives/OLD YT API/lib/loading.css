@@ -1,0 +1,112 @@
+
+/* HTML: <div class="loader"></div> */
+.loaderPlay {
+  width: 38vh; /* Increase width for larger size */
+  height: 60vw; /* Add height to match width for aspect ratio */
+  aspect-ratio: 1;
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+  --c: no-repeat linear-gradient(red 0 0);
+  background: var(--c), var(--c), var(--c), var(--c), var(--c);
+  background-size: 100% calc(100%/5 + 1px);
+  animation: l15 2s infinite;
+  position: absolute; /* Assumes parent has position: relative */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg); /* Center and rotate */
+}
+
+@keyframes l15 {
+  0%  {background-position: 0 calc(-2*100%/4), 0 calc(-2*100%/4), 0 calc(-2*100%/4), 0 calc(-2*100%/4), 0 calc(-2*100%/4)}
+  20% {background-position: 0 calc(4*100%/4) ,0 calc(-2*100%/4), 0 calc(-2*100%/4), 0 calc(-2*100%/4), 0 calc(-2*100%/4)}
+  40% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(-2*100%/4), 0 calc(-2*100%/4), 0 calc(-2*100%/4)}
+  60% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(-2*100%/4), 0 calc(-2*100%/4)}
+  80% {background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(1*100%/4) ,0 calc(-2*100%/4)}
+  100%{background-position: 0 calc(4*100%/4) ,0 calc(3*100%/4) ,0 calc(2*100%/4) ,0 calc(1*100%/4) ,0 calc(0*100%/4)}
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loaderFactory {
+position: absolute; /* Assumes parent has position: relative */
+  top: 70%;
+  left: 20%;
+  width: 60vw;
+  height: 8vh;/*
+  width: 90px;
+  height: 14px; */
+  box-shadow: 0 3px 0 #fff;
+  background: linear-gradient(#fff 0 0) 50%/2px 100% no-repeat;
+  display: grid;
+}
+.loaderFactory:before,
+.loaderFactory:after{
+  content: "";
+  grid-area: 1/1;
+  background: radial-gradient(circle closest-side, var(--c,#fff) 92%,#0000 ) 0 0/calc(100%/4) 100%;
+  clip-path: inset(0 50% 0 0);
+  animation: l3 1s infinite linear;
+}
+.loaderFactory:after{
+  --c: red; 
+  clip-path: inset(0 0 0 50%);
+}
+@keyframes l3 {
+    100% {background-position: calc(100%/3) 0}
+}
+
+/* HTML: <div class="loader"></div> */
+.loaderSlash {
+position: absolute; /* Assumes parent has position: relative */
+  top: 78%;
+  left: 18%;
+  width: 64vw;
+  height: 20px;
+  /*width: 120px;
+  height: 20px;*/
+  transform: skewX(-45deg);
+  background: 
+    linear-gradient(red 0 0) left -30px top 0/30px 20px no-repeat 
+    #ccc;
+  animation: l32 2s infinite linear;
+}
+
+@keyframes l32 {
+  100% {background-position: right -30px top 0}
+}
+
+/* HTML: <div class="loader"></div> */
+.loaderFilm.top{
+position: absolute; /* Assumes parent has position: relative */
+  top: 1%;
+  left: 5%;
+  width: 90vw;
+  height: 5vh;
+}
+.txtop{
+position: absolute; /* Assumes parent has position: relative */
+color:white;
+  top: 7%;
+  left: 5%;
+  width: 90vw;
+  height: 10vh;
+}
+.loaderFilm.down{
+position: absolute; /* Assumes parent has position: relative */
+  top: 94%;
+  left: 5%;
+  width: 90vw;
+  height: 5vh;
+}
+.loaderFilm {
+  /*#514b82*/
+  background: linear-gradient(red 0 0) left -40px top 0/40px 100% no-repeat #eee;
+  -webkit-mask:
+    conic-gradient(from 90deg at 5px 5px,#0000 25%,#000 0)
+     0 0/calc((100% - 5px)/5) calc(100% - 5px);
+  animation: l10 3s infinite linear;
+}
+@keyframes l10 {
+  100% {background-position: right -40px top 0}
+}
+
+/* body{background-color: black;} */
