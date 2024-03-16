@@ -34,7 +34,6 @@ var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 var pl_name = document.getElementById("pl_name");
 var playlist = false;
 
-function pl_loaded() {
     var outro_skip = true;
     var outro_skip_time = 1;
     var checkbox_skip = document.getElementById("SkipOutroSw");
@@ -200,8 +199,8 @@ function pl_loaded() {
 
     }
 
-    waitLib();
-}
+    
+
 
 if (pl_txt == 'toBEloaded') {
     async function getPlaylistItems(playlistId) {
@@ -246,7 +245,7 @@ if (pl_txt == 'toBEloaded') {
     getPlaylistItems(listID).then((items) => {
         playlist = items;
         pl_txt = items.join(';');
-        pl_loaded();
+        waitLib();
     });
 
     //   Explication du code:
@@ -261,7 +260,7 @@ if (pl_txt == 'toBEloaded') {
 } else {
     // take playlist from the server return
     playlist = pl_txt.split(';');
-    pl_loaded();
+    waitLib();
 }
 
 
