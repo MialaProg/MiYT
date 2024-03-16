@@ -70,6 +70,11 @@ function sendToServer(playlist_txt, listID, nb) {
     fetch(`https://yt.lemnoslife.com/noKey/playlists?part=snippet&id=${listID}`)
         .then((response) => response.json())
         .then((data) => {
+            let error = checkJSONerror(data);
+            if (error){
+                alert(`Sauvergarde serveur impossible. Code erreur 75-${error[0]} : ${error[1]}`);
+                return error[2];
+            }
             // Extraire la date de la dernière modification
             let publishedAt = data.items[0].snippet.publishedAt;
             // Convertir la date en temps Unix
