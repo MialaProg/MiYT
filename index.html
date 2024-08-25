@@ -4,17 +4,47 @@ javascript:(function(){ ... })();
 Archives:
 javascript:var videos=[],infini_detect=0;function scrollPage(){body=document.getElementById("contents"),window.scrollTo(0,body.scrollHeight)}function extractVideos(){for(var t=document.querySelectorAll("#video-title"),n=0;n<t.length;n++)try{var e=t[n].href.split("=")[1];videos.includes(e)||(videos.push(e),infini_detect=0)}catch(e){console.log("VIDEO IGNOREE: "),console.log(t[n])}}function end_scan(){var e=document.createElement("form");e.setAttribute("method","post"),e.setAttribute("action","http://yt.mi.42web.io/custom.php");var t=document.createElement("input");t.setAttribute("type","hidden"),t.setAttribute("name","videos"),t.setAttribute("value",videos.join(">>43<100?setTimeout(scan_vids,500):end_scan()}var scan_buttons=document.getElementsByClassName("yt-spec-button-shape-next yt-spec-button-shape-next--filled yt-spec-button-shape-next--overlay yt-spec-button-shape-next--size-m yt-spec-button-shape-next--icon-leading");Array.from(scan_buttons).forEach(e=>{e.removeAttribute("href"),e.innerHTML="Scanner la playlist",e.onclick=function(){e.setAttribute("disabled",""),scan_vids()}});
 javascript:(function(){var monNouveauCode=function(){console.log("Go !")},b=document.createElement("script");b.type="text/javascript",b.src="https://mialaprog.github.io/MiYT/fav.js",b.onreadystatechange=monNouveauCode,b.onload=monNouveauCode,b.id="PlayMI",document.body.appendChild(b)})();
+javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
 
 Actuel:
-javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
-javascript:(function(){ ... })();
+javascript:(function(){ var go=function(){console.log("Go !")};if(window.trustedTypes){const a=trustedTypes.createPolicy("default",{createScriptURL:t=>t}),js=document.createElement("script");js.type="text/javascript",js.src=a.createScriptURL("https://mialaprog.github.io/MiYT/scan.js"),js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js)}else{var js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js)} })();
 javascript:(function(){ ... })();
 javascript:(function(){ ... })();
 javascript:(function(){ ... })();
 javascript:(function(){ ... })();
 
 ## Code entier:
+var go = function()  
+{
+  console.log("Go !");
+};
+// Assurez-vous que Trusted Types est activé dans votre application
+if (window.trustedTypes) {
+    const policy = trustedTypes.createPolicy('default', {
+        createScriptURL: (url) => {
+            // Vous pouvez ajouter des vérifications ici pour valider l'URL
+            return url;
+        }
+    });
 
+    const js = document.createElement("script");
+    js.type = "text/javascript";
+    js.src = policy.createScriptURL("https://mialaprog.github.io/MiYT/scan.js");
+    js.onreadystatechange = go;
+    js.onload = go;
+    js.id = "ScanMi";
+    document.body.appendChild(js);
+} else {
+    var js = document.createElement("script");
+    js.type = "text/javascript";
+    js.src = "https://mialaprog.github.io/MiYT/scan.js" ;
+    js.onreadystatechange = go;
+    js.onload = go;
+    js.id = "ScanMi";
+    //Ajout de la balise dans la page
+    document.body.appendChild(js);
+}
+## OLD
 var go = function()  
 {
   console.log("Go !");
@@ -106,7 +136,7 @@ document.body.appendChild(js);
                             YouTube en français:
                             <ol>
                                 <li><a href='
-                                            javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
+                                            javascript:(function(){ var go=function(){console.log("Go !")};if(window.trustedTypes){const a=trustedTypes.createPolicy("default",{createScriptURL:t=>t}),js=document.createElement("script");js.type="text/javascript",js.src=a.createScriptURL("https://mialaprog.github.io/MiYT/scan.js"),js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js)}else{var js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js)} })();
 '>
                                         (Installation. Si déjà fait, suivant) Copiez ce lien et mettez-le en
                                         favoris: nommez-le 'Scan MiYT' (Une bonne fois pour toute); </a>
@@ -129,13 +159,13 @@ document.body.appendChild(js);
                                 Collez le code dans la console (dans inspecter).
                                 Suivez ensuite le tuto à partir du 3.</p>
                             <code>
-                                        javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
-                                   </code>
+                                        javascript:(function(){ var go=function(){console.log("Go !")};if(window.trustedTypes){const a=trustedTypes.createPolicy("default",{createScriptURL:t=>t}),js=document.createElement("script");js.type="text/javascript",js.src=a.createScriptURL("https://mialaprog.github.io/MiYT/scan.js"),js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js)}else{var js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js)} })();
+                                 </code>
                         </li>
                     </ol>
 -->
                     <a href='
-                                            javascript:(function(){ var go=function(){console.log("Go !")},js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js); })();
+                                            javascript:(function(){ var go=function(){console.log("Go !")};if(window.trustedTypes){const a=trustedTypes.createPolicy("default",{createScriptURL:t=>t}),js=document.createElement("script");js.type="text/javascript",js.src=a.createScriptURL("https://mialaprog.github.io/MiYT/scan.js"),js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js)}else{var js=document.createElement("script");js.type="text/javascript",js.src="https://mialaprog.github.io/MiYT/scan.js",js.onreadystatechange=go,js.onload=go,js.id="ScanMi",document.body.appendChild(js)} })();
 '>
                         Vous pouvez mettre ce code en favoris afin d'accéder plus facilement à MiYT depuis YouTube.
                         (Scan automatique de l'URL) <br>Version code: </a>
