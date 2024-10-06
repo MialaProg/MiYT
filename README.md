@@ -5,6 +5,7 @@ Plus d'informations sur le projet ainsi que la mise en place / installation (mê
     https://yt.mi.42web.io/ (Version complète)
         ou
     https://mialaprog.github.io/MiYT/ (Version client uniquement)
+(pour utiliser MiYT en client, remplacer dans le lien en favoris `scan.js` par `scan_client.js`)
 
 ## Codes de version:
 <br>α : Ne fonctionne pas
