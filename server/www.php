@@ -21,7 +21,7 @@ else:
 
     clearstatcache();
     
-    if ($reload && file_exists($path)){
+    if (!$reload && file_exists($path)){
         $handle = fopen($path, "r");
         $my_playlist = fread($handle, filesize($path));
         fclose($handle);
