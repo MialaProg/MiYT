@@ -43,7 +43,8 @@ try {
     $playlist = trim($_POST['playlist']);
     $pllist_length = $_POST['nb'];
     $listID = trim($_POST['listID']);
-    $time = (int) trim($_POST['time']);
+    // $time = (int) trim($_POST['time']);
+    $time = time();
 
     if (empty($_POST['name'])) {
         $name = "Liste de lecture inconnue";
