@@ -73,7 +73,7 @@ function rsrcLoaded_pl_load() {
 function sendToServer(playlist_txt, listID, nb) {
 
     // Fonction pour obtenir la date de la dernière modification d'une playlist YouTube
-    fetch(`https://yt.lemnoslife.com/noKey/playlists?part=snippet&id=${listID}`)
+    fetch(`https://www.googleapis.com/youtube/v3/playlists?part=snippet&id=${listID}&key=AIzaSyCAVjHyxzel7SzM1rEnhtKQbCXk8y0D1Cs`)
         .then((response) => response.json())
         .then((data) => {
             let error = checkJSONerror(data);
@@ -224,11 +224,12 @@ function waitLib() {
 if (pl_txt == 'toBEloaded') {
     async function getPlaylistItems(playlistId) {
         let MAX_RESULTS = 50;
-        let baseUrl = "https://yt.lemnoslife.com/noKey/playlistItems";
+        let baseUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
         let params = {
             part: "contentDetails",
             playlistId: playlistId,
             maxResults: MAX_RESULTS,
+            key: "AIzaSyCAVjHyxzel7SzM1rEnhtKQbCXk8y0D1Cs"
         };
 
         let allItems = [];
