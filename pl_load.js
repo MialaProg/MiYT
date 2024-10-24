@@ -31,6 +31,11 @@ var listID = params.get("list");
 var id = 0;
 var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 
+//Support des vidéos solo
+if (listID == 'null'){
+    pl_txt = params.get("v");
+}
+
 var pl_name = document.getElementById("pl_name");
 var playlist = false;
 
