@@ -75,6 +75,10 @@ function changeVideo(nid, pgs_rest = true) {
                 }
             } catch (error) { }
             pl_view_active = id;
+
+            // Known ERR: loop.js:81 TypeError: Cannot read properties of null (reading 'classList') at changeVideo (loop.js:78:61)
+            //  => just stop try...
+            console.log('Try add dark bg to article with id:'+id);
             document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
         }
 
@@ -190,6 +194,8 @@ function pageUpdate(act = false) {
             pageUpdate_i = 0;
 
             let duration = player.getDuration();
+            // ERROR connue : loop.js:193 Uncaught TypeError: Cannot read properties of undefined (reading 'title') at pageUpdate
+            //      => Just stop this function iteration
             let video_title = player.getVideoData().title;
 
             console.log('MiYT state: ' + currentTime + '/' + duration + ' => ' + currentState);
