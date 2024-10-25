@@ -161,6 +161,7 @@ function waitLib() {
             if (lcl_pl_id != -1) {
                 lcl_REPRISE = $SCANNED ? confirm("Reprendre où vous en étiez ?\nOK = Oui | Annuler = Non") : false;
             } else {
+                console.log('INFO : First time visit this PL => No ask "reprise" #164-52');
                 lcl_pl_id = list_pl_id.length;
             }
             if (lcl_REPRISE) {
@@ -177,9 +178,8 @@ function waitLib() {
                 lcl_save_IN_list('watch_id', 0, lcl_pl_id);
             }
 
-
-
-
+        }else{
+            console.log('ERROR Loading : No LOCAL_STORAGE #181-54');
         }
 
         let list_length = playlist.length;
