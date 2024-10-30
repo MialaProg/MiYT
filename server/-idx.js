@@ -128,6 +128,6 @@ document.addEventListener('DOMContentLoaded', function () {
     ListPl();
 
     // Tempo
-    document.getElementById("PLinput").classList.add('is-hidden');
+    // document.getElementById("PLinput").classList.add('is-hidden');
 
 });
