@@ -126,4 +126,8 @@ function getGitIdx() {
 document.addEventListener('DOMContentLoaded', function () {
     // getGitIdx();
     ListPl();
+
+    // Tempo
+    document.getElementById("PLinput").classList.add('is-hidden');
+
 });
