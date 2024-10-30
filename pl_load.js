@@ -164,6 +164,11 @@ function waitLib() {
             let list_pl_id = lcl_load_list('plid');
             lcl_pl_id = list_pl_id.indexOf(listID);
 
+            //debug
+            console.log(list_pl_id);
+            console.log(lcl_pl_id);
+            console.log($SCANNED);
+
             if (lcl_pl_id != -1) {
                 lcl_REPRISE = $SCANNED ? confirm("Reprendre où vous en étiez ?\nOK = Oui | Annuler = Non") : false;
             } else {

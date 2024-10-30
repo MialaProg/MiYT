@@ -72,7 +72,10 @@ function changeVideo(nid, pgs_rest = true) {
             set_bg_vid();
         }
 
-    } catch (error) { console.log(error) }
+    } catch (error) { 
+        console.log(error)
+        console.log("Error known: Cannot read properties of null (reading 'classList')\n=> Normal for the first video (see set_bg_vid)")
+    }
 
     outro_skip_time = 1;
     if (outro_skip) {
