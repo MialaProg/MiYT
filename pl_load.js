@@ -165,9 +165,9 @@ function waitLib() {
             lcl_pl_id = list_pl_id.indexOf(listID);
 
             //debug
-            console.log(list_pl_id);
-            console.log(lcl_pl_id);
-            console.log($SCANNED);
+            // console.log(list_pl_id);
+            // console.log(lcl_pl_id);
+            // console.log($SCANNED);
 
             if (lcl_pl_id != -1) {
                 lcl_REPRISE = $SCANNED ? false : confirm("Reprendre où vous en étiez ?\nOK = Oui | Annuler = Non");
