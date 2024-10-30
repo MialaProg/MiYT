@@ -7,9 +7,9 @@ var ytb_outro_pass = {
 };
 
 //Glbl Vars
-if (typeof $SCANNED === 'undefined') {
-    var $SCANNED = false;
-}
+// if (typeof $SCANNED === 'undefined') {
+var $SCANNED = false;
+// }
 if (typeof $LOCAL_STORAGE === 'undefined') {
     var $LOCAL_STORAGE = false;
 }
@@ -170,7 +170,7 @@ function waitLib() {
             console.log($SCANNED);
 
             if (lcl_pl_id != -1) {
-                lcl_REPRISE = $SCANNED ? confirm("Reprendre où vous en étiez ?\nOK = Oui | Annuler = Non") : false;
+                lcl_REPRISE = $SCANNED ? false : confirm("Reprendre où vous en étiez ?\nOK = Oui | Annuler = Non");
             } else {
                 console.log('INFO : First time visit this PL => No ask "reprise" #164-52');
                 lcl_pl_id = list_pl_id.length;
@@ -238,6 +238,7 @@ function waitLib() {
 
 
 if (pl_txt == 'toBEloaded') {
+    $SCANNED = true;
     async function getPlaylistItems(playlistId) {
         let MAX_RESULTS = 50;
         let baseUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
