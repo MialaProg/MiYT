@@ -69,18 +69,7 @@ function changeVideo(nid, pgs_rest = true) {
 
     try {
         if ($PLAYLIST_VIEW !== false) {
-            try {
-                if (pl_view_active !== false) {
-                    document.getElementById('pl_view_article_' + pl_view_active).classList.remove('has-background-grey-dark');
-                }
-            } catch (error) { }
-            pl_view_active = id;
-
-            // Known ERR: loop.js:81 TypeError: Cannot read properties of null (reading 'classList') at changeVideo (loop.js:78:61) 
-            //  => just stop try...
-            //  console.log('Try add dark bg to article with id:'+id); //-> Return ID 0
-            //  => Need set first ID for first time ... 
-            document.getElementById('pl_view_article_' + id).classList.add('has-background-grey-dark');
+            set_bg_vid();
         }
 
     } catch (error) { console.log(error) }
