@@ -115,6 +115,12 @@ function sendToServer(playlist_txt, listID, nb) {
 
 function shuffleAsk() {
     // #ranQ?
+
+    //Ignore la question c'est une video solo
+    if (playlist.length === 1){
+        return 1;
+    }
+
     var reponse = confirm("Lecture de la playlist en mode aléatoire ?\nOK = Oui | Annuler = Non");
 
     if (reponse) {
