@@ -29,7 +29,7 @@ function onPlayerReady(event) {
 function changeVideo(nid, pgs_rest = true) {
     inChg = true;
     id_played = id = parseInt(nid);
-    console.log("VidChg: " + id);
+    console.log("VidChg: #" + id);
     // player.pauseVideo();
 
     let vid_id = playlist[id]
@@ -152,7 +152,7 @@ function next() {
         } else {
             window.stop();
             alert("Fin de la playlist.");
-            window.location.href = "https://miala.000webhostapp.com/YT?todo=end&list=" + listID;
+            window.location.href = "./?todo=end&list=" + listID;
         }
     } else {
         changeVideo(id);
