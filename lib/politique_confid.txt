@@ -19,7 +19,7 @@ Les données "clientes" utilisent LocalStorage. LocalStorage se comporte différ
 
 
 Droits des utilisateurs
-Pour faire valoir vos droits, contactez miala@ik.me . Nous essaierons de faire le maximum sans pouvoir vous garantir que nous soyons aptes à effectuer votre demande.
+Pour faire valoir vos droits, contactez miala+MiYT@ik.me . Nous essaierons de faire le maximum sans pouvoir vous garantir que nous soyons aptes à effectuer votre demande.
 
 Remarque sur les données publiques
 Les données sont traitées et stockées uniquement aux fins décrites ci-dessus. Les données publiées sont accessibles au public sur Internet, de sorte que nous ne pouvons pas savoir si des tiers les copieront sans autorisation. 
