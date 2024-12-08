@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rétrospective de l'année 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 2.5em;
+            animation: fadeIn 2s ease-in-out;
+        }
+        p {
+            font-size: 1.2em;
+            margin-top: 20px;
+            animation: slideIn 2s ease-in-out forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Rétrospective de l'année 2024</h1>
+    <p>Et oui, depuis la V0.02.0 du 30 décembre dernier, de nombreuses fonctionnalités ont été apportées à ce lecteur !</p>
+    <p>Tout d'abord, des fonctions des plus basiques ont été apportées comme la lecture de vidéo seules, la sauvegarde de la progression ou encore la lecture en boucle (sans oublier la lecture "sans pause" pour permettre celle-ci en arrière-plan sur mobile).</p>
+    <p>L'affichage a également bien évolué, puisque d'une simple vidéo sur fond blanc, le lecteur affiche maintenant la liste de lecture ainsi que les différentes options, et tout cela dans un mode sombre harmonieux.</p>
+    <p>Miala est par ailleurs toujours à votre écoute et, de fait, plus d'une vingtaine de bugs ont été réglés cette année !</p>
+    <p>Le saviez-vous ? Les plus de 2000 lignes de code sont open-source et accessibles via https://github.com/MialaProg/MiYT !</p>
+    <p>Par ailleurs, Miala respecte votre vie privée : nous sommes incapables de savoir quelles sont les vidéos/playlist les plus jouées. Depuis la version 0.04.x, une version cliente est disponible sur https://mialaprog.github.io/MiYT/ pour être entièrement indépendante du serveur.</p>
+    <p>N'oublions pas que ce projet avait au départ pour visée uniquement de faire un lecteur capable de compter à plus de 200 pour mettre de grandes playlists en mode aléatoire (contrairement à YouTube ^^).</p>
+    <p>À bientôt (je l'espère) pour de nouvelles fonctionnalités !</p>
+    <p>Si vous avez des suggestions, c'est par ici ;) : https://github.com/MialaProg/MiYT/issues </p>
+    
+
+</body>
+</html>
