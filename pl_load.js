@@ -310,7 +310,7 @@ async function getPlaylistItems(playlistId) {
     return allItems;
 }
 
-getPLitmFrmID(nid){
+function getPLitmFrmID(nid){
     getPlaylistItems(listIDs[nid]).then((items) => {
         if(nid+1 === listIDs.length){
             playlist = items;
