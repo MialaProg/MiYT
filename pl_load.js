@@ -312,9 +312,10 @@ async function getPlaylistItems(playlistId) {
 
 function getPLitmFrmID(nid){
     getPlaylistItems(listIDs[nid]).then((items) => {
+        playlist = playlist.concat(items);
+
         if(nid+1 === listIDs.length){
-            playlist = items;
-            pl_txt = items.join(';');
+            pl_txt = playlist.join(';');
             waitLib();
         }else{
             getPLitmFrmID(nid + 1);
@@ -325,6 +326,7 @@ function getPLitmFrmID(nid){
 if (pl_txt == 'toBEloaded') {
     $SCANNED = true;
 
+    playlist = "";
     getPLitmFrmID(0)
 
 } else {
