@@ -95,6 +95,7 @@ function changeVideo(nid, pgs_rest = true) {
 
         } catch (error) { console.log(error) }
     }
+    next_wait = false;
     inChg = false;
 }
 
