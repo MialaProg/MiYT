@@ -242,10 +242,13 @@ function pageUpdate(act = false) {
                 if (currentState === -1 && video_title == '') {
                     console.log('Video Indispo, next');
                     if (act) {
+                        console.log('=>NEXT');
                         next_wait = false;
                         next();
                     }else{
+                        console.log('=>CTRL Timout State');
                         if (indispo_skip && !next_wait) {
+                            console.log('=>Send Timeout');
                             next_wait = true;
                             setTimeout(() => {
                                 pageUpdate(true);
