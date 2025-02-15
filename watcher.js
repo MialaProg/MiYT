@@ -113,6 +113,13 @@ body.innerHTML =
                 playlist_remove
             </span>
         </button>
+
+        <span style="display:inline-block;width: 4vw;"></span>
+        <button id="pl_add" class="button is-success">
+            <span class="material-symbols-outlined gfonticon_button icon is-small">
+                playlist_add
+            </span>
+        </button>
     </div>
 
     <div class="box" style="
