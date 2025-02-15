@@ -144,6 +144,28 @@ document.getElementById('pl_add').onclick = function () {
 
     try {
         let ADDlistID = new URLSearchParams(new URL(response).search).get("list");
+
+        // Recreate the progress bar to catch errors
+        var newDiv = document.createElement('div');
+        newDiv.className = 'block';
+        newDiv.id = 'inProgress';
+        newDiv.innerHTML = `
+            <div class="loaderPlay"></div>
+            <div class="loaderFactory"></div>
+            <div class="loaderSlash"></div>
+            <div class="loaderFilm top"></div>
+            <div class="loaderFilm down"></div>
+            <div class='content'>
+                <br>
+                <progress id="loading_progress" class="progress is-large is-danger" value="0" max="100">Attente de votre réponse...</progress><br><br>
+                <h1 class="txtop">Veuillez répondre à la question: OK = Oui , Annuler = Non</h1><br>
+                <p class="image is-128x128 is-centered">
+                    <img class="is-rounded" src="https://mialaprog.github.io/MiYT/lib/icon.png" alt="Lecteur MiYT">
+                </p><br><br>
+            </div>
+        `;
+        document.body.appendChild(newDiv);
+
         getPlaylistItems(ADDlistID).then((items) => {
             playlist = playlist.concat(items);
             pl_txt = playlist.join(';');
