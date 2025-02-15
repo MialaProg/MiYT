@@ -263,6 +263,14 @@ function waitLib() {
 }
 
 async function getPlaylistItems(playlistId) {
+    // La fonction getPlaylistItems prend en paramètre l'ID de la playlist YouTube.
+    // On définit une letante MAX_RESULTS pour limiter le nombre de résultats par requête.
+    // On letruit l'URL de base de l'API avec les paramètres part, playlistId et maxResults.
+    // On utilise une boucle do...while pour itérer sur les pages de résultats.
+    // Dans la boucle, on fait une requête à l'API et on récupère les ID des vidéos (items.etag).
+    // Si la requête est un succès, on stocke les ID des vidéos et on récupère le nextPageToken pour la prochaine page.
+    // Si la requête échoue, on affiche un message d'erreur.
+    // On retourne la liste des ID des vidéos une fois la boucle terminée.
     let MAX_RESULTS = 50;
     let baseUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
     let params = {
@@ -302,25 +310,23 @@ async function getPlaylistItems(playlistId) {
     return allItems;
 }
 
+getPLitmFrmID(nid){
+    getPlaylistItems(listIDs[nid]).then((items) => {
+        if(nid+1 === listIDs.length){
+            playlist = items;
+            pl_txt = items.join(';');
+            waitLib();
+        }else{
+            getPLitmFrmID(nid + 1);
+        }
+    });
+}
 
 if (pl_txt == 'toBEloaded') {
     $SCANNED = true;
-    
-    getPlaylistItems(listID).then((items) => {
-        playlist = items;
-        pl_txt = items.join(';');
-        waitLib();
-    });
 
-    //   Explication du code:
-    // La fonction getPlaylistItems prend en paramètre l'ID de la playlist YouTube.
-    // On définit une letante MAX_RESULTS pour limiter le nombre de résultats par requête.
-    // On letruit l'URL de base de l'API avec les paramètres part, playlistId et maxResults.
-    // On utilise une boucle do...while pour itérer sur les pages de résultats.
-    // Dans la boucle, on fait une requête à l'API et on récupère les ID des vidéos (items.etag).
-    // Si la requête est un succès, on stocke les ID des vidéos et on récupère le nextPageToken pour la prochaine page.
-    // Si la requête échoue, on affiche un message d'erreur.
-    // On retourne la liste des ID des vidéos une fois la boucle terminée.
+    getPLitmFrmID(0)
+
 } else {
     // take playlist from the server return
     playlist = pl_txt.split(';');
