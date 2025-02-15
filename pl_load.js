@@ -140,7 +140,7 @@ document.getElementById('reset_btn').onclick = function () {
 };
 
 document.getElementById('pl_add').onclick = function () {
-    var reponse = prompt("Entrez l'URL de la playlist à ajouter à celle-ci:");
+    let response = prompt("Entrez l'URL de la playlist à ajouter à celle-ci:");
 
     try {
         let ADDlistID = new URLSearchParams(new URL(response).search).get("list");
