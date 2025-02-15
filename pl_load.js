@@ -139,6 +139,26 @@ document.getElementById('reset_btn').onclick = function () {
     }
 };
 
+document.getElementById('pl_add').onclick = function () {
+    var reponse = prompt("Entrez l'URL de la playlist à ajouter à celle-ci:");
+
+    try {
+        let ADDlistID = new URLSearchParams(new URL(response).search).get("list");
+        getPlaylistItems(ADDlistID).then((items) => {
+            playlist = playlist.concat(items);
+            pl_txt = playlist.join(';');
+            waitLib();
+        });
+    } catch (error) {
+        console.log(error);
+        alert("Oops, une erreur s'est produite.")
+    }
+
+    // const newUrl = '/nouvelle-url';
+    // window.history.replaceState({ path: newUrl }, '', newUrl);
+    
+};
+
 window.addEventListener('resize', function () {
     // Code à exécuter lorsque la fenêtre est redimensionnée  
     let playerIframe = document.getElementById('player');
@@ -234,51 +254,50 @@ function waitLib() {
 
 }
 
+async function getPlaylistItems(playlistId) {
+    let MAX_RESULTS = 50;
+    let baseUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
+    let params = {
+        part: "contentDetails",
+        playlistId: playlistId,
+        maxResults: MAX_RESULTS,
+        key: "AIzaSyCAVjHyxzel7SzM1rEnhtKQbCXk8y0D1Cs"
+    };
 
+    let allItems = [];
+    let nextPageToken;
+    let req_i = 0;
+
+
+    do {
+        let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
+        // console.log(plgeturl);
+        let response = await fetch(plgeturl);
+        let data = await response.json();
+
+        if (response.ok) {
+            // console.log(data);
+            allItems = allItems.concat(data.items.map((item) => item.contentDetails.videoId));
+            nextPageToken = data.nextPageToken;
+
+            // Mettre à jour les paramètres pour la prochaine requête
+            params.pageToken = nextPageToken;
+
+            document.getElementById('loading_progress').setAttribute("value", parseInt((req_i / data.pageInfo.totalResults) * 100).toString());
+        } else {
+            // Gérer l'erreur
+            console.error("Une erreur est survenue: ", data.error);
+            return;
+        }
+    } while (nextPageToken);
+
+    return allItems;
+}
 
 
 if (pl_txt == 'toBEloaded') {
     $SCANNED = true;
-    async function getPlaylistItems(playlistId) {
-        let MAX_RESULTS = 50;
-        let baseUrl = "https://www.googleapis.com/youtube/v3/playlistItems";
-        let params = {
-            part: "contentDetails",
-            playlistId: playlistId,
-            maxResults: MAX_RESULTS,
-            key: "AIzaSyCAVjHyxzel7SzM1rEnhtKQbCXk8y0D1Cs"
-        };
-
-        let allItems = [];
-        let nextPageToken;
-        let req_i = 0;
-
-
-        do {
-            let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
-            // console.log(plgeturl);
-            let response = await fetch(plgeturl);
-            let data = await response.json();
-
-            if (response.ok) {
-                // console.log(data);
-                allItems = allItems.concat(data.items.map((item) => item.contentDetails.videoId));
-                nextPageToken = data.nextPageToken;
-
-                // Mettre à jour les paramètres pour la prochaine requête
-                params.pageToken = nextPageToken;
-
-                document.getElementById('loading_progress').setAttribute("value", parseInt((req_i / data.pageInfo.totalResults) * 100).toString());
-            } else {
-                // Gérer l'erreur
-                console.error("Une erreur est survenue: ", data.error);
-                return;
-            }
-        } while (nextPageToken);
-
-        return allItems;
-    }
-
+    
     getPlaylistItems(listID).then((items) => {
         playlist = items;
         pl_txt = items.join(';');
