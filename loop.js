@@ -240,7 +240,7 @@ function pageUpdate(act = false) {
                 //     console.log('Clicked');
 
                 if (currentState === -1 && video_title == '') {
-                    console.log('Video Indispo, next');
+                    console.log('Video Indispo, next :');
                     if (act) {
                         console.log('=>NEXT');
                         next_wait = false;
