@@ -326,7 +326,7 @@ function getPLitmFrmID(nid){
 if (pl_txt == 'toBEloaded') {
     $SCANNED = true;
 
-    playlist = "";
+    playlist = [];
     getPLitmFrmID(0)
 
 } else {
