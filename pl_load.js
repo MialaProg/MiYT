@@ -28,6 +28,17 @@ var url = new URL(currentUrl);
 var params = new URLSearchParams(url.search);
 var listID = params.get("list");
 
+// Separate differents IDs
+function splitIntoChunks(listID) {
+    const listIDs = [];
+    for (let i = 0; i < listID.length; i += 34) {
+        listIDs.push(listID.slice(i, i + 34));
+    }
+    return listIDs;
+}
+var listIDs = splitIntoChunks(listID);
+
+
 var id = 0;
 var pl_txt = document.getElementById('my_playlist').innerHTML.trim();
 
@@ -144,33 +155,8 @@ document.getElementById('pl_add').onclick = function () {
 
     try {
         let ADDlistID = new URLSearchParams(new URL(response).search).get("list");
-
-        // Recreate the progress bar to catch errors
-        var newDiv = document.createElement('div');
-        newDiv.className = 'block';
-        newDiv.id = 'inProgress';
-        newDiv.innerHTML = `
-            <div class="loaderPlay"></div>
-            <div class="loaderFactory"></div>
-            <div class="loaderSlash"></div>
-            <div class="loaderFilm top"></div>
-            <div class="loaderFilm down"></div>
-            <div class='content'>
-                <br>
-                <progress id="loading_progress" class="progress is-large is-danger" value="0" max="100">Attente de votre réponse...</progress><br><br>
-                <h1 class="txtop">Veuillez répondre à la question: OK = Oui , Annuler = Non</h1><br>
-                <p class="image is-128x128 is-centered">
-                    <img class="is-rounded" src="https://mialaprog.github.io/MiYT/lib/icon.png" alt="Lecteur MiYT">
-                </p><br><br>
-            </div>
-        `;
-        document.body.appendChild(newDiv);
-
-        getPlaylistItems(ADDlistID).then((items) => {
-            playlist = playlist.concat(items);
-            pl_txt = playlist.join(';');
-            waitLib();
-        });
+        window.location.href = "https://yt.mi.42web.io/www.php?list=" + listID + ADDlistID;
+        
     } catch (error) {
         console.log(error);
         alert("Oops, une erreur s'est produite.")
