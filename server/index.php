@@ -64,7 +64,7 @@ $pllist = array_slice(explode("\n", $content), -148);
                             // foreach ($pllist as $pl) {
                             //     if ($i % 2 === 1) {
                             //         $name = $pllist[$i - 1];
-                            //         echo '<li><a href="https://yt.mi.42web.io/www.php?list=' . $pl . '&title=' . $name . '">' . $name . '</a></li>';
+                            //         echo '<li><a href="https://mi.42web.io/yt/www.php?list=' . $pl . '&title=' . $name . '">' . $name . '</a></li>';
                             //     }
                             //     $i += 1;
                             // }

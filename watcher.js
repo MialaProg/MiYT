@@ -80,7 +80,7 @@ body.innerHTML =
 <div class="columns is-desktop is-variable is-8">
     <div class="column has-text-danger-light has-background-dark">
     <div class="tags are-medium">
-    <span class="tag is-primary"><a href="https://yt.mi.42web.io/" class="has-text-warning-light">Lecteur MiYT</a></span>
+    <span class="tag is-primary"><a href="https://mi.42web.io/yt/" class="has-text-warning-light">Lecteur MiYT</a></span>
     <span class="tag is-danger"><a id="pllink" href="#" class="has-text-warning-light">Playlist</a></span>
     <span class="tag is-danger"><a href="https://www.youtube.com/?Mi=Music" class="has-text-warning-light">YouTube</a></span>
     </div>

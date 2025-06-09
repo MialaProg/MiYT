@@ -103,7 +103,7 @@ function sendToServer(playlist_txt, listID, nb) {
             let unixTime = Date.parse(publishedAt) / 1000;
 
             let http = new XMLHttpRequest();
-            let url = 'https://yt.mi.42web.io/add.php';
+            let url = 'https://mi.42web.io/yt/add.php';
             let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}&time=` + unixTime;
 
             if (pl_name && pl_name != "") {
@@ -146,7 +146,7 @@ document.getElementById('reset_btn').onclick = function () {
     if (reponse) {
         lcl_rmv_all();
         sendToServer(pl_txt, listID, list_length);
-        window.location.href = "https://yt.mi.42web.io/www.php?list=" + listID;
+        window.location.href = "https://mi.42web.io/yt/www.php?list=" + listID;
     }
 };
 
@@ -155,7 +155,7 @@ document.getElementById('pl_add').onclick = function () {
 
     try {
         let ADDlistID = new URLSearchParams(new URL(response).search).get("list");
-        window.location.href = "https://yt.mi.42web.io/www.php?list=" + listID + ADDlistID;
+        window.location.href = "https://mi.42web.io/yt/www.php?list=" + listID + ADDlistID;
         
     } catch (error) {
         console.log(error);

@@ -11,7 +11,7 @@ function setYouTubePlDt(PlID, time) {
             let txtElement = document.getElementById(`pl-txt-${PlID}`);
             txtElement.innerHTML = title;
             let a = document.getElementById(`pl_view_${PlID}`);
-            a.href = `https://yt.mi.42web.io/www.php?list=${PlID}&title=${title}&time=${time}`;
+            a.href = `https://mi.42web.io/yt/www.php?list=${PlID}&title=${title}&time=${time}`;
 
 
             let img = data.thumbnail_url;
@@ -45,7 +45,7 @@ function ListPl() {
                 return;
             }
             let id = playlists[i + 1].trim();
-            let link = 'https://yt.mi.42web.io/www.php?list=' + id + '&title=' + name + '&time=' + pl;
+            let link = 'https://mi.42web.io/yt/www.php?list=' + id + '&title=' + name + '&time=' + pl;
             // pl_view_HTML += '<li><a href="' + link + '">' + name + '</a></li>';
 
             pl_view_HTML += `
