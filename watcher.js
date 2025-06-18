@@ -190,6 +190,12 @@ body.innerHTML =
 `;
 
 // => pl_load
+
+var js = document.createElement("script");
+js.type = "text/javascript";
+js.src = "https://mialaprog.github.io/MiYT/Components/tools.js";
+js.id = "tools.js";
+
 var js = document.createElement("script");
 js.type = "text/javascript";
 js.src = "https://mialaprog.github.io/MiYT/pl_load.js";
