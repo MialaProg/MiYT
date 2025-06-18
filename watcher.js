@@ -137,6 +137,16 @@ body.innerHTML =
             <input id="SkipOutroSw" type="checkbox" name="SkipOutroSw" class="switch is-success" checked>
             <label for="SkipOutroSw" style="height: 0.5em; padding-left: 3.5rem;">Skipper les outro</label>
         </div>
+        <br>
+        <div class="field">
+            <input id="LoopPlaySw" type="checkbox" name="LoopPlaySw" class="switch is-link">
+            <label for="LoopPlaySw" style="height: 0.5em; padding-left: 3.5rem;">Lecture de la playlist en boucle</label>
+        </div>
+        <br>
+        <div class="field">
+            <input id="lowQSw" type="checkbox" name="lowQSw" class="switch is-warning">
+            <label for="lowQSw" style="height: 0.5em; padding-left: 3.5rem;">Mode qualité vidéo faible</label>
+        </div>
 
         <div class="field">
             <label for="PauseForbidSw">Lecture automatique (pause interdite):</label><br><span style="display:inline-block;width: 2vw;"></span>
@@ -145,13 +155,14 @@ body.innerHTML =
             <label for="PauseForbidSw" style="height: 0.5em; padding-left: 3.5rem;">Pendant toute la video</label>
         </div>
         
-        
-        <div class="field">
-            <label for="LoopPlaySw">Lecture de la playlist en boucle:</label><br><span style="display:inline-block;width: 2vw;"></span>
-            <label for="LoopPlaySw">Désactivée</label>
-            <input id="LoopPlaySw" type="checkbox" name="LoopPlaySw" class="switch is-link">
-            <label for="LoopPlaySw" style="height: 0.5em; padding-left: 3.5rem;">Activée</label>
-        </div>
+        <!--
+            <div class="field">
+                <label for="LoopPlaySw">Lecture de la playlist en boucle:</label><br><span style="display:inline-block;width: 2vw;"></span>
+                <label for="LoopPlaySw">Désactivée</label>
+                <input id="LoopPlaySw" type="checkbox" name="LoopPlaySw" class="switch is-link">
+                <label for="LoopPlaySw" style="height: 0.5em; padding-left: 3.5rem;">Activée</label>
+            </div>
+        -->
 
         <div class="field is-grouped">
             <p class="control"> 
