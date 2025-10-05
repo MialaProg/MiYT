@@ -215,3 +215,17 @@ js.onload = rsrcLoaded_watcher;
 js.id = "PlLoad";
 //Ajout de la balise dans la page
 document.body.appendChild(js);
+
+
+
+
+// Créer un nouvel élément script
+var script = document.createElement('script');
+
+// Définir les attributs de l'élément script
+script.setAttribute('data-goatcounter', 'https://miyt.goatcounter.com/count');
+script.setAttribute('async', '');
+script.src = '//gc.zgo.at/count.js';
+
+// Ajouter l'élément script au corps du document
+document.body.appendChild(script);
