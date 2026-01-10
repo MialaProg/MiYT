@@ -321,8 +321,10 @@ async function getPlaylistItems(playlistId) {
 function getPLitmFrmID(nid){
     getPlaylistItems(listIDs[nid]).then((items) => {
         playlist = playlist.concat(items);
-
         if(nid+1 === listIDs.length){
+            if (isMix && params.get("v") != 'null'){
+                playlist.unshift(params.get("v"));
+            }
             pl_txt = playlist.join(';');
             waitLib();
         }else{
