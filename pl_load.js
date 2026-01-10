@@ -49,9 +49,7 @@ if (listID == 'null'){
 }
 
 var pl_name = document.getElementById("pl_name");
-if (isMix && pl_name && !pl_name.startsWith('Mix')){
-    pl_name = 'Mix - ' + pl_name;
-}
+
 
 var playlist = false;
 
@@ -112,7 +110,11 @@ function sendToServer(playlist_txt, listID, nb) {
             let params = `playlist=${playlist_txt}&nb=${nb}&listID=${listID}&time=` + unixTime;
 
             if (pl_name && pl_name != "") {
-                params += '&name=' + pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "");
+                let name = pl_name.innerText.trim().replace(/\s*\[\d+\]$/g, "")
+                if (isMix && name && !name.startsWith('Mix')){
+                    name = 'Mix - ' + name;
+                }
+                params += '&name=' + name;
             }
 
             http.open('POST', url, true);
