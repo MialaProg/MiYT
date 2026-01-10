@@ -27,6 +27,7 @@ var currentUrl = window.location.href;
 var url = new URL(currentUrl);
 var params = new URLSearchParams(url.search);
 var listID = params.get("list");
+var isMix = listID.startsWith("RD");
 
 // Separate differents IDs
 function splitIntoChunks(listID) {
@@ -48,6 +49,10 @@ if (listID == 'null'){
 }
 
 var pl_name = document.getElementById("pl_name");
+if (isMix && pl_name && !pl_name.startsWith('Mix')){
+    pl_name = 'Mix - ' + pl_name;
+}
+
 var playlist = false;
 
 var outro_skip = true;
@@ -265,7 +270,7 @@ function waitLib() {
 async function getPlaylistItems(playlistId) {
     // La fonction getPlaylistItems prend en paramètre l'ID de la playlist YouTube.
     // On définit une letante MAX_RESULTS pour limiter le nombre de résultats par requête.
-    // On letruit l'URL de base de l'API avec les paramètres part, playlistId et maxResults.
+    // On construit l'URL de base de l'API avec les paramètres part, playlistId et maxResults.
     // On utilise une boucle do...while pour itérer sur les pages de résultats.
     // Dans la boucle, on fait une requête à l'API et on récupère les ID des vidéos (items.etag).
     // Si la requête est un succès, on stocke les ID des vidéos et on récupère le nextPageToken pour la prochaine page.
@@ -283,9 +288,10 @@ async function getPlaylistItems(playlistId) {
     let allItems = [];
     let nextPageToken;
     let req_i = 0;
-
+    let i = 0;
 
     do {
+        i += 1;
         let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
         // console.log(plgeturl);
         let response = await fetch(plgeturl);
@@ -305,7 +311,7 @@ async function getPlaylistItems(playlistId) {
             console.error("Une erreur est survenue: ", data.error);
             return;
         }
-    } while (nextPageToken);
+    } while (nextPageToken && (!isMix || i<4)); // Stop after 4 * 50 results for mix.
 
     return allItems;
 }
