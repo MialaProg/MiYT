@@ -195,7 +195,7 @@ function waitLib() {
 
         if ($LOCAL_STORAGE) {
             let list_pl_id = lcl_load_list('plid');
-            lcl_pl_id = list_pl_id.indexOf(listID);
+            lcl_pl_id = (listID == 'null') ? -1 : list_pl_id.indexOf(listID);
 
             //debug
             // console.log(list_pl_id);
