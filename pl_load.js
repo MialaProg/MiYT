@@ -290,10 +290,10 @@ async function getPlaylistItems(playlistId) {
     let allItems = [];
     let nextPageToken;
     let req_i = 0;
-    let i = 0;
+    //let i = 0;
 
     do {
-        i += 1;
+        //i += 1;
         let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
         // console.log(plgeturl);
         let response = await fetch(plgeturl);
@@ -313,7 +313,7 @@ async function getPlaylistItems(playlistId) {
             console.error("Une erreur est survenue: ", data.error);
             return;
         }
-    } while (nextPageToken && (!isMix || i<4)); // Stop after 4 * 50 results for mix.
+    } while (nextPageToken && (!isMix)); // Stop after 50 results for mix.
 
     return allItems;
 }
