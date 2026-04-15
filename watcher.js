@@ -143,10 +143,12 @@ body.innerHTML =
             <label for="LoopPlaySw" style="height: 0.5em; padding-left: 3.5rem;">Lecture de la playlist en boucle</label>
         </div>
         <br>
+        <!--
         <div class="field">
             <input id="lowQSw" type="checkbox" name="lowQSw" class="switch is-warning">
             <label for="lowQSw" style="height: 0.5em; padding-left: 3.5rem;">Mode qualité vidéo faible</label>
-        </div>
+        </div> 
+        -->
 
         <div class="field">
             <label for="PauseForbidSw">Lecture automatique (pause interdite):</label><br><span style="display:inline-block;width: 2vw;"></span>
