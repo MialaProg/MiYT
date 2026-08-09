@@ -269,6 +269,7 @@ function waitLib() {
 
 }
 
+var alerted400 = false;
 async function getPlaylistItems(playlistId) {
     // La fonction getPlaylistItems prend en paramètre l'ID de la playlist YouTube.
     // On définit une letante MAX_RESULTS pour limiter le nombre de résultats par requête.
@@ -292,7 +293,6 @@ async function getPlaylistItems(playlistId) {
     let req_i = 0;
     //let i = 0;
 
-    let alerted = false;
 
     do {
         //i += 1;
@@ -313,9 +313,9 @@ async function getPlaylistItems(playlistId) {
         } else {
             // Gérer l'erreur
             console.error("Une erreur est survenue: ", data.error);
-            if (data.error.code == 400 && !alerted){
-                alerted = true;
-                alert('Cette playlist semble ne pas exister. (ERR.400)');
+            if (data.error.code == 400 && !alerted400){
+                alerted400 = true;
+                alert('Cette playlist semble ne pas exister. (ERR.400) Peut-être commence-t-elle par OL- ?');
             }
             return;
         }
