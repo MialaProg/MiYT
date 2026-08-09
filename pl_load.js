@@ -139,7 +139,7 @@ function shuffleAsk() {
         return 1;
     }
 
-    var reponse = (params.get("auto") != 'null') || confirm("Lecture de la playlist en mode aléatoire ?\nOK = Oui | Annuler = Non");
+    var reponse = (params.has('auto')) || confirm("Lecture de la playlist en mode aléatoire ?\nOK = Oui | Annuler = Non");
 
     if (reponse) {
         playlist = shuffleArray(playlist);
