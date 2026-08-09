@@ -292,6 +292,8 @@ async function getPlaylistItems(playlistId) {
     let req_i = 0;
     //let i = 0;
 
+    let alerted = false;
+
     do {
         //i += 1;
         let plgeturl = `${baseUrl}?${new URLSearchParams(params)}`;
@@ -311,6 +313,10 @@ async function getPlaylistItems(playlistId) {
         } else {
             // Gérer l'erreur
             console.error("Une erreur est survenue: ", data.error);
+            if (data.error.code == 400 && !alerted){
+                alerted = true;
+                alert('Cette playlist semble ne pas exister. (ERR.400)');
+            }
             return;
         }
     } while (nextPageToken && (!isMix)); // Stop after 50 results for mix.
